@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# personal-website-xinyu
 
-## Getting Started
+This repository contains a personal website built with Next.js and Tailwind CSS. The homepage is designed to showcase your research, projects, and life abroad.
 
-First, run the development server:
+## Features
+
+- Responsive landing page with hero, about, project, life, and contact sections.
+- Clean styling using Tailwind CSS and custom font setup.
+- Basic SEO metadata and social preview configuration in `app/layout.tsx`.
+
+## Run locally
+
+Install dependencies and start the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Customize
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Update `app/page.tsx` to replace placeholder content, project summaries, and contact details.
+- **Add images**: Place your images in the `public/images/` folder, then update the image paths in `app/page.tsx`. For example:
+  - Portrait photo: Save as `public/images/portrait.jpg` (or .png/.webp)
+  - Project screenshots: Save as `public/images/project1.jpg`, etc.
+  - The code already uses Next.js `Image` component for optimization.
+- Replace the portrait area with a real image or use `next/image` for optimized photo loading.
+- Update `app/layout.tsx` metadata values for a personalized page title and description.
 
-## Learn More
+## Build & deploy
 
-To learn more about Next.js, take a look at the following resources:
+Use the following scripts:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `npm run dev` — start development server
+- `npm run build` — generate production build
+- `npm run start` — run production server
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is easy to deploy on Vercel, Netlify, or any Next.js-compatible platform.
 
-## Deploy on Vercel
+## Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Remember to replace placeholder URLs and email addresses with your actual GitHub, LinkedIn, and contact information before publishing.

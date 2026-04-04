@@ -12,15 +12,68 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+html.dark textarea {
+  background: rgba(17, 24, 39, 0.5);
+  border-color: rgba(107, 114, 128, 0.3);
+}
+
+html.dark input:focus,
+html.dark textarea:focus {
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+/* About: two-column layout via plain CSS so layout is reliable across breakpoints and caches. */
+@layer components {
+  .about-split {
+    display: grid;
+    align-items: start;
+    gap: 2.5rem;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .about-split {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .about-split {
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+    }
+  }
+
+  .about-split__photo {
+    justify-self: center;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: auto;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 640px) {
+    .about-split__photo {
+      justify-self: auto;
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .about-split__photo {
+      max-width: 100%;
+      height: auto;
+    }
+  }
 }
