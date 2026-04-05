@@ -285,6 +285,10 @@ export default function Home() {
         </div>
       </header>
 
+      <div className="bg-amber-50 border-b border-amber-200 px-6 py-2 text-center text-sm text-amber-700">
+        {language === 'en' ? '🚧 This website is still under development.' : '🚧 网站仍在开发中。'}
+      </div>
+
       <section id="top" className="relative overflow-hidden px-6 py-20 sm:px-8">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.14),_transparent_28%)]" />
         <div className="pointer-events-none absolute right-[-6rem] top-20 h-72 w-72 rounded-full bg-[radial-gradient(circle,_rgba(132,204,22,0.18),transparent_44%)] opacity-90" />
