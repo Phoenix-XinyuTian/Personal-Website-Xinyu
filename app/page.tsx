@@ -307,7 +307,7 @@ export default function Home() {
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100 dark:border-gray-700/50 dark:bg-gray-900/60 dark:text-gray-100 dark:hover:bg-gray-800/80"
+              className="inline-flex items-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
             >
               {t.hero.contact}
             </a>
@@ -348,7 +348,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="border-t border-slate-200/80 bg-slate-50 py-20 dark:border-gray-800/40 dark:bg-black">
+      <section id="about" className="border-t border-slate-200/80 bg-slate-50 py-20">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
           <div className="mb-10">
             <p className="text-sm uppercase tracking-[0.32em] text-sky-600">{t.about.label}</p>
@@ -416,7 +416,7 @@ export default function Home() {
                 </div>
                 <a
                   href={project.href}
-                  className="mt-6 inline-flex text-sm font-semibold text-sky-600 transition hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300"
+                  className="mt-6 inline-flex text-sm font-semibold text-sky-600 transition hover:text-sky-800"
                 >
                   {t.viewDetails}
                 </a>
