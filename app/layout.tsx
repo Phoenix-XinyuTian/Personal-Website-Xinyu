@@ -13,25 +13,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Xinyu Tian | Computer Vision & AI",
+  title: "Xinyu Tian ｜ Phoenix | AI & Computer Vision",
   description:
-    "Personal website for Xinyu Tian, an NUS master’s student focused on computer vision, AI, and digital storytelling.",
+    "Personal website for Xinyu Tian, an NUS Master’s student focused on computer vision, AI, and digital storytelling.",
   icons: {
-    icon: [
-      { url: "/images/portrait.png", sizes: "any" },
-    ],
+    icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Xinyu Tian | Computer Vision & AI",
+    title: "Xinyu Tian ｜ Phoenix | AI & Computer Vision",
     description:
-      "Personal website for Xinyu Tian, an NUS master’s student focused on computer vision, AI, and digital storytelling.",
+      "Personal website for Xinyu Tian, an NUS Master’s student focused on computer vision, AI, and digital storytelling.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Xinyu Tian | Computer Vision & AI",
+    title: "Xinyu Tian ｜ Phoenix | AI & Computer Vision",
     description:
-      "Personal website for Xinyu Tian, an NUS master’s student focused on computer vision, AI, and digital storytelling.",
+      "Personal website for Xinyu Tian, an NUS Master’s student focused on computer vision, AI, and digital storytelling.",
+    images: ["/favicon.ico"],
   },
 };
 

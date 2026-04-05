@@ -12,7 +12,7 @@ const translations = {
     },
     hero: {
       topLabel: 'Xinyu Tian ｜ Phoenix',
-      heading: ' My journey in AI Technology&Research And sharing life abroad.',
+      heading: ' My journey in AI Technology&Research also sharing life abroad.',
       description:
         'NUS Master’s student working on industrial imaging, semantic segmentation, and AI research. I also create content that reflects study life, travel, and personal growth in Singapore.',
       explore: 'Explore Projects',
