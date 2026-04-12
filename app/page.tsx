@@ -490,6 +490,8 @@ function AboutSection({
 function WorkSections({ t }: { t: Translation }) {
   return (
     <>
+      <ExperienceSection t={t} />
+
       <section id="projects" className="px-6 py-20 sm:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -529,7 +531,6 @@ function WorkSections({ t }: { t: Translation }) {
       </section>
 
       <EducationSection t={t} />
-      <ExperienceSection t={t} />
     </>
   );
 }
@@ -789,9 +790,9 @@ export default function Home() {
     displayedMode === "work"
       ? [
           { href: "#about", label: t.nav.about },
+          { href: "#experience", label: t.nav.experience },
           { href: "#projects", label: t.nav.projects },
           { href: "#education", label: t.nav.education },
-          { href: "#experience", label: t.nav.experience },
           { href: "#contact", label: t.nav.contact },
         ]
       : [
@@ -821,9 +822,7 @@ export default function Home() {
             <span
               aria-hidden="true"
               className={`pointer-events-none absolute inset-y-1 rounded-full shadow-sm transition-all duration-300 ease-in-out ${
-                mode === "life"
-                  ? "bg-gradient-to-r from-amber-500 to-orange-400"
-                  : "bg-slate-950"
+                mode === "life" ? "bg-amber-300" : "bg-sky-400"
               }`}
               style={{
                 width: "calc(50% - 4px)",
@@ -891,21 +890,6 @@ export default function Home() {
           <p className={`text-sm uppercase tracking-[0.32em] ${displayedMode === "life" ? "text-amber-600" : "text-sky-600"}`}>{heroContent.topLabel}</p>
           <h1 className="mt-6 text-4xl font-semibold tracking-tight text-slate-950 sm:text-6xl">{heroContent.heading}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">{heroContent.description}</p>
-
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href={displayedMode === "work" ? "#projects" : "#media"}
-              className="inline-flex items-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-            >
-              {heroContent.explore}
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
-            >
-              {heroContent.contact}
-            </a>
-          </div>
 
           <div className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:backdrop-blur">
             <p className={`text-sm uppercase tracking-[0.32em] ${displayedMode === "life" ? "text-amber-600" : "text-sky-600"}`}>{t.contactCard.title}</p>
