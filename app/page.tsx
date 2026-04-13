@@ -258,7 +258,7 @@ const translations = {
       },
       {
         title: "物流分析仪表盘",
-        description: "用于物流跟踪、关键指标可视化和运营洞察的数据管道与仪表盘。",
+        description: "用于物流跟踪、关键指标可视化和运营洞察的数据管道。",
         tags: ["数据分析", "Python", "可视化"],
         href: "#",
       },
@@ -764,6 +764,7 @@ export default function Home() {
   const [language, setLanguage] = useState<SiteLanguage>("en");
   const [mode, setMode] = useState<SiteMode>("work");
   const [displayedMode, setDisplayedMode] = useState<SiteMode>("work");
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [contentVisible, setContentVisible] = useState(true);
   const [mounted, setMounted] = useState(false);
   const transitionRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -775,6 +776,7 @@ export default function Home() {
   const handleModeChange = (newMode: SiteMode) => {
     if (newMode === mode) return;
     if (transitionRef.current) clearTimeout(transitionRef.current);
+    setMobileNavOpen(false);
     setMode(newMode);
     setContentVisible(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -783,6 +785,14 @@ export default function Home() {
       setContentVisible(true);
     }, 320);
   };
+
+  useEffect(() => {
+    return () => {
+      if (transitionRef.current) {
+        clearTimeout(transitionRef.current);
+      }
+    };
+  }, []);
 
   const t = translations[language];
 
