@@ -730,7 +730,7 @@ function EducationSection({ t }: { t: Translation }) {
   }, []);
 
   const getMiddleBandTrackIndex = useCallback((logicalIndex: number, imageCount: number) => {
-    if (imageCount <= 1) return;
+    if (imageCount <= 1) return 0;
     return imageCount + getWrappedLogicalIndex(logicalIndex, imageCount);
   }, [getWrappedLogicalIndex]);
 
