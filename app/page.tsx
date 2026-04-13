@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 type SiteLanguage = "en" | "zh";
@@ -24,7 +24,7 @@ const translations = {
     },
     hero: {
       topLabel: "Xinyu Tian | Phoenix",
-      heading: "My journey in AI technology & research, while sharing life abroad.",
+      heading: "My journey in AI technology & research, while sharing life abroad",
       description:
         "NUS Master's student working on industrial imaging, semantic segmentation, and AI research. I also create content that reflects study life, travel, and personal growth in Singapore.",
       explore: "Explore Projects",
@@ -32,7 +32,7 @@ const translations = {
     },
     lifeHero: {
       topLabel: "Xinyu Tian | Phoenix",
-      heading: "A life-driven creator mode: media, travel, and growth in Singapore.",
+      heading: "A life-driven creator mode: media, travel, and growth in Singapore",
       description:
         "This mode showcases my self-media direction, travel documentation, and personal reflections while keeping one consistent personal brand.",
       explore: "Explore Media",
@@ -40,7 +40,7 @@ const translations = {
     },
     about: {
       label: "About Me",
-      heading: "NUS Master's student exploring computer vision, AI, and digital storytelling.",
+      heading: "NUS Master's student exploring computer vision, AI, and digital storytelling",
       body:
         "I enjoy building data-driven vision systems for industrial imaging, and I care deeply about turning research into working solutions. Outside of engineering, I create travel and study content that reflects growth and life in Singapore.",
     },
@@ -82,33 +82,33 @@ const translations = {
       },
     ],
     projectBadge: "Case study",
-    projectsHeading: "Selected work and research highlights.",
+    projectsHeading: "Selected work and research highlights",
     viewDetails: "View details ->",
     education: {
       label: "Education",
-      heading: "Academic background and qualifications.",
+      heading: "Academic background and qualifications",
       entries: [
         {
-          degree: "Master of Science",
-          field: "Industrial System Engineering & Management",
-          institution: "National University of Singapore (NUS)",
-          period: "Aug 2024 – Present",
+          degree: "Master of Physics for Technology",
+          field: "Science",
+          institution: "National University of Singapore",
+          period: "Aug 2025 – Jan 2027",
           location: "Singapore",
           description: "Research focus on computer vision, semantic segmentation, and AI-driven solutions for industrial imaging systems.",
         },
         {
-          degree: "Bachelor of Engineering",
-          field: "Your Major",
-          institution: "Your University",
-          period: "Sep 2020 – Jun 2024",
-          location: "Your Location",
-          description: "Placeholder: describe your undergraduate research interests and academic highlights.",
+          degree: "Bachelor of Science",
+          field: "Applied Physics",
+          institution: "Southwest Jiaotong University",
+          period: "Sep 2021 – Jun 2025",
+          location: "Chengdu, China",
+          description: "Focused on applied physics research and practice during undergraduate studies, building a solid theoretical foundation and experimental skills.",
         },
       ],
     },
     experience: {
       label: "Experience",
-      heading: "Internships and professional experience.",
+      heading: "Internships and professional experience",
       entries: [
         {
           role: "AI Research Intern",
@@ -123,9 +123,9 @@ const translations = {
         },
         {
           role: "Data Analyst Intern",
-          company: "Company Name",
+          company: "none",
           period: "Jun 2023 – Aug 2023",
-          location: "Location",
+          location: "",
           bullets: [
             "Describe the primary deliverable or analysis performed.",
             "Mention the data tools and visualisation approach.",
@@ -136,7 +136,7 @@ const translations = {
     },
     gallery: {
       label: "Life & Travel",
-      heading: "Stories from campus, Singapore, and beyond.",
+      heading: "Stories from campus, Singapore, and beyond",
       description:
         "This section is a great place to link to blog posts, videos, or reflections that show your personality and journey.",
     },
@@ -147,14 +147,14 @@ const translations = {
     ],
     media: {
       label: "Media",
-      heading: "Media brand matrix and featured video highlights.",
+      heading: "Media brand matrix and featured video highlights",
       description:
         "Use this module to present your creator ecosystem and route traffic across different media channels.",
       matrix: [
         { name: "YouTube", role: "Long-form vlogs and study/life episodes" },
         { name: "X", role: "Short thoughts, updates, and AI/life snippets" },
         { name: "Instagram", role: "Visual storytelling and travel moments" },
-        { name: "RedNote / Xiaohongshu", role: "Lifestyle and city guides" },
+        { name: "RedNote", role: "Lifestyle and city guides" },
       ],
       featuredLabel: "Featured Videos",
       featuredMain: {
@@ -170,7 +170,7 @@ const translations = {
     },
     travel: {
       label: "Travel",
-      heading: "A swipeable travel gallery.",
+      heading: "A swipeable travel gallery",
       description: "A horizontal gallery for destinations, stories, and memorable frames.",
       cards: [
         { title: "Singapore City Walk", subtitle: "Urban textures and daily rhythm" },
@@ -181,7 +181,7 @@ const translations = {
     },
     contact: {
       label: "Contact",
-      heading: "Let's connect.",
+      heading: "Let's connect",
       description:
         "I'm open to collaboration, internship opportunities, and research conversations in computer vision and AI. Reach out if you want to work together or discuss ideas.",
       emailLabel: "Email",
@@ -196,7 +196,7 @@ const translations = {
       switchToZh: "简体中文",
       switchToEn: "English",
     },
-    devBanner: "This website is still under development.",
+    devBanner: "This website is still under development",
   },
   zh: {
     nav: {
@@ -210,12 +210,12 @@ const translations = {
       travel: "旅行",
     },
     modeSwitch: {
-      work: "Work",
-      life: "Life",
+      work: "工作",
+      life: "生活",
     },
     hero: {
       topLabel: "Xinyu Tian | Phoenix",
-      heading: "我的AI技术经历与研究并分享海外生活。",
+      heading: "我的AI技术经历与研究并分享海外生活",
       description:
         "NUS 硕士生，专注于工业成像、语义分割与 AI 研究，同时创作反映新加坡学习生活、旅行与个人成长的内容。",
       explore: "探索",
@@ -223,7 +223,7 @@ const translations = {
     },
     lifeHero: {
       topLabel: "Xinyu Tian | Phoenix",
-      heading: "以生活与创作为核心：媒体矩阵、旅行记录与成长表达。",
+      heading: "以生活与创作为核心：媒体矩阵、旅行记录与成长表达",
       description:
         "该模式展示我的自媒体方向、旅行内容和个人反思，同时保持统一的个人品牌风格。",
       explore: "探索媒体",
@@ -231,7 +231,7 @@ const translations = {
     },
     about: {
       label: "关于我",
-      heading: "NUS 硕士生，探索计算机视觉、人工智能与数字叙事。",
+      heading: "NUS 硕士生，探索计算机视觉、人工智能与数字叙事",
       body:
         "我喜欢为工业成像构建数据驱动的视觉系统，并重视将研究转化为可用的解决方案。工程之外，我创作旅行与学习内容，记录新加坡的成长与生活。",
     },
@@ -270,33 +270,33 @@ const translations = {
       },
     ],
     projectBadge: "案例",
-    projectsHeading: "精选作品与研究亮点。",
+    projectsHeading: "精选作品与研究亮点",
     viewDetails: "查看详情 ->",
     education: {
       label: "教育经历",
-      heading: "学术背景与学历资质。",
+      heading: "学术背景与学历资质",
       entries: [
         {
           degree: "理学硕士",
-          field: "工业系统工程与管理",
-          institution: "新加坡国立大学（NUS）",
-          period: "2024年8月 – 至今",
+          field: "技术物理学",
+          institution: "新加坡国立大学",
+          period: "2025年8月 – 2027年1月",
           location: "新加坡",
           description: "研究方向为计算机视觉、语义分割以及工业成像系统的AI解决方案。",
         },
         {
-          degree: "工学学士",
-          field: "填写你的专业",
-          institution: "填写你的大学",
-          period: "2020年9月 – 2024年6月",
-          location: "填写所在地",
-          description: "占位符：描述本科阶段的研究方向与学业亮点。",
+          degree: "理学学士",
+          field: "应用物理学",
+          institution: "西南交通大学",
+          period: "2021年9月 – 2025年6月",
+          location: "中国，成都",
+          description: "本科阶段专注于应用物理学的研究与实践，积累了扎实的理论基础和实验技能。",
         },
       ],
     },
     experience: {
       label: "实习经历",
-      heading: "实习与职业经历。",
+      heading: "实习与职业经历",
       entries: [
         {
           role: "AI研究实习生",
@@ -324,7 +324,7 @@ const translations = {
     },
     gallery: {
       label: "生活与旅行",
-      heading: "来自校园、新加坡与远方的故事。",
+      heading: "来自校园、新加坡与远方的故事",
       description: "这是展示博客、视频或反映你个性与旅程的内容的绝佳位置。",
     },
     lifeHighlights: [
@@ -334,7 +334,7 @@ const translations = {
     ],
     media: {
       label: "媒体",
-      heading: "媒体品牌矩阵与热门视频展示。",
+      heading: "媒体品牌矩阵与热门视频展示",
       description: "用于展示你的媒体生态，并将流量导向不同平台。",
       matrix: [
         { name: "YouTube", role: "长视频：学习、生活与旅行内容" },
@@ -352,7 +352,7 @@ const translations = {
     },
     travel: {
       label: "旅行",
-      heading: "可左右滑动的旅行画廊。",
+      heading: "可左右滑动的旅行画廊",
       description: "用于展示目的地、故事片段和代表性画面。",
       cards: [
         { title: "新加坡城市漫步", subtitle: "城市肌理与日常节奏" },
@@ -363,7 +363,7 @@ const translations = {
     },
     contact: {
       label: "联系",
-      heading: "让我们保持联系。",
+      heading: "让我们保持联系",
       description:
         "我愿意合作、实习机会和关于计算机视觉与 AI 的研究交流。如果你想一起工作或讨论想法，请与我联系。",
       emailLabel: "电子邮件",
@@ -378,7 +378,7 @@ const translations = {
       switchToZh: "简体中文",
       switchToEn: "English",
     },
-    devBanner: "本网站仍在开发中。",
+    devBanner: "本网站仍在开发中",
   },
 } as const;
 
@@ -400,15 +400,6 @@ const socialLinks = [
     icon: (
       <svg viewBox="0 0 24 24" fill="#000000" className="h-5 w-5" aria-hidden="true">
         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-      </svg>
-    ),
-  },
-  {
-    name: "X",
-    href: "https://x.com/Xinyu_Tian_AI",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="#000000" className="h-5 w-5" aria-hidden="true">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
       </svg>
     ),
   },
@@ -438,6 +429,15 @@ const socialLinks = [
     ),
   },
   {
+    name: "X",
+    href: "https://x.com/Xinyu_Tian_AI",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="#000000" className="h-5 w-5" aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+    ),
+  },
+  {
     name: "Facebook",
     href: "https://www.facebook.com/share/1EWvuK1fBZ/?mibextid=wwXIfr",
     icon: (
@@ -447,6 +447,88 @@ const socialLinks = [
     ),
   },
 ] as const;
+
+const educationGalleryImages = [
+  [
+    "/images/1.jpg",
+    "/images/2.jpeg",
+    "/images/3.jpeg",
+  ],
+  [
+    "/images/11.jpeg",
+    "/images/12.jpeg",
+    "/images/13.jpeg",
+    "/images/14.jpeg",
+    "/images/15.jpeg",
+    "/images/16.jpeg",
+  ],
+] as const;
+
+const educationLogoAssets = [
+  {
+    src: null,
+    alt: "National University of Singapore logo",
+    fallback: "NUS",
+    bgClass: "bg-[#F36F21]/12",
+    textClass: "text-[#F36F21]",
+    borderClass: "border-[#F36F21]/25",
+  },
+  {
+    src: null,
+    alt: "Southwest Jiaotong University logo",
+    fallback: "SWJTU",
+    bgClass: "bg-[#0C78C3]/12",
+    textClass: "text-[#0C78C3]",
+    borderClass: "border-[#0C78C3]/25",
+  },
+] as const;
+
+const experienceLogoAssets = [
+  {
+    src: null,
+    alt: "AI Research company logo",
+    fallback: "AI",
+    bgClass: "bg-sky-100",
+    textClass: "text-sky-700",
+    borderClass: "border-sky-200",
+  },
+  {
+    src: null,
+    alt: "Data Analyst company logo",
+    fallback: "DA",
+    bgClass: "bg-slate-100",
+    textClass: "text-slate-700",
+    borderClass: "border-slate-200",
+  },
+] as const;
+
+function EntityLogo({
+  src,
+  alt,
+  fallback,
+  bgClass,
+  textClass,
+  borderClass,
+  className,
+}: {
+  src: string | null;
+  alt: string;
+  fallback: string;
+  bgClass: string;
+  textClass: string;
+  borderClass: string;
+  className?: string;
+}) {
+  return (
+    <div className={`flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border ${borderClass} ${bgClass} shadow-sm ${className ?? ""}`}>
+      {src ? (
+        <Image src={src} alt={alt} width={64} height={64} className="h-full w-full object-contain p-2" />
+      ) : (
+        <span className={`text-sm font-bold uppercase tracking-[0.12em] ${textClass}`}>{fallback}</span>
+      )}
+    </div>
+  );
+}
 
 function AboutSection({
   t,
@@ -619,6 +701,269 @@ function LifeSections({ t }: { t: Translation }) {
 }
 
 function EducationSection({ t }: { t: Translation }) {
+  const [educationCarouselStates, setEducationCarouselStates] = useState(
+    () => t.education.entries.map(() => ({ current: 0, previous: null as number | null, direction: 1 as 1 | -1, animating: false })),
+  );
+  const [educationCarouselPaused, setEducationCarouselPaused] = useState(
+    () => t.education.entries.map(() => false),
+  );
+  const [mobileCarouselStates, setMobileCarouselStates] = useState(() =>
+    t.education.entries.map((_, entryIndex) => {
+      const imageCount = (educationGalleryImages[entryIndex] ?? []).length;
+
+      return {
+        logicalIndex: 0,
+        trackIndex: imageCount > 0 ? imageCount : 0,
+        transitionEnabled: true,
+        dragOffsetPx: 0,
+        dragging: false,
+      };
+    }),
+  );
+  const animationTimeoutsRef = useRef<Array<ReturnType<typeof setTimeout> | null>>([]);
+  const touchStartXRef = useRef<number[]>([]);
+  const mobileTrackWidthsRef = useRef<number[]>([]);
+
+  const getWrappedLogicalIndex = useCallback((logicalIndex: number, imageCount: number) => {
+    if (imageCount <= 0) return 0;
+    return ((logicalIndex % imageCount) + imageCount) % imageCount;
+  }, []);
+
+  const getMiddleBandTrackIndex = useCallback((logicalIndex: number, imageCount: number) => {
+    if (imageCount <= 1) return;
+    return imageCount + getWrappedLogicalIndex(logicalIndex, imageCount);
+  }, [getWrappedLogicalIndex]);
+
+  const normalizeMobileCarouselTrack = useCallback((entryIndex: number, imageCount: number) => {
+    if (imageCount <= 1) return;
+
+    let shouldReEnableTransition = false;
+
+    setMobileCarouselStates((prev) => {
+      const next = [...prev];
+      const state = next[entryIndex];
+      if (!state) return prev;
+
+      if (state.trackIndex < imageCount || state.trackIndex >= imageCount * 2) {
+        next[entryIndex] = {
+          ...state,
+          trackIndex: getMiddleBandTrackIndex(state.logicalIndex, imageCount),
+          transitionEnabled: false,
+          dragOffsetPx: 0,
+          dragging: false,
+        };
+        shouldReEnableTransition = true;
+      }
+
+      return next;
+    });
+
+    if (shouldReEnableTransition) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setMobileCarouselStates((prev) => {
+            const next = [...prev];
+            const state = next[entryIndex];
+            if (!state) return prev;
+
+            next[entryIndex] = {
+              ...state,
+              transitionEnabled: true,
+            };
+
+            return next;
+          });
+        });
+      });
+    }
+  }, [getMiddleBandTrackIndex]);
+
+  const moveMobileCarousel = useCallback((entryIndex: number, direction: 1 | -1) => {
+    const images = educationGalleryImages[entryIndex] ?? [];
+    if (images.length <= 1) return;
+
+    setMobileCarouselStates((prev) => {
+        const next = [...prev];
+      const state = next[entryIndex];
+      if (!state) return prev;
+
+      next[entryIndex] = {
+        ...state,
+        logicalIndex: getWrappedLogicalIndex(state.logicalIndex + direction, images.length),
+        trackIndex: state.trackIndex + direction,
+        transitionEnabled: true,
+        dragOffsetPx: 0,
+        dragging: false,
+      };
+
+      return next;
+    });
+  }, [getWrappedLogicalIndex]);
+
+  useEffect(() => {
+    const animationTimeouts = animationTimeoutsRef.current;
+
+    const interval = setInterval(() => {
+      setEducationCarouselStates((prev) =>
+        prev.map((state, entryIndex) => {
+          const images = educationGalleryImages[entryIndex] ?? [];
+          if (images.length <= 1 || educationCarouselPaused[entryIndex]) return state;
+
+          if (animationTimeouts[entryIndex]) {
+            clearTimeout(animationTimeouts[entryIndex]);
+          }
+
+          const nextState = {
+            current: (state.current + 1) % images.length,
+            previous: state.current,
+            direction: 1 as const,
+            animating: true,
+          };
+
+          animationTimeouts[entryIndex] = setTimeout(() => {
+            setEducationCarouselStates((currentStates) => {
+              const updatedStates = [...currentStates];
+              const targetState = updatedStates[entryIndex];
+              if (!targetState) return currentStates;
+              updatedStates[entryIndex] = {
+                ...targetState,
+                previous: null,
+                animating: false,
+              };
+              return updatedStates;
+            });
+            animationTimeouts[entryIndex] = null;
+          }, 450);
+
+          return nextState;
+        }),
+      );
+    }, 3000);
+
+    return () => {
+      clearInterval(interval);
+      animationTimeouts.forEach((timeoutId) => {
+        if (timeoutId) clearTimeout(timeoutId);
+      });
+    };
+  }, [educationCarouselPaused]);
+
+  useEffect(() => {
+    const mobileInterval = setInterval(() => {
+      setMobileCarouselStates((prev) => {
+        const next = [...prev];
+        t.education.entries.forEach((_, entryIndex) => {
+          const images = educationGalleryImages[entryIndex] ?? [];
+          if (images.length <= 1 || educationCarouselPaused[entryIndex]) return;
+
+          const state = next[entryIndex];
+          if (!state) return;
+
+          next[entryIndex] = {
+            ...state,
+            logicalIndex: getWrappedLogicalIndex(state.logicalIndex + 1, images.length),
+            trackIndex: state.trackIndex + 1,
+            transitionEnabled: true,
+            dragOffsetPx: 0,
+            dragging: false,
+          };
+        });
+        return next;
+      });
+    }, 3000);
+
+    return () => {
+      clearInterval(mobileInterval);
+    };
+  }, [educationCarouselPaused, getWrappedLogicalIndex, t.education.entries]);
+
+  const handleMobileTrackTransitionEnd = (entryIndex: number, imageCount: number) => {
+    if (imageCount <= 1) return;
+
+    const trackIndex = mobileCarouselStates[entryIndex]?.trackIndex ?? imageCount;
+    if (trackIndex >= imageCount && trackIndex < imageCount * 2) return;
+
+    normalizeMobileCarouselTrack(entryIndex, imageCount);
+  };
+
+  const showPrevImage = (entryIndex: number) => {
+    setEducationCarouselStates((prev) => {
+      const images = educationGalleryImages[entryIndex] ?? [];
+      if (images.length <= 1) return prev;
+
+      if (animationTimeoutsRef.current[entryIndex]) {
+        clearTimeout(animationTimeoutsRef.current[entryIndex]);
+      }
+
+      const next = [...prev];
+      const currentState = next[entryIndex];
+      if (!currentState) return prev;
+
+      next[entryIndex] = {
+        current: (currentState.current - 1 + images.length) % images.length,
+        previous: currentState.current,
+        direction: -1,
+        animating: true,
+      };
+
+      animationTimeoutsRef.current[entryIndex] = setTimeout(() => {
+        setEducationCarouselStates((currentStates) => {
+          const updatedStates = [...currentStates];
+          const targetState = updatedStates[entryIndex];
+          if (!targetState) return currentStates;
+          updatedStates[entryIndex] = {
+            ...targetState,
+            previous: null,
+            animating: false,
+          };
+          return updatedStates;
+        });
+        animationTimeoutsRef.current[entryIndex] = null;
+      }, 450);
+
+      return next;
+    });
+  };
+
+  const showNextImage = (entryIndex: number) => {
+    setEducationCarouselStates((prev) => {
+      const images = educationGalleryImages[entryIndex] ?? [];
+      if (images.length <= 1) return prev;
+
+      if (animationTimeoutsRef.current[entryIndex]) {
+        clearTimeout(animationTimeoutsRef.current[entryIndex]);
+      }
+
+      const next = [...prev];
+      const currentState = next[entryIndex];
+      if (!currentState) return prev;
+
+      next[entryIndex] = {
+        current: (currentState.current + 1) % images.length,
+        previous: currentState.current,
+        direction: 1,
+        animating: true,
+      };
+
+      animationTimeoutsRef.current[entryIndex] = setTimeout(() => {
+        setEducationCarouselStates((currentStates) => {
+          const updatedStates = [...currentStates];
+          const targetState = updatedStates[entryIndex];
+          if (!targetState) return currentStates;
+          updatedStates[entryIndex] = {
+            ...targetState,
+            previous: null,
+            animating: false,
+          };
+          return updatedStates;
+        });
+        animationTimeoutsRef.current[entryIndex] = null;
+      }, 450);
+
+      return next;
+    });
+  };
+
   return (
     <section id="education" className="border-t border-slate-200/80 bg-slate-50 py-20">
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
@@ -627,29 +972,332 @@ function EducationSection({ t }: { t: Translation }) {
           {t.education.heading}
         </h2>
         <div className="mt-10 space-y-6">
-          {t.education.entries.map((entry) => (
+          {t.education.entries.map((entry, index) => (
             <div
               key={entry.institution + entry.period}
               className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
             >
               <div className="absolute left-0 top-0 h-full w-1 bg-sky-500" />
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <span className="inline-block rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
-                    {entry.period}
-                  </span>
-                  <h3 className="mt-3 text-xl font-semibold text-slate-950">
-                    {entry.degree} · {entry.field}
-                  </h3>
-                  <p className="mt-1 text-base font-medium text-slate-700">{entry.institution}</p>
-                  <p className="mt-1 text-sm text-slate-500">{entry.location}</p>
+              <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start lg:gap-8">
+                <div className="flex items-start gap-3 sm:gap-5">
+                  <EntityLogo {...educationLogoAssets[index]} className="h-12 w-12 rounded-xl sm:h-16 sm:w-16 sm:rounded-2xl" />
+
+                  <div className="min-w-0 flex-1">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
+                    <div>
+                      <span className="inline-block rounded-full bg-sky-50 px-2.5 py-1 text-[11px] font-semibold text-sky-700 sm:px-3 sm:text-xs">
+                        {entry.period}
+                      </span>
+                      <h3 className="mt-2 text-sm font-semibold text-slate-950 sm:mt-3 sm:text-xl">
+                        {entry.institution}
+                      </h3>
+                      <p className="mt-1 text-xs font-medium text-slate-700 sm:text-base">
+                        {entry.degree} · {entry.field}
+                      </p>
+                      <p className="mt-1 text-xs text-slate-500 sm:text-sm">{entry.location}</p>
+                    </div>
+                  </div>
+                  <p className="mt-3 text-xs leading-6 text-slate-600 sm:mt-4 sm:text-sm sm:leading-7">{entry.description}</p>
+                  </div>
+                </div>
+
+                <div
+                  className="relative mt-5 touch-pan-y lg:hidden"
+                  onTouchStart={(event) => {
+                    const images = educationGalleryImages[index] ?? [];
+                    if (images.length > 1) {
+                      setMobileCarouselStates((prev) => {
+                        const next = [...prev];
+                        const state = next[index];
+                        if (!state) return prev;
+
+                        next[index] = {
+                          ...state,
+                          trackIndex: getMiddleBandTrackIndex(state.logicalIndex, images.length),
+                          transitionEnabled: false,
+                          dragOffsetPx: 0,
+                          dragging: true,
+                        };
+
+                        return next;
+                      });
+                    }
+
+                    touchStartXRef.current[index] = event.touches[0]?.clientX ?? 0;
+                    mobileTrackWidthsRef.current[index] = event.currentTarget.getBoundingClientRect().width;
+
+                    setEducationCarouselPaused((prev) => {
+                      const next = [...prev];
+                      next[index] = true;
+                      return next;
+                    });
+
+                    setMobileCarouselStates((prev) => {
+                      const next = [...prev];
+                      const state = next[index];
+                      if (!state) return prev;
+
+                      next[index] = {
+                        ...state,
+                        dragOffsetPx: 0,
+                        dragging: true,
+                      };
+
+                      return next;
+                    });
+                  }}
+                  onTouchMove={(event) => {
+                    const currentX = event.touches[0]?.clientX ?? touchStartXRef.current[index] ?? 0;
+                    const startX = touchStartXRef.current[index] ?? currentX;
+                    const deltaX = currentX - startX;
+
+                    setMobileCarouselStates((prev) => {
+                      const next = [...prev];
+                      const state = next[index];
+                      if (!state) return prev;
+
+                      next[index] = {
+                        ...state,
+                        dragOffsetPx: deltaX,
+                      };
+
+                      return next;
+                    });
+                  }}
+                  onTouchEnd={(event) => {
+                    const touchEndX = event.changedTouches[0]?.clientX ?? 0;
+                    const touchStartX = touchStartXRef.current[index] ?? touchEndX;
+                    const deltaX = touchEndX - touchStartX;
+                    const trackWidth = mobileTrackWidthsRef.current[index] ?? 1;
+                    const switchThreshold = Math.max(trackWidth * 0.16, 40);
+
+                    if (Math.abs(deltaX) > switchThreshold) {
+                      if (deltaX > 0) {
+                        moveMobileCarousel(index, -1);
+                      } else {
+                        moveMobileCarousel(index, 1);
+                      }
+                    } else {
+                      setMobileCarouselStates((prev) => {
+                        const next = [...prev];
+                        const state = next[index];
+                        if (!state) return prev;
+
+                        next[index] = {
+                          ...state,
+                          transitionEnabled: true,
+                          dragOffsetPx: 0,
+                          dragging: false,
+                        };
+
+                        return next;
+                      });
+                    }
+
+                    setEducationCarouselPaused((prev) => {
+                      const next = [...prev];
+                      next[index] = false;
+                      return next;
+                    });
+                  }}
+                  onTouchCancel={() => {
+                    setMobileCarouselStates((prev) => {
+                      const next = [...prev];
+                      const state = next[index];
+                      if (!state) return prev;
+
+                      next[index] = {
+                        ...state,
+                        transitionEnabled: true,
+                        dragOffsetPx: 0,
+                        dragging: false,
+                      };
+
+                      return next;
+                    });
+
+                    setEducationCarouselPaused((prev) => {
+                      const next = [...prev];
+                      next[index] = false;
+                      return next;
+                    });
+                  }}
+                >
+                  {(() => {
+                    const images = educationGalleryImages[index] ?? ["/images/portrait.jpeg"];
+                    const loopedImages = images.length > 1 ? [...images, ...images, ...images] : images;
+                    const carouselState = mobileCarouselStates[index] ?? {
+                      logicalIndex: 0,
+                      trackIndex: images.length,
+                      transitionEnabled: true,
+                      dragOffsetPx: 0,
+                      dragging: false,
+                    };
+                    const rawTrackIndex = carouselState.trackIndex;
+                    const maxRenderableIndex = Math.max(loopedImages.length - 1, 0);
+                    const trackIndex = Math.min(Math.max(rawTrackIndex, 0), maxRenderableIndex);
+                    const transitionEnabled = carouselState.transitionEnabled;
+                    const dragOffsetPx = carouselState.dragOffsetPx;
+                    const isDragging = carouselState.dragging;
+
+                    return (
+                      <div
+                        className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100"
+                        onTransitionEnd={() => handleMobileTrackTransitionEnd(index, images.length)}
+                      >
+                        <div
+                          className="flex h-full"
+                          style={{
+                            transform: `translateX(calc(-${trackIndex * 100}% + ${dragOffsetPx}px))`,
+                            transition: !isDragging && transitionEnabled ? "transform 500ms ease-out" : "none",
+                          }}
+                        >
+                          {loopedImages.map((src, imageIndex) => (
+                            <div
+                              key={`${entry.institution}-mobile-track-${imageIndex}`}
+                              className="relative h-full w-full shrink-0"
+                            >
+                              <Image
+                                src={src}
+                                alt={`${entry.institution} mobile gallery image ${imageIndex + 1}`}
+                                fill
+                                sizes="(max-width: 1023px) 100vw, 0px"
+                                className="object-cover"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })()}
+                </div>
+
+                <div
+                  className="relative hidden lg:block"
+                  onMouseEnter={() => {
+                    setEducationCarouselPaused((prev) => {
+                      const next = [...prev];
+                      next[index] = true;
+                      return next;
+                    });
+                  }}
+                  onMouseLeave={() => {
+                    setEducationCarouselPaused((prev) => {
+                      const next = [...prev];
+                      next[index] = false;
+                      return next;
+                    });
+                  }}
+                >
+                  {(() => {
+                    const images = educationGalleryImages[index] ?? ["/images/portrait.jpeg"];
+                    const carouselState = educationCarouselStates[index] ?? {
+                      current: 0,
+                      previous: null,
+                      direction: 1 as const,
+                      animating: false,
+                    };
+                    const currentSrc = images[carouselState.current] ?? images[0];
+                    const previousSrc = carouselState.previous !== null ? (images[carouselState.previous] ?? images[0]) : null;
+
+                    return (
+                  <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
+                    {previousSrc && carouselState.animating && (
+                      <Image
+                        key={`${entry.institution}-previous-${carouselState.previous}`}
+                        src={previousSrc}
+                        alt={`${entry.institution} desktop gallery image ${(carouselState.previous ?? 0) + 1}`}
+                        fill
+                        sizes="288px"
+                        className="object-cover"
+                        style={{
+                          animation: carouselState.direction === 1 ? "education-slide-out-left 450ms ease forwards" : "education-slide-out-right 450ms ease forwards",
+                        }}
+                      />
+                    )}
+                    <Image
+                      key={`${entry.institution}-current-${carouselState.current}`}
+                      src={currentSrc}
+                      alt={`${entry.institution} desktop gallery image ${carouselState.current + 1}`}
+                      fill
+                      sizes="288px"
+                      className="object-cover"
+                      style={{
+                        animation: carouselState.animating
+                          ? carouselState.direction === 1
+                            ? "education-slide-in-right 450ms ease forwards"
+                            : "education-slide-in-left 450ms ease forwards"
+                          : undefined,
+                      }}
+                    />
+                  </div>
+                    );
+                  })()}
+
+                  <button
+                    type="button"
+                    onClick={() => showPrevImage(index)}
+                    className="absolute left-2 top-1/2 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/50 text-slate-700 shadow-sm opacity-50 transition hover:bg-white/70 hover:opacity-80"
+                    aria-label={`Show previous image for ${entry.institution}`}
+                  >
+                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => showNextImage(index)}
+                    className="absolute right-2 top-1/2 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/50 text-slate-700 shadow-sm opacity-50 transition hover:bg-white/70 hover:opacity-80"
+                    aria-label={`Show next image for ${entry.institution}`}
+                  >
+                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
                 </div>
               </div>
-              <p className="mt-4 text-sm leading-7 text-slate-600">{entry.description}</p>
             </div>
           ))}
         </div>
       </div>
+      <style jsx>{`
+        @keyframes education-slide-in-right {
+          from {
+            transform: translateX(100%);
+          }
+          to {
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes education-slide-in-left {
+          from {
+            transform: translateX(-100%);
+          }
+          to {
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes education-slide-out-left {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-100%);
+          }
+        }
+
+        @keyframes education-slide-out-right {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(100%);
+          }
+        }
+      `}</style>
     </section>
   );
 }
@@ -663,29 +1311,36 @@ function ExperienceSection({ t }: { t: Translation }) {
           {t.experience.heading}
         </h2>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {t.experience.entries.map((entry) => (
+          {t.experience.entries.map((entry, index) => (
             <article
               key={entry.role + entry.period}
               className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
-              <div className="flex flex-col gap-1">
-                <h3 className="text-xl font-semibold text-slate-950">{entry.role}</h3>
-                <p className="text-base font-medium text-slate-700">{entry.company}</p>
-                <div className="mt-2 flex flex-wrap items-center gap-2">
-                  <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
-                    {entry.period}
-                  </span>
-                  <span className="text-sm text-slate-500">{entry.location}</span>
+              <div className="flex items-start gap-4 sm:gap-5">
+                <EntityLogo {...(experienceLogoAssets[index] ?? experienceLogoAssets[0])} />
+
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-col gap-1">
+                    <h3 className="text-xl font-semibold text-slate-950">{entry.role}</h3>
+                    <p className="text-base font-medium text-slate-700">{entry.company}</p>
+                    <div className="mt-2 flex flex-wrap items-center gap-2">
+                      <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
+                        {entry.period}
+                      </span>
+                      <span className="text-sm text-slate-500">{entry.location}</span>
+                    </div>
+                  </div>
+
+                  <ul className="mt-6 space-y-2">
+                    {entry.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2.5 text-sm leading-7 text-slate-600">
+                        <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-400" />
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              <ul className="mt-6 space-y-2">
-                {entry.bullets.map((bullet) => (
-                  <li key={bullet} className="flex items-start gap-2.5 text-sm leading-7 text-slate-600">
-                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-400" />
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
             </article>
           ))}
         </div>
@@ -715,35 +1370,19 @@ function ContactSection({ t, mode }: { t: Translation; mode: SiteMode }) {
 
             <div>
               <p className="mb-4 font-semibold text-slate-950">{t.contact.connectLabel}</p>
-              <div className="space-y-4">
-                <div className="flex flex-wrap gap-3">
-                  {socialLinks.slice(0, 3).map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-100"
-                    >
-                      {item.icon}
-                      <span>{item.name}</span>
-                    </a>
-                  ))}
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {socialLinks.slice(3).map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-100"
-                    >
-                      {item.icon}
-                      <span>{item.name}</span>
-                    </a>
-                  ))}
-                </div>
+              <div className="flex flex-wrap gap-2">
+                {socialLinks.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-100"
+                  >
+                    {item.icon}
+                    <span>{item.name}</span>
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -764,19 +1403,13 @@ export default function Home() {
   const [language, setLanguage] = useState<SiteLanguage>("en");
   const [mode, setMode] = useState<SiteMode>("work");
   const [displayedMode, setDisplayedMode] = useState<SiteMode>("work");
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [contentVisible, setContentVisible] = useState(true);
-  const [mounted, setMounted] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const transitionRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const handleModeChange = (newMode: SiteMode) => {
     if (newMode === mode) return;
     if (transitionRef.current) clearTimeout(transitionRef.current);
-    setMobileNavOpen(false);
     setMode(newMode);
     setContentVisible(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -815,14 +1448,13 @@ export default function Home() {
 
   const heroContent = displayedMode === "work" ? t.hero : t.lifeHero;
 
-  if (!mounted) return null;
-
   const isLife = mode === "life";
 
   return (
     <main className={`min-h-screen text-slate-950 transition-colors duration-500 selection:bg-sky-300 selection:text-slate-950 ${isLife ? "bg-[#faf8f4]" : "bg-white"}`}>
       <header className={`sticky top-0 z-30 border-b backdrop-blur transition-colors duration-500 ${isLife ? "border-amber-200/60 bg-[#faf8f4]/95" : "border-slate-200/80 bg-white/95"}`}>
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-4 px-6 py-4 sm:px-8 lg:grid-cols-[1fr_auto_1fr]">
+        {/* Desktop Header (lg+) */}
+        <div className="mx-auto hidden max-w-6xl grid-cols-1 items-center gap-4 px-6 py-4 sm:px-8 lg:grid lg:grid-cols-[1fr_auto_1fr]">
           <a href="#top" className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-900 lg:justify-self-start">
             Xinyu Tian | Phoenix
           </a>
@@ -875,6 +1507,103 @@ export default function Home() {
             </button>
           </div>
         </div>
+
+        {/* Mobile Header (sm and below) */}
+        <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-6 py-4 sm:px-8 lg:hidden">
+          {/* Mobile Brand - Shortened */}
+          <a href="#top" className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-900">
+            {mode === "work" ? "XINYU" : "PHOENIX"}
+          </a>
+
+          {/* Mode toggle - Compact */}
+          <div className="relative inline-flex rounded-full bg-slate-100 p-1 shadow-inner ring-1 ring-slate-200/80">
+            <span
+              aria-hidden="true"
+              className={`pointer-events-none absolute inset-y-1 rounded-full shadow-sm transition-all duration-300 ease-in-out ${
+                mode === "life" ? "bg-amber-300" : "bg-sky-400"
+              }`}
+              style={{
+                width: "calc(50% - 4px)",
+                left: "4px",
+                transform: mode === "work" ? "translateX(0)" : "translateX(100%)",
+              }}
+            />
+            <button
+              type="button"
+              onClick={() => handleModeChange("work")}
+              className={`relative z-10 px-2 py-1 text-xs font-semibold transition-colors duration-300 ${
+                mode === "work" ? "text-white" : "text-slate-500"
+              }`}
+            >
+              {t.modeSwitch.work}
+            </button>
+            <button
+              type="button"
+              onClick={() => handleModeChange("life")}
+              className={`relative z-10 px-2 py-1 text-xs font-semibold transition-colors duration-300 ${
+                mode === "life" ? "text-white" : "text-slate-500"
+              }`}
+            >
+              {t.modeSwitch.life}
+            </button>
+          </div>
+
+          {/* Mobile Menu & Language Buttons */}
+          <div className="flex items-center justify-self-end gap-2">
+            <button
+              type="button"
+              onClick={() => setLanguage(language === "en" ? "zh" : "en")}
+              className="inline-flex h-10 w-14 items-center justify-center rounded-full border border-slate-200 bg-white text-xs font-bold text-slate-950 transition hover:border-slate-300 hover:bg-slate-100"
+            >
+              {language === "en" ? "简中" : "EN"}
+            </button>
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`inline-flex h-9 w-9 items-center justify-center rounded-full transition ${
+                mobileMenuOpen
+                  ? isLife ? "bg-amber-300" : "bg-sky-400"
+                  : "border border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-100"
+              }`}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              <svg
+                className={`h-5 w-5 transition-transform ${mobileMenuOpen ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu Drawer */}
+        {mobileMenuOpen && (
+          <div className={`border-t px-6 py-4 sm:px-8 lg:hidden ${isLife ? "border-amber-200 bg-amber-50" : "border-slate-200 bg-slate-50"}`}>
+            <nav className="space-y-2">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`block rounded-lg px-4 py-2 text-sm font-medium transition ${
+                    isLife
+                      ? "text-amber-900 hover:bg-amber-100"
+                      : "text-slate-700 hover:bg-white"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        )}
       </header>
 
       <div className={`transition-opacity duration-300 ${contentVisible ? "opacity-100" : "opacity-0"}`}>
