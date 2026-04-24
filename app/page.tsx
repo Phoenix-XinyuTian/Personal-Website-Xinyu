@@ -122,7 +122,7 @@ const translations = {
           ],
         },
         {
-          role: "Data Analyst Intern",
+          role: "Research Intern",
           company: "none",
           period: "Jun 2023 – Aug 2023",
           location: "",
@@ -257,9 +257,9 @@ const translations = {
         href: "#",
       },
       {
-        title: "物流分析仪表盘",
-        description: "用于物流跟踪、关键指标可视化和运营洞察的数据管道。",
-        tags: ["数据分析", "Python", "可视化"],
+        title: "RGBD多模态图像识别",
+        description: "基于RGBD图像的物体识别与分类，强调多模态融合与场景理解。",
+        tags: ["计算机视觉", "PyTorch", "多模态"],
         href: "#",
       },
       {
