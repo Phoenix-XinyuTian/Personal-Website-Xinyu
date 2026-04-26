@@ -26,7 +26,7 @@ const translations = {
       topLabel: "Xinyu Tian | Phoenix",
       heading: "My journey in AI technology & research, while sharing life abroad",
       description:
-        "NUS Master's student working on industrial imaging, semantic segmentation, and AI research. I also create content that reflects study life, travel, and personal growth in Singapore.",
+        "NUS Master's student working on computer vision, AI research, and content creation. I also create content that reflects study life, travel, and personal growth in Singapore.",
       explore: "Explore Projects",
       contact: "Contact Me",
     },
@@ -217,7 +217,7 @@ const translations = {
       topLabel: "Xinyu Tian | Phoenix",
       heading: "我的AI技术经历与研究并分享海外生活",
       description:
-        "NUS 硕士生，专注于工业成像、语义分割与 AI 研究，同时创作反映新加坡学习生活、旅行与个人成长的内容。",
+        "NUS 硕士生，专注于计算机视觉，AI研究，同时兼顾自媒体创作、旅行与个人成长的内容。",
       explore: "探索",
       contact: "联系方式",
     },
@@ -264,7 +264,7 @@ const translations = {
       },
       {
         title: "NUS 生活与旅行短片",
-        description: "记录校园生活、新加坡文化与旅行故事的短视频内容。",
+        description: "记录校园生活、新加坡文化与旅行故事的视频内容。",
         tags: ["内容创作", "视频", "叙事"],
         href: "#",
       },
