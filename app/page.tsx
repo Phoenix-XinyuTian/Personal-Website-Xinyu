@@ -26,7 +26,7 @@ const translations = {
     },
     hero: {
       topLabel: "Xinyu Tian | Phoenix",
-      heading: "My journey in AI technology & research, while sharing life abroad",
+      heading: "This is for you to know who I am.",
       description:
         "NUS Master's student working on computer vision, AI research, and content creation. I also create content that reflects study life, travel, and personal growth in Singapore.",
       explore: "Explore Projects",
@@ -602,18 +602,18 @@ function AboutSection({
 
 function SkillChip({ skill }: { skill: SkillItem }) {
   return (
-    <div
-      className="inline-flex cursor-default items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm transition hover:scale-105 hover:shadow-md sm:px-3 sm:py-1.5 sm:text-sm"
-    >
-      <svg
-        role="img"
-        viewBox="0 0 24 24"
-        aria-label={skill.name}
-        className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5"
-        style={{ fill: `#${skill.hex}` }}
-      >
-        <path d={skill.path} />
-      </svg>
+    <div className="inline-flex cursor-default items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm transition hover:scale-105 hover:shadow-md sm:px-3 sm:py-1.5 sm:text-sm">
+      {skill.path && skill.hex && (
+        <svg
+          role="img"
+          viewBox="0 0 24 24"
+          aria-label={skill.name}
+          className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5"
+          style={{ fill: `#${skill.hex}` }}
+        >
+          <path d={skill.path} />
+        </svg>
+      )}
       <span>{skill.name}</span>
     </div>
   );
@@ -1556,13 +1556,13 @@ export default function Home() {
     <main className={`min-h-screen text-slate-950 transition-colors duration-500 selection:bg-sky-300 selection:text-slate-950 ${isLife ? "bg-[#faf8f4]" : "bg-white"}`}>
       <header className={`sticky top-0 z-30 border-b backdrop-blur transition-colors duration-500 ${isLife ? "border-amber-200/60 bg-[#faf8f4]/95" : "border-slate-200/80 bg-white/95"}`}>
         {/* Desktop Header (lg+) */}
-        <div className="mx-auto hidden max-w-6xl grid-cols-1 items-center gap-4 px-6 py-4 sm:px-8 lg:grid lg:grid-cols-[1fr_auto_1fr]">
+        <div className="hidden items-center px-[clamp(1.5rem,4vw,4rem)] py-4 lg:grid lg:grid-cols-[1fr_auto_1fr]">
           <a href="#top" className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-900 lg:justify-self-start">
             Xinyu Tian | Phoenix
           </a>
 
           {/* Mode toggle with sliding indicator */}
-          <div className="relative mx-auto inline-flex rounded-full bg-slate-100 p-1 shadow-inner ring-1 ring-slate-200/80 lg:mx-0">
+          <div className="relative mx-auto inline-flex shrink-0 rounded-full bg-slate-100 p-1 shadow-inner ring-1 ring-slate-200/80 lg:mx-0">
             <span
               aria-hidden="true"
               className={`pointer-events-none absolute inset-y-1 rounded-full shadow-sm transition-all duration-300 ease-in-out ${
@@ -1594,16 +1594,16 @@ export default function Home() {
             </button>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-slate-600 lg:justify-self-end">
+          <div className="flex flex-nowrap items-center gap-[clamp(0.5rem,0.8vw,1rem)] text-[clamp(0.75rem,1.2vw,0.875rem)] text-slate-600 lg:justify-self-end">
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href} className="transition hover:text-slate-900">
+              <a key={link.href} href={link.href} className="whitespace-nowrap transition hover:text-slate-900">
                 {link.label}
               </a>
             ))}
             <button
               type="button"
               onClick={() => setLanguage(language === "en" ? "zh" : "en")}
-              className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-950 transition hover:border-slate-300 hover:bg-slate-100"
+              className="inline-flex shrink-0 items-center rounded-full border border-slate-200 bg-white px-3 py-1.5 font-semibold text-slate-950 transition hover:border-slate-300 hover:bg-slate-100"
             >
               {language === "en" ? t.languageToggle.switchToZh : t.languageToggle.switchToEn}
             </button>
@@ -1686,26 +1686,28 @@ export default function Home() {
         </div>
 
         {/* Mobile Menu Drawer */}
-        {mobileMenuOpen && (
-          <div className={`border-t px-6 py-4 sm:px-8 lg:hidden ${isLife ? "border-amber-200 bg-amber-50" : "border-slate-200 bg-slate-50"}`}>
-            <nav className="space-y-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`block rounded-lg px-4 py-2 text-sm font-medium transition ${
-                    isLife
-                      ? "text-amber-900 hover:bg-amber-100"
-                      : "text-slate-700 hover:bg-white"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </div>
-        )}
+        <div
+          className={`border-t lg:hidden ${isLife ? "border-amber-200 bg-amber-50" : "border-slate-200 bg-slate-50"} ${
+            mobileMenuOpen ? "px-6 py-4 sm:px-8 [animation:menu-in_0.2s_ease-out]" : "h-0 overflow-hidden"
+          }`}
+        >
+          <nav className="space-y-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`block rounded-lg px-4 py-2 text-sm font-medium transition ${
+                  isLife
+                    ? "text-amber-900 hover:bg-amber-100"
+                    : "text-slate-700 hover:bg-white"
+                }`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        </div>
       </header>
 
       <div className={`transition-opacity duration-300 ${contentVisible ? "opacity-100" : "opacity-0"}`}>
