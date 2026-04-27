@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { programmingSkills, cvmlSkills, toolsSkills, type SkillItem } from "./data/skills";
 
 type SiteLanguage = "en" | "zh";
 type SiteMode = "work" | "life";
@@ -13,6 +14,7 @@ const translations = {
       projects: "Projects",
       education: "Education",
       experience: "Experience",
+      skills: "Skills",
       life: "Life",
       contact: "Contact",
       media: "Media",
@@ -134,6 +136,20 @@ const translations = {
         },
       ],
     },
+    skills: {
+      label: "Skills",
+      heading: "Technical skills and languages",
+      groups: {
+        programming: "Programming",
+        cvml: "Computer Vision & ML",
+        tools: "Tools",
+        languages: "Languages",
+      },
+      languages: [
+        { name: "Mandarin Chinese", level: "Native" },
+        { name: "English", level: "Professional" },
+      ],
+    },
     gallery: {
       label: "Life & Travel",
       heading: "Stories from campus, Singapore, and beyond",
@@ -204,6 +220,7 @@ const translations = {
       projects: "项目",
       education: "教育经历",
       experience: "实习经历",
+      skills: "技能",
       life: "生活",
       contact: "联系方式",
       media: "自媒体",
@@ -320,6 +337,20 @@ const translations = {
             "总结核心收获或商业价值。",
           ],
         },
+      ],
+    },
+    skills: {
+      label: "技能",
+      heading: "技术技能与语言",
+      groups: {
+        programming: "编程",
+        cvml: "计算机视觉与机器学习",
+        tools: "工具",
+        languages: "语言",
+      },
+      languages: [
+        { name: "Mandarin Chinese", level: "母语" },
+        { name: "English", level: "专业" },
       ],
     },
     gallery: {
@@ -569,10 +600,80 @@ function AboutSection({
   );
 }
 
+function SkillChip({ skill }: { skill: SkillItem }) {
+  return (
+    <div
+      className="inline-flex cursor-default items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm transition hover:scale-105 hover:shadow-md sm:px-3 sm:py-1.5 sm:text-sm"
+    >
+      <svg
+        role="img"
+        viewBox="0 0 24 24"
+        aria-label={skill.name}
+        className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5"
+        style={{ fill: `#${skill.hex}` }}
+      >
+        <path d={skill.path} />
+      </svg>
+      <span>{skill.name}</span>
+    </div>
+  );
+}
+
+function SkillsSection({ t }: { t: Translation }) {
+  const groups = [
+    { key: "programming", label: t.skills.groups.programming, skills: programmingSkills },
+    { key: "cvml", label: t.skills.groups.cvml, skills: cvmlSkills },
+    { key: "tools", label: t.skills.groups.tools, skills: toolsSkills },
+  ] as const;
+
+  return (
+    <section id="skills" className="border-t border-slate-200/80 bg-slate-50 px-6 py-20 sm:px-8">
+      <div className="mx-auto max-w-6xl">
+        <p className="text-sm uppercase tracking-[0.32em] text-sky-600">{t.skills.label}</p>
+        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+          {t.skills.heading}
+        </h2>
+
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {groups.map((group) => (
+            <div key={group.key} className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-sky-600">
+                {group.label}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <SkillChip key={skill.name} skill={skill} />
+                ))}
+              </div>
+            </div>
+          ))}
+
+          <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-sky-600">
+              {t.skills.groups.languages}
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {t.skills.languages.map((lang) => (
+                <div
+                  key={lang.name}
+                  className="inline-flex cursor-default items-center rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm transition hover:scale-105 hover:shadow-md sm:px-3 sm:py-1.5 sm:text-sm"
+                >
+                  {lang.name} · {lang.level}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function WorkSections({ t }: { t: Translation }) {
   return (
     <>
       <ExperienceSection t={t} />
+      <SkillsSection t={t} />
 
       <section id="projects" className="px-6 py-20 sm:px-8">
         <div className="mx-auto max-w-6xl">
@@ -1434,6 +1535,7 @@ export default function Home() {
       ? [
           { href: "#about", label: t.nav.about },
           { href: "#experience", label: t.nav.experience },
+          { href: "#skills", label: t.nav.skills },
           { href: "#projects", label: t.nav.projects },
           { href: "#education", label: t.nav.education },
           { href: "#contact", label: t.nav.contact },
