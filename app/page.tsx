@@ -308,8 +308,8 @@ const translations = {
         languages: "语言",
       },
       languages: [
-        { name: "Mandarin Chinese", level: "母语" },
-        { name: "English", level: "专业" },
+        { name: "普通话", level: "母语" },
+        { name: "英语", level: "专业" },
       ],
     },
     gallery: {
@@ -515,8 +515,8 @@ function AboutSection({
     <section id="about" className={`border-t py-20 ${mode === "life" ? "border-amber-200/50 bg-amber-50/50" : "border-slate-200/80 bg-slate-50"}`}>
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
         <div className="mb-10">
-          <p className={`text-sm uppercase tracking-[0.32em] ${mode === "life" ? "text-amber-600" : "text-sky-600"}`}>{t.about.label}</p>
-          <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.about.heading}</h2>
+          <p className={`text-center text-sm uppercase tracking-[0.32em] ${mode === "life" ? "text-amber-600" : "text-sky-600"}`}>{t.about.label}</p>
+          <h2 className="mt-4 text-center text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.about.heading}</h2>
           <p className="mt-6 text-pretty text-base leading-8 text-slate-600">{t.about.body}</p>
         </div>
 
@@ -649,8 +649,8 @@ function SkillsSection({ t }: { t: Translation }) {
   return (
     <section id="skills" className="border-t border-slate-200/80 bg-slate-50 px-6 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
-        <p className="text-sm uppercase tracking-[0.32em] text-sky-600">{t.skills.label}</p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+        <p className="text-center text-sm uppercase tracking-[0.32em] text-sky-600">{t.skills.label}</p>
+        <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
           {t.skills.heading}
         </h2>
 
@@ -697,11 +697,9 @@ function WorkSections({ t, language }: { t: Translation; language: SiteLanguage 
 
       <section id="projects" className="px-6 py-20 sm:px-8">
         <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-sm uppercase tracking-[0.32em] text-sky-600">{t.nav.projects}</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.projectsHeading}</h2>
-            </div>
+          <div className="w-full text-center">
+            <p className="text-sm uppercase tracking-[0.32em] text-sky-600">{t.nav.projects}</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.projectsHeading}</h2>
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -743,8 +741,8 @@ function LifeSections({ t }: { t: Translation }) {
     <>
       <section id="media" className="px-6 py-20 sm:px-8">
         <div className="mx-auto max-w-6xl">
-          <p className="text-sm uppercase tracking-[0.32em] text-amber-600">{t.media.label}</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.media.heading}</h2>
+          <p className="text-center text-sm uppercase tracking-[0.32em] text-amber-600">{t.media.label}</p>
+          <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.media.heading}</h2>
           <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">{t.media.description}</p>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1.2fr]">
@@ -782,8 +780,8 @@ function LifeSections({ t }: { t: Translation }) {
 
       <section id="travel" className="border-t border-slate-200/80 bg-slate-50 py-20">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
-          <p className="text-sm uppercase tracking-[0.32em] text-amber-600">{t.travel.label}</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.travel.heading}</h2>
+          <p className="text-center text-sm uppercase tracking-[0.32em] text-amber-600">{t.travel.label}</p>
+          <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.travel.heading}</h2>
           <p className="mt-5 text-base leading-8 text-slate-600">{t.travel.description}</p>
 
           <div className="mt-8 overflow-x-auto pb-2">
@@ -805,8 +803,8 @@ function LifeSections({ t }: { t: Translation }) {
 
       <section id="life" className="py-20 px-6 sm:px-8">
         <div className="mx-auto max-w-6xl">
-          <p className="text-sm uppercase tracking-[0.32em] text-amber-600">{t.gallery.label}</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.gallery.heading}</h2>
+          <p className="text-center text-sm uppercase tracking-[0.32em] text-amber-600">{t.gallery.label}</p>
+          <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.gallery.heading}</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {t.lifeHighlights.map((item) => (
               <div key={item} className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
@@ -1088,8 +1086,8 @@ function EducationSection({ t }: { t: Translation }) {
   return (
     <section id="education" className="border-t border-slate-200/80 bg-slate-50 py-20">
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
-        <p className="text-sm uppercase tracking-[0.32em] text-sky-600">{t.education.label}</p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+        <p className="text-center text-sm uppercase tracking-[0.32em] text-sky-600">{t.education.label}</p>
+        <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
           {t.education.heading}
         </h2>
         <div className="mt-10 space-y-6">
@@ -1542,8 +1540,8 @@ function ExperienceSection({ t, language }: { t: Translation; language: SiteLang
   return (
     <section id="experience" className="px-6 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
-        <p className="text-sm uppercase tracking-[0.32em] text-sky-600">{t.experience.label}</p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+        <p className="text-center text-sm uppercase tracking-[0.32em] text-sky-600">{t.experience.label}</p>
+        <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
           {t.experience.heading}
         </h2>
         <div className="mt-10 space-y-6">
@@ -1588,8 +1586,8 @@ function ContactSection({ t, mode }: { t: Translation; mode: SiteMode }) {
       <div className="mx-auto max-w-6xl rounded-[2rem] border border-slate-200 bg-white p-10 shadow-xl">
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
           <div>
-            <p className={`text-sm uppercase tracking-[0.32em] ${mode === "life" ? "text-amber-600" : "text-sky-600"}`}>{t.contact.label}</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.contact.heading}</h2>
+            <p className={`text-center text-sm uppercase tracking-[0.32em] ${mode === "life" ? "text-amber-600" : "text-sky-600"}`}>{t.contact.label}</p>
+            <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.contact.heading}</h2>
             <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600">{t.contact.description}</p>
           </div>
 
@@ -1850,8 +1848,8 @@ export default function Home() {
           </>
         )}
         <div className="mx-auto max-w-6xl">
-          <p className={`text-sm uppercase tracking-[0.32em] ${displayedMode === "life" ? "text-amber-600" : "text-sky-600"}`}>{heroContent.topLabel}</p>
-          <h1 className="mt-6 text-4xl font-semibold tracking-tight text-slate-950 sm:text-6xl">{heroContent.heading}</h1>
+          <p className={`text-center text-sm uppercase tracking-[0.32em] ${displayedMode === "life" ? "text-amber-600" : "text-sky-600"}`}>{heroContent.topLabel}</p>
+          <h1 className="mt-6 text-center text-4xl font-semibold tracking-tight text-slate-950 sm:text-6xl">{heroContent.heading}</h1>
         </div>
       </section>
 
