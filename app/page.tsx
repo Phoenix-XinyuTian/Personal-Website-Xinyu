@@ -2,10 +2,17 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { Globe, ChevronDown, Check, X } from "lucide-react";
 import { programmingSkills, cvmlSkills, toolsSkills, type SkillItem } from "./data/skills";
+import { experiences, type ExperienceItem } from "./data/experience";
 
 type SiteLanguage = "en" | "zh";
 type SiteMode = "work" | "life";
+
+const LOCALES: { code: SiteLanguage; label: string; short: string }[] = [
+  { code: "en", label: "English", short: "EN" },
+  { code: "zh", label: "简体中文", short: "ZH" },
+];
 
 const translations = {
   en: {
@@ -34,7 +41,7 @@ const translations = {
     },
     lifeHero: {
       topLabel: "Xinyu Tian | Phoenix",
-      heading: "A life-driven creator mode: media, travel, and growth in Singapore",
+      heading: "This is for you to know what I like.",
       description:
         "This mode showcases my self-media direction, travel documentation, and personal reflections while keeping one consistent personal brand.",
       explore: "Explore Media",
@@ -111,30 +118,6 @@ const translations = {
     experience: {
       label: "Experience",
       heading: "Internships and professional experience",
-      entries: [
-        {
-          role: "AI Research Intern",
-          company: "Company Name",
-          period: "Jun 2024 – Aug 2024",
-          location: "Location",
-          bullets: [
-            "Describe your core project and technical contributions here.",
-            "List tools, frameworks, or methodologies used.",
-            "Summarise outcomes, results, or impact achieved.",
-          ],
-        },
-        {
-          role: "Research Intern",
-          company: "none",
-          period: "Jun 2023 – Aug 2023",
-          location: "",
-          bullets: [
-            "Describe the primary deliverable or analysis performed.",
-            "Mention the data tools and visualisation approach.",
-            "Summarise key learnings or business impact.",
-          ],
-        },
-      ],
     },
     skills: {
       label: "Skills",
@@ -232,7 +215,7 @@ const translations = {
     },
     hero: {
       topLabel: "Xinyu Tian | Phoenix",
-      heading: "我的AI技术经历与研究并分享海外生活",
+      heading: "现在你知道我是谁了。",
       description:
         "NUS 硕士生，专注于计算机视觉，AI研究，同时兼顾自媒体创作、旅行与个人成长的内容。",
       explore: "探索",
@@ -240,7 +223,7 @@ const translations = {
     },
     lifeHero: {
       topLabel: "Xinyu Tian | Phoenix",
-      heading: "以生活与创作为核心：媒体矩阵、旅行记录与成长表达",
+      heading: "你将知道我喜欢什么。",
       description:
         "该模式展示我的自媒体方向、旅行内容和个人反思，同时保持统一的个人品牌风格。",
       explore: "探索媒体",
@@ -314,30 +297,6 @@ const translations = {
     experience: {
       label: "实习经历",
       heading: "实习与职业经历",
-      entries: [
-        {
-          role: "AI研究实习生",
-          company: "公司名称",
-          period: "2024年6月 – 2024年8月",
-          location: "所在地",
-          bullets: [
-            "描述你的核心项目与技术贡献。",
-            "列举使用的工具、框架或方法论。",
-            "总结项目成果、结果或影响。",
-          ],
-        },
-        {
-          role: "数据分析实习生",
-          company: "公司名称",
-          period: "2023年6月 – 2023年8月",
-          location: "所在地",
-          bullets: [
-            "描述主要交付物或分析内容。",
-            "提及使用的数据工具与可视化方法。",
-            "总结核心收获或商业价值。",
-          ],
-        },
-      ],
     },
     skills: {
       label: "技能",
@@ -514,24 +473,6 @@ const educationLogoAssets = [
   },
 ] as const;
 
-const experienceLogoAssets = [
-  {
-    src: null,
-    alt: "AI Research company logo",
-    fallback: "AI",
-    bgClass: "bg-sky-100",
-    textClass: "text-sky-700",
-    borderClass: "border-sky-200",
-  },
-  {
-    src: null,
-    alt: "Data Analyst company logo",
-    fallback: "DA",
-    bgClass: "bg-slate-100",
-    textClass: "text-slate-700",
-    borderClass: "border-slate-200",
-  },
-] as const;
 
 function EntityLogo({
   src,
@@ -597,6 +538,85 @@ function AboutSection({
         </div>
       </div>
     </section>
+  );
+}
+
+function LanguageDropdown({
+  language,
+  onSelect,
+}: {
+  language: SiteLanguage;
+  onSelect: (lang: SiteLanguage) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const current = LOCALES.find((l) => l.code === language) ?? LOCALES[0]!;
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    const onMouseDown = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onMouseDown);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onMouseDown);
+    };
+  }, [open]);
+
+  return (
+    <div ref={containerRef} className="relative shrink-0">
+      <button
+        type="button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 font-semibold text-slate-950 transition hover:border-slate-300 hover:bg-slate-100"
+      >
+        <Globe className="h-[14px] w-[14px] shrink-0 text-slate-500" strokeWidth={1.8} />
+        <span>{current.short}</span>
+        <ChevronDown
+          className={`h-3 w-3 shrink-0 text-slate-400 transition-transform duration-150 ${open ? "rotate-180" : ""}`}
+          strokeWidth={2.5}
+        />
+      </button>
+
+      {open && (
+        <div
+          role="listbox"
+          aria-label="Select language"
+          className="absolute right-0 top-full z-50 mt-1.5 min-w-[9rem] rounded-2xl border border-slate-200 bg-white py-1 shadow-lg [animation:lang-dropdown-in_0.13s_ease-out]"
+        >
+          {LOCALES.map((locale) => {
+            const isCurrent = locale.code === language;
+            return (
+              <button
+                key={locale.code}
+                role="option"
+                aria-selected={isCurrent}
+                type="button"
+                disabled={isCurrent}
+                onClick={() => { onSelect(locale.code); setOpen(false); }}
+                className={`flex w-full items-center gap-2 px-3 py-2 text-sm transition ${
+                  isCurrent
+                    ? "cursor-default font-semibold text-sky-600"
+                    : "text-slate-700 hover:bg-slate-50"
+                }`}
+              >
+                <span className="flex h-4 w-4 shrink-0 items-center justify-center text-sky-600">
+                  {isCurrent && <Check className="h-3.5 w-3.5" strokeWidth={2.5} />}
+                </span>
+                {locale.label}
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -669,10 +689,10 @@ function SkillsSection({ t }: { t: Translation }) {
   );
 }
 
-function WorkSections({ t }: { t: Translation }) {
+function WorkSections({ t, language }: { t: Translation; language: SiteLanguage }) {
   return (
     <>
-      <ExperienceSection t={t} />
+      <ExperienceSection t={t} language={language} />
       <SkillsSection t={t} />
 
       <section id="projects" className="px-6 py-20 sm:px-8">
@@ -1403,7 +1423,122 @@ function EducationSection({ t }: { t: Translation }) {
   );
 }
 
-function ExperienceSection({ t }: { t: Translation }) {
+function ExperienceCard({
+  item,
+  lang,
+  onOpenLightbox,
+}: {
+  item: ExperienceItem;
+  lang: SiteLanguage;
+  onOpenLightbox: (src: string) => void;
+}) {
+  const local = item.i18n[lang];
+  const hasMedia = item.media.length > 0;
+
+  return (
+    <article className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-8">
+      {/* Header */}
+      <div className="flex items-start gap-4 border-b border-slate-100 pb-5">
+        {item.logoSrc ? (
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-slate-50 sm:h-14 sm:w-14">
+            <img src={item.logoSrc} alt={local.company} className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
+          </div>
+        ) : (
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-sky-200 bg-sky-50 sm:h-14 sm:w-14">
+            <span className="text-xs font-bold uppercase tracking-[0.1em] text-sky-700 sm:text-sm">{item.fallback}</span>
+          </div>
+        )}
+        <div className="min-w-0">
+          <h3 className="text-base font-semibold text-slate-950 sm:text-xl">{local.title}</h3>
+          <p className="mt-0.5 text-sm text-slate-700 sm:text-base">{local.company}</p>
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
+              {item.startDate} – {item.endDate}
+            </span>
+            <span className="text-xs text-slate-500 sm:text-sm">{local.location}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Body */}
+      <div className={`mt-5 ${hasMedia ? "grid gap-6 lg:grid-cols-[3fr_2fr]" : ""}`}>
+        {/* Bullets */}
+        <ul className="space-y-3">
+          {local.bullets.map((bullet, i) =>
+            bullet.highlight ? (
+              <li key={i} className="border-l-2 border-sky-400 pl-3 text-sm font-medium leading-7 text-slate-800">
+                {bullet.text}
+              </li>
+            ) : (
+              <li key={i} className="flex items-start gap-2.5 text-sm leading-7 text-slate-600">
+                <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-300" />
+                {bullet.text}
+              </li>
+            )
+          )}
+        </ul>
+
+        {/* Media */}
+        {hasMedia && (
+          <div className="space-y-4">
+            {item.media.map((m, i) => {
+              if (m.type === "image") {
+                return (
+                  <div
+                    key={i}
+                    className="group relative cursor-zoom-in overflow-hidden rounded-xl border border-slate-200"
+                    onClick={() => onOpenLightbox(m.src)}
+                  >
+                    <div className="aspect-[4/3] bg-slate-100">
+                      <img src={m.src} alt={m.alt} className="h-full w-full object-cover" />
+                    </div>
+                    {m.caption && (
+                      <div className="absolute inset-x-0 bottom-0 translate-y-full bg-black/60 px-3 py-2 text-xs text-white transition-transform duration-200 group-hover:translate-y-0">
+                        {m.caption}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              if (m.type === "metric") {
+                return (
+                  <div key={i} className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">{m.label}</p>
+                    <p className="mt-1 text-3xl font-bold text-sky-600">{m.value}</p>
+                    {m.sublabel && <p className="mt-0.5 text-xs text-slate-500">{m.sublabel}</p>}
+                  </div>
+                );
+              }
+              return null;
+            })}
+          </div>
+        )}
+      </div>
+
+      {/* Tech tags */}
+      {item.techStack.length > 0 && (
+        <div className="mt-5 flex flex-wrap gap-1.5 border-t border-slate-100 pt-5">
+          {item.techStack.map((tag) => (
+            <span key={tag} className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-xs font-medium text-slate-600">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </article>
+  );
+}
+
+function ExperienceSection({ t, language }: { t: Translation; language: SiteLanguage }) {
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!lightboxSrc) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightboxSrc(null); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [lightboxSrc]);
+
   return (
     <section id="experience" className="px-6 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
@@ -1411,41 +1546,38 @@ function ExperienceSection({ t }: { t: Translation }) {
         <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
           {t.experience.heading}
         </h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {t.experience.entries.map((entry, index) => (
-            <article
-              key={entry.role + entry.period}
-              className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-            >
-              <div className="flex items-start gap-4 sm:gap-5">
-                <EntityLogo {...(experienceLogoAssets[index] ?? experienceLogoAssets[0])} />
-
-                <div className="min-w-0 flex-1">
-                  <div className="flex flex-col gap-1">
-                    <h3 className="text-xl font-semibold text-slate-950">{entry.role}</h3>
-                    <p className="text-base font-medium text-slate-700">{entry.company}</p>
-                    <div className="mt-2 flex flex-wrap items-center gap-2">
-                      <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
-                        {entry.period}
-                      </span>
-                      <span className="text-sm text-slate-500">{entry.location}</span>
-                    </div>
-                  </div>
-
-                  <ul className="mt-6 space-y-2">
-                    {entry.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-2.5 text-sm leading-7 text-slate-600">
-                        <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-400" />
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </article>
+        <div className="mt-10 space-y-6">
+          {experiences.map((item) => (
+            <ExperienceCard key={item.id} item={item} lang={language} onOpenLightbox={setLightboxSrc} />
           ))}
         </div>
       </div>
+
+      {/* Lightbox */}
+      {lightboxSrc && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 [animation:lang-dropdown-in_0.15s_ease-out]"
+          onClick={() => setLightboxSrc(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image preview"
+        >
+          <img
+            src={lightboxSrc}
+            alt=""
+            className="max-h-[90vh] max-w-full rounded-xl object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            type="button"
+            onClick={() => setLightboxSrc(null)}
+            className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/30"
+            aria-label="Close preview"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+      )}
     </section>
   );
 }
@@ -1600,13 +1732,7 @@ export default function Home() {
                 {link.label}
               </a>
             ))}
-            <button
-              type="button"
-              onClick={() => setLanguage(language === "en" ? "zh" : "en")}
-              className="inline-flex shrink-0 items-center rounded-full border border-slate-200 bg-white px-3 py-1.5 font-semibold text-slate-950 transition hover:border-slate-300 hover:bg-slate-100"
-            >
-              {language === "en" ? t.languageToggle.switchToZh : t.languageToggle.switchToEn}
-            </button>
+            <LanguageDropdown language={language} onSelect={setLanguage} />
           </div>
         </div>
 
@@ -1652,13 +1778,7 @@ export default function Home() {
 
           {/* Mobile Menu & Language Buttons */}
           <div className="flex items-center justify-self-end gap-2">
-            <button
-              type="button"
-              onClick={() => setLanguage(language === "en" ? "zh" : "en")}
-              className="inline-flex h-10 w-14 items-center justify-center rounded-full border border-slate-200 bg-white text-xs font-bold text-slate-950 transition hover:border-slate-300 hover:bg-slate-100"
-            >
-              {language === "en" ? "简中" : "EN"}
-            </button>
+            <LanguageDropdown language={language} onSelect={setLanguage} />
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -1732,43 +1852,12 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <p className={`text-sm uppercase tracking-[0.32em] ${displayedMode === "life" ? "text-amber-600" : "text-sky-600"}`}>{heroContent.topLabel}</p>
           <h1 className="mt-6 text-4xl font-semibold tracking-tight text-slate-950 sm:text-6xl">{heroContent.heading}</h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">{heroContent.description}</p>
-
-          <div className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:backdrop-blur">
-            <p className={`text-sm uppercase tracking-[0.32em] ${displayedMode === "life" ? "text-amber-600" : "text-sky-600"}`}>{t.contactCard.title}</p>
-            <div className="mt-6 space-y-6 text-sm text-slate-600">
-              <div>
-                <p className="mb-3 font-semibold text-slate-950">{t.contact.emailLabel}</p>
-                <a href="mailto:xinyu.tian.phoenix@gmail.com" className={displayedMode === "life" ? "text-amber-600 hover:text-amber-800" : "text-sky-600 hover:text-sky-800"}>
-                  {t.contactCard.email}
-                </a>
-              </div>
-
-              <div>
-                <p className="mb-4 font-semibold text-slate-950">{t.contact.connectLabel}</p>
-                <div className="flex flex-wrap gap-3">
-                  {socialLinks.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-100"
-                    >
-                      {item.icon}
-                      <span>{item.name}</span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
       <AboutSection t={t} focusAreas={t.focusAreas} mode={displayedMode} />
 
-      {displayedMode === "work" ? <WorkSections t={t} /> : <LifeSections t={t} />}
+      {displayedMode === "work" ? <WorkSections t={t} language={language} /> : <LifeSections t={t} />}
 
       <ContactSection t={t} mode={displayedMode} />
       </div>
