@@ -33,7 +33,7 @@ const translations = {
     },
     hero: {
       topLabel: "Xinyu Tian | Phoenix",
-      heading: "This is for you to know who I am.",
+      heading: "This is for you to know who I am",
       description:
         "NUS Master's student working on computer vision, AI research, and content creation. I also create content that reflects study life, travel, and personal growth in Singapore.",
       explore: "Explore Projects",
@@ -41,7 +41,7 @@ const translations = {
     },
     lifeHero: {
       topLabel: "Xinyu Tian | Phoenix",
-      heading: "This is for you to know what I like.",
+      heading: "This is for you to know what I like",
       description:
         "This mode showcases my self-media direction, travel documentation, and personal reflections while keeping one consistent personal brand.",
       explore: "Explore Media",
@@ -215,7 +215,7 @@ const translations = {
     },
     hero: {
       topLabel: "Xinyu Tian | Phoenix",
-      heading: "现在你知道我是谁了。",
+      heading: "现在你知道我是谁了",
       description:
         "NUS 硕士生，专注于计算机视觉，AI研究，同时兼顾自媒体创作、旅行与个人成长的内容。",
       explore: "探索",
@@ -223,7 +223,7 @@ const translations = {
     },
     lifeHero: {
       topLabel: "Xinyu Tian | Phoenix",
-      heading: "你将知道我喜欢什么。",
+      heading: "你将知道我喜欢什么",
       description:
         "该模式展示我的自媒体方向、旅行内容和个人反思，同时保持统一的个人品牌风格。",
       explore: "探索媒体",
