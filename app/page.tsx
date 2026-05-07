@@ -512,7 +512,7 @@ function AboutSection({
   mode: SiteMode;
 }) {
   return (
-    <section id="about" className={`border-t py-20 ${mode === "life" ? "border-amber-200/50 bg-amber-50/50" : "border-slate-200/80 bg-slate-50"}`}>
+    <section id="about" className={`border-t py-20 ${mode === "life" ? "border-amber-200/50" : "border-slate-200/80"}`}>
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
         <div className="mb-10">
           <p className={`text-center text-sm uppercase tracking-[0.32em] ${mode === "life" ? "text-amber-600" : "text-sky-600"}`}>{t.about.label}</p>
@@ -647,7 +647,7 @@ function SkillsSection({ t }: { t: Translation }) {
   ] as const;
 
   return (
-    <section id="skills" className="border-t border-slate-200/80 bg-slate-50 px-6 py-20 sm:px-8">
+    <section id="skills" className="border-t border-slate-200/80 px-6 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <p className="text-center text-sm uppercase tracking-[0.32em] text-sky-600">{t.skills.label}</p>
         <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
@@ -778,7 +778,7 @@ function LifeSections({ t }: { t: Translation }) {
         </div>
       </section>
 
-      <section id="travel" className="border-t border-slate-200/80 bg-slate-50 py-20">
+      <section id="travel" className="border-t border-slate-200/80 py-20">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
           <p className="text-center text-sm uppercase tracking-[0.32em] text-amber-600">{t.travel.label}</p>
           <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.travel.heading}</h2>
@@ -1084,7 +1084,7 @@ function EducationSection({ t }: { t: Translation }) {
   };
 
   return (
-    <section id="education" className="border-t border-slate-200/80 bg-slate-50 py-20">
+    <section id="education" className="border-t border-slate-200/80 py-20">
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
         <p className="text-center text-sm uppercase tracking-[0.32em] text-sky-600">{t.education.label}</p>
         <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
@@ -1683,8 +1683,8 @@ export default function Home() {
   const isLife = mode === "life";
 
   return (
-    <main className={`min-h-screen text-slate-950 transition-colors duration-500 selection:bg-sky-300 selection:text-slate-950 ${isLife ? "bg-[#faf8f4]" : "bg-white"}`}>
-      <header className={`sticky top-0 z-30 border-b backdrop-blur transition-colors duration-500 ${isLife ? "border-amber-200/60 bg-[#faf8f4]/95" : "border-slate-200/80 bg-white/95"}`}>
+    <main className={`min-h-screen text-slate-950 transition-colors duration-500 selection:bg-sky-300 selection:text-slate-950 ${isLife ? "bg-[#fdf9f2]" : "bg-[#f5f7fa]"}`}>
+      <header className={`sticky top-0 z-30 border-b backdrop-blur transition-colors duration-500 ${isLife ? "border-amber-200/60 bg-[#fdf9f2]/95" : "border-slate-200/80 bg-[#f5f7fa]/95"}`}>
         {/* Desktop Header (lg+) */}
         <div className="hidden items-center px-[clamp(1.5rem,4vw,4rem)] py-4 lg:grid lg:grid-cols-[1fr_auto_1fr]">
           <a href="#top" className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-900 lg:justify-self-start">
@@ -1805,7 +1805,7 @@ export default function Home() {
 
         {/* Mobile Menu Drawer */}
         <div
-          className={`border-t lg:hidden ${isLife ? "border-amber-200 bg-amber-50" : "border-slate-200 bg-slate-50"} ${
+          className={`border-t lg:hidden bg-white ${isLife ? "border-amber-200" : "border-slate-200"} ${
             mobileMenuOpen ? "px-6 py-4 sm:px-8 [animation:menu-in_0.2s_ease-out]" : "h-0 overflow-hidden"
           }`}
         >
@@ -1834,6 +1834,13 @@ export default function Home() {
       </div>
 
       <section id="top" className="relative overflow-hidden px-6 py-20 sm:px-8">
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle, ${displayedMode === "life" ? "rgba(180,120,40,0.18)" : "rgba(100,116,139,0.22)"} 1px, transparent 1px)`,
+            backgroundSize: "28px 28px",
+          }}
+        />
         {displayedMode === "work" ? (
           <>
             <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.14),_transparent_28%)]" />
