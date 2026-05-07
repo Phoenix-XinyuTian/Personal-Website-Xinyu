@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Globe, ChevronDown, Check, X } from "lucide-react";
-import { programmingSkills, cvmlSkills, toolsSkills, type SkillItem } from "./data/skills";
+import { programmingSkills, cvmlSkills, toolsSkills, skillMap, type SkillItem } from "./data/skills";
 import { experiences, type ExperienceItem } from "./data/experience";
 
 type SiteLanguage = "en" | "zh";
@@ -103,7 +103,14 @@ const translations = {
           institution: "National University of Singapore",
           period: "Aug 2025 – Jan 2027",
           location: "Singapore",
+          website: "https://www.nus.edu.sg",
           description: "Research focus on computer vision, semantic segmentation, and AI-driven solutions for industrial imaging systems.",
+          bullets: [
+            "Researching deep learning-based semantic segmentation and anomaly detection for industrial SEM imaging.",
+            "Developing end-to-end CV pipelines with PyTorch for deployment-ready prototypes.",
+            "Collaborating with research groups on AI-driven solutions for advanced manufacturing quality control.",
+          ],
+          skills: ["Computer Vision", "Deep Learning", "Machine Learning", "Python", "PyTorch", "OpenCV"],
         },
         {
           degree: "Bachelor of Science",
@@ -111,7 +118,14 @@ const translations = {
           institution: "Southwest Jiaotong University",
           period: "Sep 2021 – Jun 2025",
           location: "Chengdu, China",
+          website: "https://www.swjtu.edu.cn",
           description: "Focused on applied physics research and practice during undergraduate studies, building a solid theoretical foundation and experimental skills.",
+          bullets: [
+            "Completed coursework in optics, electromagnetism, quantum mechanics, and computational physics.",
+            "Conducted experimental research in laboratory settings, developing strong data analysis and instrumentation skills.",
+            "Graduated with honours, building a foundation for graduate-level research in applied sciences.",
+          ],
+          skills: ["C", "C++", "Python", "MATLAB", "NumPy", "Public Speaking"],
         },
       ],
     },
@@ -282,7 +296,14 @@ const translations = {
           institution: "新加坡国立大学",
           period: "2025年8月 – 2027年1月",
           location: "新加坡",
+          website: "https://www.nus.edu.sg",
           description: "研究方向为计算机视觉、语义分割以及工业成像系统的AI解决方案。",
+          bullets: [
+            "研究基于深度学习的语义分割与异常检测技术，应用于工业SEM成像领域。",
+            "使用 PyTorch 开发端到端计算机视觉流程，构建可部署的原型系统。",
+            "与科研团队合作，推进AI驱动的先进制造质量检测解决方案。",
+          ],
+          skills: ["Python", "PyTorch", "计算机视觉", "语义分割", "深度学习"],
         },
         {
           degree: "理学学士",
@@ -290,7 +311,14 @@ const translations = {
           institution: "西南交通大学",
           period: "2021年9月 – 2025年6月",
           location: "中国，成都",
+          website: "https://www.swjtu.edu.cn",
           description: "本科阶段专注于应用物理学的研究与实践，积累了扎实的理论基础和实验技能。",
+          bullets: [
+            "系统学习光学、电磁学、量子力学及计算物理等核心课程。",
+            "参与实验室科研项目，掌握数据分析与仪器操作技能。",
+            "以优异成绩毕业，为研究生阶段的深度研究奠定坚实基础。",
+          ],
+          skills: ["Physics", "MATLAB", "Python", "LaTeX", "数据分析"],
         },
       ],
     },
@@ -465,7 +493,7 @@ const educationGalleryImages = [
 
 const educationLogoAssets = [
   {
-    src: null,
+    src: "/logos/NUS.jpeg",
     alt: "National University of Singapore logo",
     fallback: "NUS",
     bgClass: "bg-[#F36F21]/12",
@@ -473,14 +501,14 @@ const educationLogoAssets = [
     borderClass: "border-[#F36F21]/25",
   },
   {
-    src: null,
+    src: "/logos/SWJTU.jpeg",
     alt: "Southwest Jiaotong University logo",
     fallback: "SWJTU",
     bgClass: "bg-[#0C78C3]/12",
     textClass: "text-[#0C78C3]",
     borderClass: "border-[#0C78C3]/25",
   },
-] as const;
+];
 
 
 function EntityLogo({
@@ -500,12 +528,16 @@ function EntityLogo({
   borderClass: string;
   className?: string;
 }) {
+  const [imgError, setImgError] = useState(false);
+  const showImg = src && !imgError;
   return (
-    <div className={`flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border ${borderClass} ${bgClass} shadow-sm ${className ?? ""}`}>
-      {src ? (
-        <Image src={src} alt={alt} width={64} height={64} className="h-full w-full object-contain p-2" />
+    <div className={`flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl ${className ?? ""}`}>
+      {showImg ? (
+        <Image src={src} alt={alt} width={64} height={64} className="h-full w-full object-contain" onError={() => setImgError(true)} />
       ) : (
-        <span className={`text-sm font-bold uppercase tracking-[0.12em] ${textClass}`}>{fallback}</span>
+        <div className={`flex h-full w-full items-center justify-center rounded-2xl border ${borderClass} ${bgClass}`}>
+          <span className={`text-sm font-bold uppercase tracking-[0.12em] ${textClass}`}>{fallback}</span>
+        </div>
       )}
     </div>
   );
@@ -644,6 +676,26 @@ function SkillChip({ skill }: { skill: SkillItem }) {
         </svg>
       )}
       <span>{skill.name}</span>
+    </div>
+  );
+}
+
+function SkillTag({ name }: { name: string }) {
+  const skill = skillMap[name];
+  return (
+    <div className="inline-flex cursor-default items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-xs font-medium text-slate-600 transition hover:-translate-y-0.5 hover:shadow-md sm:px-3 sm:py-1">
+      {skill?.path && skill?.hex && (
+        <svg
+          role="img"
+          viewBox="0 0 24 24"
+          aria-label={name}
+          className="h-3 w-3 shrink-0"
+          style={{ fill: `#${skill.hex}` }}
+        >
+          <path d={skill.path} />
+        </svg>
+      )}
+      <span>{name}</span>
     </div>
   );
 }
@@ -1088,7 +1140,7 @@ function EducationSection({ t }: { t: Translation }) {
 
   return (
     <section id="education" className="py-20">
-      <div className="mx-auto max-w-6xl px-6 sm:px-8">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <p className="text-center text-sm uppercase tracking-[0.32em] text-sky-600">{t.education.label}</p>
         <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
           {t.education.heading}
@@ -1097,29 +1149,42 @@ function EducationSection({ t }: { t: Translation }) {
           {t.education.entries.map((entry, index) => (
             <div
               key={entry.institution + entry.period}
-              className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+              className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-8"
             >
-              <div className="absolute left-0 top-0 h-full w-1 bg-sky-500" />
-              <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start lg:gap-8">
-                <div className="flex items-start gap-3 sm:gap-5">
-                  <EntityLogo {...educationLogoAssets[index]} className="h-12 w-12 rounded-xl sm:h-16 sm:w-16 sm:rounded-2xl" />
+              <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_26rem] lg:items-stretch lg:gap-8">
+                <div>
+                  <div className="flex items-center gap-4 border-b border-slate-100 pb-5">
+                    <a href={entry.website} target="_blank" rel="noopener noreferrer" className="shrink-0">
+                      <EntityLogo {...educationLogoAssets[index]} className="h-12 w-12 rounded-xl sm:h-16 sm:w-16 sm:rounded-2xl" />
+                    </a>
 
-                  <div className="min-w-0 flex-1">
-                  <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
-                    <div>
-                      <span className="inline-block rounded-full bg-sky-50 px-2.5 py-1 text-[11px] font-semibold text-sky-700 sm:px-3 sm:text-xs">
-                        {entry.period}
-                      </span>
-                      <h3 className="mt-2 text-sm font-semibold text-slate-950 sm:mt-3 sm:text-xl">
-                        {entry.institution}
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-base font-semibold text-slate-950 sm:text-xl">
+                        <a href={entry.website} target="_blank" rel="noopener noreferrer" className="hover:text-sky-600 transition-colors">{entry.institution}</a>
                       </h3>
-                      <p className="mt-1 text-xs font-medium text-slate-700 sm:text-base">
-                        {entry.degree} · {entry.field}
+                      <p className="mt-0.5 text-sm text-slate-700 sm:text-base">
+                        <a href={entry.website} target="_blank" rel="noopener noreferrer" className="hover:text-sky-600 transition-colors">{entry.degree} · {entry.field}</a>
                       </p>
-                      <p className="mt-1 text-xs text-slate-500 sm:text-sm">{entry.location}</p>
+                      <div className="mt-2 flex flex-wrap items-center gap-2">
+                        <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
+                          {entry.period}
+                        </span>
+                        <span className="text-xs text-slate-500 sm:text-sm">{entry.location}</span>
+                      </div>
                     </div>
                   </div>
-                  <p className="mt-3 text-xs leading-6 text-slate-600 sm:mt-4 sm:text-sm sm:leading-7">{entry.description}</p>
+                  <ul className="mt-5 space-y-3">
+                    {entry.bullets.map((bullet, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-sm leading-7 text-slate-600">
+                        <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-300" />
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-5 flex flex-wrap gap-1.5 border-t border-slate-100 pt-5">
+                    {entry.skills.map((skill) => (
+                      <SkillTag key={skill} name={skill} />
+                    ))}
                   </div>
                 </div>
 
@@ -1295,7 +1360,7 @@ function EducationSection({ t }: { t: Translation }) {
                 </div>
 
                 <div
-                  className="relative hidden lg:block"
+                  className="relative hidden lg:flex lg:flex-col"
                   onMouseEnter={() => {
                     setEducationCarouselPaused((prev) => {
                       const next = [...prev];
@@ -1323,14 +1388,14 @@ function EducationSection({ t }: { t: Translation }) {
                     const previousSrc = carouselState.previous !== null ? (images[carouselState.previous] ?? images[0]) : null;
 
                     return (
-                  <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
+                  <div className="relative flex-1 min-h-0 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
                     {previousSrc && carouselState.animating && (
                       <Image
                         key={`${entry.institution}-previous-${carouselState.previous}`}
                         src={previousSrc}
                         alt={`${entry.institution} desktop gallery image ${(carouselState.previous ?? 0) + 1}`}
                         fill
-                        sizes="288px"
+                        sizes="416px"
                         className="object-cover"
                         style={{
                           animation: carouselState.direction === 1 ? "education-slide-out-left 450ms ease forwards" : "education-slide-out-right 450ms ease forwards",
@@ -1342,7 +1407,7 @@ function EducationSection({ t }: { t: Translation }) {
                       src={currentSrc}
                       alt={`${entry.institution} desktop gallery image ${carouselState.current + 1}`}
                       fill
-                      sizes="288px"
+                      sizes="416px"
                       className="object-cover"
                       style={{
                         animation: carouselState.animating
@@ -1435,23 +1500,28 @@ function ExperienceCard({
 }) {
   const local = item.i18n[lang];
   const hasMedia = item.media.length > 0;
+  const [logoError, setLogoError] = useState(false);
 
   return (
     <article className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-8">
       {/* Header */}
-      <div className="flex items-start gap-4 border-b border-slate-100 pb-5">
-        {item.logoSrc ? (
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-slate-50 sm:h-14 sm:w-14">
-            <img src={item.logoSrc} alt={local.company} className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
-          </div>
+      <div className="flex items-center gap-4 border-b border-slate-100 pb-5">
+        {item.logoSrc && !logoError ? (
+          <a href={item.website} target="_blank" rel="noopener noreferrer" className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl sm:h-14 sm:w-14">
+            <img src={item.logoSrc} alt={local.company} className="h-full w-full object-contain" onError={() => setLogoError(true)} />
+          </a>
         ) : (
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-sky-200 bg-sky-50 sm:h-14 sm:w-14">
             <span className="text-xs font-bold uppercase tracking-[0.1em] text-sky-700 sm:text-sm">{item.fallback}</span>
           </div>
         )}
         <div className="min-w-0">
-          <h3 className="text-base font-semibold text-slate-950 sm:text-xl">{local.title}</h3>
-          <p className="mt-0.5 text-sm text-slate-700 sm:text-base">{local.company}</p>
+          <h3 className="text-base font-semibold text-slate-950 sm:text-xl">
+            <a href={item.website} target="_blank" rel="noopener noreferrer" className="hover:text-sky-600 transition-colors">{local.title}</a>
+          </h3>
+          <p className="mt-0.5 text-sm text-slate-700 sm:text-base">
+            <a href={item.website} target="_blank" rel="noopener noreferrer" className="hover:text-sky-600 transition-colors">{local.company}</a>
+          </p>
           <div className="mt-2 flex flex-wrap items-center gap-2">
             <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
               {item.startDate} – {item.endDate}
@@ -1520,9 +1590,7 @@ function ExperienceCard({
       {item.techStack.length > 0 && (
         <div className="mt-5 flex flex-wrap gap-1.5 border-t border-slate-100 pt-5">
           {item.techStack.map((tag) => (
-            <span key={tag} className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-xs font-medium text-slate-600">
-              {tag}
-            </span>
+            <SkillTag key={tag} name={tag} />
           ))}
         </div>
       )}
