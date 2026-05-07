@@ -24,7 +24,7 @@ export const en = {
   },
   lifeHero: {
     topLabel: "Xinyu Tian | Phoenix",
-    heading: "This is for you to know what I like",
+    heading: "This is for you to know my life",
     description:
       "This mode showcases my self-media direction, travel documentation, and personal reflections while keeping one consistent personal brand.",
     explore: "Explore Media",
@@ -173,6 +173,13 @@ export const en = {
     switchToEn: "English",
   },
   devBanner: "This website is still under development",
+  footer: {
+    tagline: "Creator of Life, Code, and Stories",
+    roles: "NUS MSc · Computer Vision · Content Creator · World Travel",
+    collaborationLabel: "Collaboration",
+    email: "xinyu.tian.phoenix@gmail.com",
+    copyright: "© 2026 Xinyu Tian (Phoenix) · Built with Next.js & Vercel",
+  },
 };
 
 export type Translation = typeof en;

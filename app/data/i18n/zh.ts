@@ -26,7 +26,7 @@ export const zh: Translation = {
   },
   lifeHero: {
     topLabel: "Xinyu Tian | Phoenix",
-    heading: "你将知道我喜欢什么",
+    heading: "你将了解我的生活",
     description:
       "该模式展示我的自媒体方向、旅行内容和个人反思，同时保持统一的个人品牌风格。",
     explore: "探索媒体",
@@ -167,4 +167,11 @@ export const zh: Translation = {
     switchToEn: "English",
   },
   devBanner: "本网站仍在开发中",
+  footer: {
+    tagline: "Creator of Life, Code, and Stories",
+    roles: "NUS硕士 · 计算机视觉 · 内容创作者 · 环球旅行",
+    collaborationLabel: "商务合作",
+    email: "xinyu.tian.phoenix@gmail.com",
+    copyright: "© 2026 Xinyu Tian (Phoenix) · Built with Next.js & Vercel",
+  },
 };

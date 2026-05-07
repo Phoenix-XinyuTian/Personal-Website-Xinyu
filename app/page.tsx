@@ -14,6 +14,7 @@ import EducationSection from "./components/work/EducationSection";
 import MediaSection from "./components/life/MediaSection";
 import TravelSection from "./components/life/TravelSection";
 import LifeSection from "./components/life/LifeSection";
+import Footer from "./components/Footer";
 
 const translations: Record<SiteLanguage, Translation> = { en, zh };
 
@@ -128,6 +129,8 @@ export default function Home() {
 
         <ContactSection t={t} mode={displayedMode} />
       </div>
+
+      <Footer t={t} />
     </main>
   );
 }
