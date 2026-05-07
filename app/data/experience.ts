@@ -18,6 +18,7 @@ export interface ExperienceItem {
   id: string;
   logoSrc?: string;
   fallback: string;
+  website?: string;
   startDate: string;
   endDate: string;
   techStack: string[];
@@ -28,11 +29,12 @@ export interface ExperienceItem {
 export const experiences: ExperienceItem[] = [
   {
     id: "astar-2024",
-    logoSrc: undefined,
+    logoSrc: "/logos/ASTAR.jpeg",
     fallback: "A*",
+    website: "https://www.a-star.edu.sg",
     startDate: "Jun 2024",
     endDate: "Aug 2024",
-    techStack: ["Python", "PyTorch", "OpenCV", "CVAT", "ResNet", "UNet"],
+    techStack: ["Python", "PyTorch", "OpenCV", "Docker", "CVAT", "ResNet", "UNet"],
     media: [],
     i18n: {
       en: {

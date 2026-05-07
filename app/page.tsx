@@ -2,7 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Globe, ChevronDown, Check, X } from "lucide-react";
+import { Orbitron } from "next/font/google";
+import { Globe, ChevronDown, Check, X, Flame } from "lucide-react";
+
+const orbitron = Orbitron({ subsets: ["latin"], weight: ["700"] });
 import { programmingSkills, cvmlSkills, toolsSkills, skillMap, type SkillItem } from "./data/skills";
 import { experiences, type ExperienceItem } from "./data/experience";
 
@@ -11,7 +14,7 @@ type SiteMode = "work" | "life";
 
 const LOCALES: { code: SiteLanguage; label: string; short: string }[] = [
   { code: "en", label: "English", short: "EN" },
-  { code: "zh", label: "简体中文", short: "ZH" },
+  { code: "zh", label: "简体中文", short: "简中" },
 ];
 
 const translations = {
@@ -143,8 +146,10 @@ const translations = {
         languages: "Languages",
       },
       languages: [
-        { name: "Mandarin", level: "Native" },
-        { name: "English", level: "Professional" },
+        { name: "Mandarin", level: "Native", flag: "🇨🇳" },
+        { name: "English", level: "Professional", flag: "🇬🇧" },
+        { name: "Cantonese", level: "Beginner", flag: "🇭🇰" },
+        { name: "Japanese", level: "Beginner", flag: "🇯🇵" },
       ],
     },
     gallery: {
@@ -303,7 +308,7 @@ const translations = {
             "使用 PyTorch 开发端到端计算机视觉流程，构建可部署的原型系统。",
             "与科研团队合作，推进AI驱动的先进制造质量检测解决方案。",
           ],
-          skills: ["Python", "PyTorch", "计算机视觉", "语义分割", "深度学习"],
+          skills: ["计算机视觉", "深度学习", "机器学习", "Python", "PyTorch", "OpenCV"],
         },
         {
           degree: "理学学士",
@@ -318,7 +323,7 @@ const translations = {
             "参与实验室科研项目，掌握数据分析与仪器操作技能。",
             "以优异成绩毕业，为研究生阶段的深度研究奠定坚实基础。",
           ],
-          skills: ["Physics", "MATLAB", "Python", "LaTeX", "数据分析"],
+          skills: ["C", "C++", "Python", "MATLAB", "NumPy", "公共演讲"],
         },
       ],
     },
@@ -336,8 +341,10 @@ const translations = {
         languages: "语言",
       },
       languages: [
-        { name: "普通话", level: "母语" },
-        { name: "英语", level: "专业" },
+        { name: "普通话", level: "母语", flag: "🇨🇳" },
+        { name: "英语", level: "专业", flag: "🇬🇧" },
+        { name: "粤语", level: "初学者", flag: "🇭🇰" },
+        { name: "日语", level: "初学者", flag: "🇯🇵" },
       ],
     },
     gallery: {
@@ -737,8 +744,9 @@ function SkillsSection({ t }: { t: Translation }) {
               {t.skills.languages.map((lang) => (
                 <div
                   key={lang.name}
-                  className="inline-flex cursor-default items-center rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm transition hover:scale-105 hover:shadow-md sm:px-3 sm:py-1.5 sm:text-sm"
+                  className="inline-flex cursor-default items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm transition hover:scale-105 hover:shadow-md sm:px-3 sm:py-1.5 sm:text-sm"
                 >
+                  <span className="text-base leading-none">{lang.flag}</span>
                   {lang.name} · {lang.level}
                 </div>
               ))}
@@ -1535,18 +1543,12 @@ function ExperienceCard({
       <div className={`mt-5 ${hasMedia ? "grid gap-6 lg:grid-cols-[3fr_2fr]" : ""}`}>
         {/* Bullets */}
         <ul className="space-y-3">
-          {local.bullets.map((bullet, i) =>
-            bullet.highlight ? (
-              <li key={i} className="border-l-2 border-sky-400 pl-3 text-sm font-medium leading-7 text-slate-800">
-                {bullet.text}
-              </li>
-            ) : (
-              <li key={i} className="flex items-start gap-2.5 text-sm leading-7 text-slate-600">
-                <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-300" />
-                {bullet.text}
-              </li>
-            )
-          )}
+          {local.bullets.map((bullet, i) => (
+            <li key={i} className="flex items-start gap-2.5 text-sm leading-7 text-slate-950">
+              <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-300" />
+              {bullet.text}
+            </li>
+          ))}
         </ul>
 
         {/* Media */}
@@ -1679,7 +1681,7 @@ function ContactSection({ t, mode }: { t: Translation; mode: SiteMode }) {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-100"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700 transition hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-100 hover:shadow-md"
                   >
                     {item.icon}
                     <span>{item.name}</span>
@@ -1690,7 +1692,7 @@ function ContactSection({ t, mode }: { t: Translation; mode: SiteMode }) {
 
             <a
               href="#top"
-              className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
+              className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-slate-100 hover:shadow-md"
             >
               {t.contact.back}
             </a>
@@ -1705,6 +1707,10 @@ export default function Home() {
   const [language, setLanguage] = useState<SiteLanguage>("en");
   const [mode, setMode] = useState<SiteMode>("work");
   const [displayedMode, setDisplayedMode] = useState<SiteMode>("work");
+
+  useEffect(() => {
+    if (navigator.language.startsWith("zh")) setLanguage("zh");
+  }, []);
   const [contentVisible, setContentVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const transitionRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -1773,8 +1779,23 @@ export default function Home() {
       <header className={`relative sticky top-0 z-30 border-b backdrop-blur transition-colors duration-500 ${isLife ? "border-slate-200/50 bg-[#f5f7fa]/70" : "border-slate-200/50 bg-[#f5f7fa]/70"}`}>
         {/* Desktop Header (lg+) */}
         <div className="hidden items-center px-[clamp(1.5rem,4vw,4rem)] py-4 lg:grid lg:grid-cols-[1fr_auto_1fr]">
-          <a href="#top" className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-900 lg:justify-self-start">
-            Xinyu Tian | Phoenix
+          <a
+            href="#top"
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            className={`${orbitron.className} inline-flex items-center gap-1.5 text-sm uppercase tracking-[0.18em] lg:justify-self-start`}
+          >
+            <span style={{
+              backgroundImage: "linear-gradient(to right, #38bdf8 0%, #818cf8 26%, #fbbf24 55%, #f97316 78%, #ef4444 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>
+              Xinyu Tian | Phoenix
+            </span>
+            <Flame
+              className="h-3.5 w-3.5 shrink-0"
+              style={{ color: "#f97316", filter: "drop-shadow(0 0 5px rgba(249,115,22,0.75))" }}
+            />
           </a>
 
           {/* Mode toggle with sliding indicator */}
@@ -1823,8 +1844,23 @@ export default function Home() {
         {/* Mobile Header (sm and below) */}
         <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-6 py-4 sm:px-8 lg:hidden">
           {/* Mobile Brand - Shortened */}
-          <a href="#top" className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-900">
-            {mode === "work" ? "XINYU" : "PHOENIX"}
+          <a
+            href="#top"
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            className={`${orbitron.className} inline-flex items-center gap-1 justify-self-start text-sm uppercase tracking-[0.18em]`}
+          >
+            <span style={{
+              backgroundImage: "linear-gradient(to right, #38bdf8 0%, #818cf8 26%, #fbbf24 55%, #f97316 78%, #ef4444 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>
+              {mode === "work" ? "XINYU" : "PHOENIX"}
+            </span>
+            <Flame
+              className="h-3 w-3 shrink-0"
+              style={{ color: "#f97316", filter: "drop-shadow(0 0 4px rgba(249,115,22,0.7))" }}
+            />
           </a>
 
           {/* Mode toggle - Compact */}

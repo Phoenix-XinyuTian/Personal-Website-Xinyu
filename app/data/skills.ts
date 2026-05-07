@@ -14,6 +14,7 @@ import {
   siLinux,
   siJupyter,
   siAnaconda,
+  siLatex,
 } from "simple-icons";
 
 export type SkillItem = { name: string; hex?: string; path?: string };
@@ -35,11 +36,31 @@ export const cvmlSkills: SkillItem[] = [
 ];
 
 export const toolsSkills: SkillItem[] = [
-  { name: "Git", hex: siGit.hex, path: siGit.path },
-  { name: "GitHub", hex: siGithub.hex, path: siGithub.path },
-  { name: "Docker", hex: siDocker.hex, path: siDocker.path },
-  { name: "Linux", hex: siLinux.hex, path: siLinux.path },
+  { name: "Git",     hex: siGit.hex,     path: siGit.path },
+  { name: "GitHub",  hex: siGithub.hex,  path: siGithub.path },
+  { name: "Docker",  hex: siDocker.hex,  path: siDocker.path },
+  { name: "Linux",   hex: siLinux.hex,   path: siLinux.path },
   { name: "Jupyter", hex: siJupyter.hex, path: siJupyter.path },
-  { name: "Anaconda", hex: siAnaconda.hex, path: siAnaconda.path },
+  { name: "Anaconda",hex: siAnaconda.hex,path: siAnaconda.path },
+  { name: "LaTeX",   hex: siLatex.hex,   path: siLatex.path },
   { name: "CVAT" },
 ];
+
+export const skillMap: Record<string, SkillItem> = {
+  Python:     { name: "Python",     hex: siPython.hex,     path: siPython.path },
+  "C":        { name: "C",          hex: siC.hex,          path: siC.path },
+  "C++":      { name: "C++",        hex: siCplusplus.hex,  path: siCplusplus.path },
+  JavaScript: { name: "JavaScript", hex: siJavascript.hex, path: siJavascript.path },
+  TypeScript: { name: "TypeScript", hex: siTypescript.hex, path: siTypescript.path },
+  PyTorch:    { name: "PyTorch",    hex: siPytorch.hex,    path: siPytorch.path },
+  TensorFlow: { name: "TensorFlow", hex: siTensorflow.hex, path: siTensorflow.path },
+  OpenCV:     { name: "OpenCV",     hex: siOpencv.hex,     path: siOpencv.path },
+  NumPy:      { name: "NumPy",      hex: siNumpy.hex,      path: siNumpy.path },
+  Git:        { name: "Git",        hex: siGit.hex,        path: siGit.path },
+  GitHub:     { name: "GitHub",     hex: siGithub.hex,     path: siGithub.path },
+  Docker:     { name: "Docker",     hex: siDocker.hex,     path: siDocker.path },
+  Linux:      { name: "Linux",      hex: siLinux.hex,      path: siLinux.path },
+  Jupyter:    { name: "Jupyter",    hex: siJupyter.hex,    path: siJupyter.path },
+  Anaconda:   { name: "Anaconda",   hex: siAnaconda.hex,   path: siAnaconda.path },
+  LaTeX:      { name: "LaTeX",      hex: siLatex.hex,      path: siLatex.path },
+};
