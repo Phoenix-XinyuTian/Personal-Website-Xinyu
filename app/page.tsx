@@ -512,10 +512,10 @@ function AboutSection({
   mode: SiteMode;
 }) {
   return (
-    <section id="about" className={`border-t py-20 ${mode === "life" ? "border-amber-200/50" : "border-slate-200/80"}`}>
+    <section id="about" className="py-20">
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
         <div className="mb-10">
-          <p className={`text-center text-sm uppercase tracking-[0.32em] ${mode === "life" ? "text-amber-600" : "text-sky-600"}`}>{t.about.label}</p>
+          <p className={`text-center text-sm uppercase tracking-[0.32em] ${mode === "life" ? "text-teal-600" : "text-sky-600"}`}>{t.about.label}</p>
           <h2 className="mt-4 text-center text-balance text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.about.heading}</h2>
           <p className="mt-6 text-pretty text-base leading-8 text-slate-600">{t.about.body}</p>
         </div>
@@ -647,7 +647,7 @@ function SkillsSection({ t }: { t: Translation }) {
   ] as const;
 
   return (
-    <section id="skills" className="border-t border-slate-200/80 px-6 py-20 sm:px-8">
+    <section id="skills" className="px-6 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <p className="text-center text-sm uppercase tracking-[0.32em] text-sky-600">{t.skills.label}</p>
         <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
@@ -741,34 +741,31 @@ function LifeSections({ t }: { t: Translation }) {
     <>
       <section id="media" className="px-6 py-20 sm:px-8">
         <div className="mx-auto max-w-6xl">
-          <p className="text-center text-sm uppercase tracking-[0.32em] text-amber-600">{t.media.label}</p>
+          <p className="text-center text-sm uppercase tracking-[0.32em] text-teal-600">{t.media.label}</p>
           <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.media.heading}</h2>
           <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">{t.media.description}</p>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1.2fr]">
             <div className="grid gap-4">
               {t.media.matrix.map((item) => (
-                <div key={item.name} className="rounded-3xl border border-slate-200 bg-white px-6 py-5 shadow-sm">
+                <div key={item.name} className="rounded-3xl border border-teal-100 bg-white px-6 py-5 shadow-sm">
                   <p className="text-base font-semibold text-slate-950">{item.name}</p>
                   <p className="mt-2 text-sm text-slate-600">{item.role}</p>
                 </div>
               ))}
             </div>
 
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-600">{t.media.featuredLabel}</p>
-              <div className="mt-4 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 p-6 text-white">
+            <div className="rounded-3xl border border-teal-100 bg-white p-6 shadow-sm">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-teal-600">{t.media.featuredLabel}</p>
+              <div className="mt-4 rounded-2xl bg-gradient-to-br from-teal-900 via-teal-800 to-cyan-700 p-6 text-white">
                 <p className="text-xl font-semibold">{t.media.featuredMain.title}</p>
-                <p className="mt-3 text-sm text-slate-200">{t.media.featuredMain.description}</p>
+                <p className="mt-3 text-sm text-teal-100">{t.media.featuredMain.description}</p>
               </div>
-
-              <p className="mt-6 text-sm font-semibold uppercase tracking-[0.24em] text-amber-600">{t.media.clipsLabel}</p>
+              <p className="mt-6 text-sm font-semibold uppercase tracking-[0.24em] text-teal-600">{t.media.clipsLabel}</p>
               <div className="mt-4 space-y-3">
                 {t.media.clips.map((clip, idx) => (
-                  <div key={clip} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
-                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-red-600 text-xs font-bold text-white">
-                      {idx + 1}
-                    </span>
+                  <div key={clip} className="flex items-center gap-3 rounded-xl border border-teal-100 bg-teal-50/60 px-4 py-3">
+                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-teal-600 text-xs font-bold text-white">{idx + 1}</span>
                     <p className="text-sm text-slate-700">{clip}</p>
                   </div>
                 ))}
@@ -778,20 +775,17 @@ function LifeSections({ t }: { t: Translation }) {
         </div>
       </section>
 
-      <section id="travel" className="border-t border-slate-200/80 py-20">
+      <section id="travel" className="py-20">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
-          <p className="text-center text-sm uppercase tracking-[0.32em] text-amber-600">{t.travel.label}</p>
+          <p className="text-center text-sm uppercase tracking-[0.32em] text-teal-600">{t.travel.label}</p>
           <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.travel.heading}</h2>
           <p className="mt-5 text-base leading-8 text-slate-600">{t.travel.description}</p>
 
           <div className="mt-8 overflow-x-auto pb-2">
             <div className="flex w-max gap-5 pr-6">
               {t.travel.cards.map((card) => (
-                <div
-                  key={card.title}
-                  className="w-[270px] shrink-0 snap-start rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:w-[320px]"
-                >
-                  <div className="h-44 rounded-2xl bg-gradient-to-br from-sky-200 via-cyan-100 to-amber-100" />
+                <div key={card.title} className="w-[270px] shrink-0 snap-start rounded-3xl border border-teal-100 bg-white p-5 shadow-sm sm:w-[320px]">
+                  <div className="h-44 rounded-2xl bg-gradient-to-br from-teal-200 via-cyan-100 to-sky-200" />
                   <p className="mt-4 text-lg font-semibold text-slate-950">{card.title}</p>
                   <p className="mt-2 text-sm text-slate-600">{card.subtitle}</p>
                 </div>
@@ -803,11 +797,11 @@ function LifeSections({ t }: { t: Translation }) {
 
       <section id="life" className="py-20 px-6 sm:px-8">
         <div className="mx-auto max-w-6xl">
-          <p className="text-center text-sm uppercase tracking-[0.32em] text-amber-600">{t.gallery.label}</p>
+          <p className="text-center text-sm uppercase tracking-[0.32em] text-teal-600">{t.gallery.label}</p>
           <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.gallery.heading}</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {t.lifeHighlights.map((item) => (
-              <div key={item} className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+              <div key={item} className="rounded-[2rem] border border-teal-100 bg-white p-8 shadow-sm">
                 <p className="text-base font-semibold text-slate-950">{item}</p>
                 <p className="mt-4 text-sm leading-7 text-slate-600">{t.gallery.description}</p>
               </div>
@@ -1084,7 +1078,7 @@ function EducationSection({ t }: { t: Translation }) {
   };
 
   return (
-    <section id="education" className="border-t border-slate-200/80 py-20">
+    <section id="education" className="py-20">
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
         <p className="text-center text-sm uppercase tracking-[0.32em] text-sky-600">{t.education.label}</p>
         <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
@@ -1586,7 +1580,7 @@ function ContactSection({ t, mode }: { t: Translation; mode: SiteMode }) {
       <div className="mx-auto max-w-6xl rounded-[2rem] border border-slate-200 bg-white p-10 shadow-xl">
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
           <div>
-            <p className={`text-center text-sm uppercase tracking-[0.32em] ${mode === "life" ? "text-amber-600" : "text-sky-600"}`}>{t.contact.label}</p>
+            <p className={`text-center text-sm uppercase tracking-[0.32em] ${mode === "life" ? "text-teal-600" : "text-sky-600"}`}>{t.contact.label}</p>
             <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.contact.heading}</h2>
             <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600">{t.contact.description}</p>
           </div>
@@ -1594,7 +1588,7 @@ function ContactSection({ t, mode }: { t: Translation; mode: SiteMode }) {
           <div className="space-y-6 text-sm text-slate-600">
             <div>
               <p className="mb-4 font-semibold text-slate-950">{t.contact.emailLabel}</p>
-              <a href="mailto:xinyu.tian.phoenix@gmail.com" className={mode === "life" ? "text-amber-600 hover:text-amber-800" : "text-sky-600 hover:text-sky-800"}>
+              <a href="mailto:xinyu.tian.phoenix@gmail.com" className={mode === "life" ? "text-teal-600 hover:text-teal-800" : "text-sky-600 hover:text-sky-800"}>
                 {t.contactCard.email}
               </a>
             </div>
@@ -1683,8 +1677,32 @@ export default function Home() {
   const isLife = mode === "life";
 
   return (
-    <main className={`min-h-screen text-slate-950 transition-colors duration-500 selection:bg-sky-300 selection:text-slate-950 ${isLife ? "bg-[#fdf9f2]" : "bg-[#f5f7fa]"}`}>
-      <header className={`sticky top-0 z-30 border-b backdrop-blur transition-colors duration-500 ${isLife ? "border-amber-200/60 bg-[#fdf9f2]/95" : "border-slate-200/80 bg-[#f5f7fa]/95"}`}>
+    <main
+      className="min-h-screen text-slate-950 transition-colors duration-500 selection:bg-sky-300 selection:text-slate-950"
+      style={{
+        backgroundColor: isLife ? "#f4fefb" : "#f5f7fa",
+        backgroundImage: isLife
+          ? [
+              "radial-gradient(ellipse at 5% 8%,  rgba(20,184,166,0.15)  0%, transparent 36%)",
+              "radial-gradient(ellipse at 92% 6%,  rgba(6,182,212,0.16)  0%, transparent 32%)",
+              "radial-gradient(ellipse at 8%  55%, rgba(20,184,166,0.10)  0%, transparent 36%)",
+              "radial-gradient(ellipse at 88% 62%, rgba(99,102,241,0.08)  0%, transparent 32%)",
+              "radial-gradient(ellipse at 40% 90%, rgba(6,182,212,0.12)   0%, transparent 36%)",
+              "radial-gradient(circle, rgba(20,184,166,0.16) 1px, transparent 1px)",
+            ].join(", ")
+          : [
+              "radial-gradient(ellipse at 5% 8%,  rgba(56,189,248,0.18)  0%, transparent 36%)",
+              "radial-gradient(ellipse at 92% 6%,  rgba(132,204,22,0.20)  0%, transparent 32%)",
+              "radial-gradient(ellipse at 8%  55%, rgba(56,189,248,0.12)  0%, transparent 36%)",
+              "radial-gradient(ellipse at 88% 62%, rgba(248,113,113,0.10) 0%, transparent 32%)",
+              "radial-gradient(ellipse at 40% 90%, rgba(132,204,22,0.14)  0%, transparent 36%)",
+              "radial-gradient(circle, rgba(100,116,139,0.22) 1px, transparent 1px)",
+            ].join(", "),
+        backgroundSize: "100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 28px 28px",
+        backgroundAttachment: "fixed, fixed, fixed, fixed, fixed, scroll",
+      }}
+    >
+      <header className={`sticky top-0 z-30 border-b backdrop-blur transition-colors duration-500 ${isLife ? "border-teal-200/40 bg-[#f4fefb]/70" : "border-slate-200/50 bg-[#f5f7fa]/70"}`}>
         {/* Desktop Header (lg+) */}
         <div className="hidden items-center px-[clamp(1.5rem,4vw,4rem)] py-4 lg:grid lg:grid-cols-[1fr_auto_1fr]">
           <a href="#top" className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-900 lg:justify-self-start">
@@ -1696,7 +1714,7 @@ export default function Home() {
             <span
               aria-hidden="true"
               className={`pointer-events-none absolute inset-y-1 rounded-full shadow-sm transition-all duration-300 ease-in-out ${
-                mode === "life" ? "bg-amber-300" : "bg-sky-400"
+                mode === "life" ? "bg-teal-400" : "bg-sky-400"
               }`}
               style={{
                 width: "calc(50% - 4px)",
@@ -1746,7 +1764,7 @@ export default function Home() {
             <span
               aria-hidden="true"
               className={`pointer-events-none absolute inset-y-1 rounded-full shadow-sm transition-all duration-300 ease-in-out ${
-                mode === "life" ? "bg-amber-300" : "bg-sky-400"
+                mode === "life" ? "bg-teal-400" : "bg-sky-400"
               }`}
               style={{
                 width: "calc(50% - 4px)",
@@ -1782,7 +1800,7 @@ export default function Home() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`inline-flex h-9 w-9 items-center justify-center rounded-full transition ${
                 mobileMenuOpen
-                  ? isLife ? "bg-amber-300" : "bg-sky-400"
+                  ? isLife ? "bg-teal-400" : "bg-sky-400"
                   : "border border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-100"
               }`}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -1805,7 +1823,7 @@ export default function Home() {
 
         {/* Mobile Menu Drawer */}
         <div
-          className={`border-t lg:hidden bg-white ${isLife ? "border-amber-200" : "border-slate-200"} ${
+          className={`border-t lg:hidden bg-white ${isLife ? "border-teal-200" : "border-slate-200"} ${
             mobileMenuOpen ? "px-6 py-4 sm:px-8 [animation:menu-in_0.2s_ease-out]" : "h-0 overflow-hidden"
           }`}
         >
@@ -1816,7 +1834,7 @@ export default function Home() {
                 href={link.href}
                 className={`block rounded-lg px-4 py-2 text-sm font-medium transition ${
                   isLife
-                    ? "text-amber-900 hover:bg-amber-100"
+                    ? "text-teal-900 hover:bg-teal-50"
                     : "text-slate-700 hover:bg-white"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
@@ -1833,29 +1851,9 @@ export default function Home() {
         🚧 {t.devBanner}
       </div>
 
-      <section id="top" className="relative overflow-hidden px-6 py-20 sm:px-8">
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle, ${displayedMode === "life" ? "rgba(180,120,40,0.18)" : "rgba(100,116,139,0.22)"} 1px, transparent 1px)`,
-            backgroundSize: "28px 28px",
-          }}
-        />
-        {displayedMode === "work" ? (
-          <>
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.14),_transparent_28%)]" />
-            <div className="pointer-events-none absolute right-[-6rem] top-20 h-72 w-72 rounded-full bg-[radial-gradient(circle,_rgba(132,204,22,0.18),transparent_44%)] opacity-90" />
-            <div className="pointer-events-none absolute bottom-0 left-1/4 h-72 w-72 rounded-full bg-[radial-gradient(circle,_rgba(248,113,113,0.08),transparent_48%)]" />
-          </>
-        ) : (
-          <>
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[radial-gradient(circle_at_top_left,_rgba(251,191,36,0.18),_transparent_28%)]" />
-            <div className="pointer-events-none absolute right-[-6rem] top-20 h-72 w-72 rounded-full bg-[radial-gradient(circle,_rgba(251,146,60,0.15),transparent_44%)] opacity-90" />
-            <div className="pointer-events-none absolute bottom-0 left-1/4 h-72 w-72 rounded-full bg-[radial-gradient(circle,_rgba(251,191,36,0.10),transparent_48%)]" />
-          </>
-        )}
+      <section id="top" className="px-6 py-20 sm:px-8">
         <div className="mx-auto max-w-6xl">
-          <p className={`text-center text-sm uppercase tracking-[0.32em] ${displayedMode === "life" ? "text-amber-600" : "text-sky-600"}`}>{heroContent.topLabel}</p>
+          <p className={`text-center text-sm uppercase tracking-[0.32em] ${displayedMode === "life" ? "text-teal-600" : "text-sky-600"}`}>{heroContent.topLabel}</p>
           <h1 className="mt-6 text-center text-4xl font-semibold tracking-tight text-slate-950 sm:text-6xl">{heroContent.heading}</h1>
         </div>
       </section>
