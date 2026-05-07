@@ -129,7 +129,7 @@ const translations = {
         languages: "Languages",
       },
       languages: [
-        { name: "Mandarin Chinese", level: "Native" },
+        { name: "Mandarin", level: "Native" },
         { name: "English", level: "Professional" },
       ],
     },
@@ -521,7 +521,7 @@ function AboutSection({
   mode: SiteMode;
 }) {
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="pt-8 pb-20">
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
         <div className="mb-10">
           <p className={`text-center text-sm uppercase tracking-[0.32em] ${mode === "life" ? "text-teal-600" : "text-sky-600"}`}>{t.about.label}</p>
@@ -584,12 +584,12 @@ function LanguageDropdown({
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 font-semibold text-slate-950 transition hover:border-slate-300 hover:bg-slate-100"
+        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 sm:px-1 font-semibold text-slate-950 transition hover:border-slate-300 hover:bg-slate-100"
       >
-        <Globe className="h-[14px] w-[14px] shrink-0 text-slate-500" strokeWidth={1.8} />
-        <span>{current.short}</span>
+        <Globe className="h-4 w-4 shrink-0 text-slate-500" strokeWidth={1.8} />
+        <span className="hidden sm:inline text-[13px] font-normal text-slate-500">{current.short}</span>
         <ChevronDown
-          className={`h-3 w-3 shrink-0 text-slate-400 transition-transform duration-150 ${open ? "rotate-180" : ""}`}
+          className={`hidden sm:block h-3 w-3 shrink-0 text-slate-400 transition-transform duration-150 ${open ? "rotate-180" : ""}`}
           strokeWidth={2.5}
         />
       </button>
@@ -1689,29 +1689,20 @@ export default function Home() {
     <main
       className="min-h-screen text-slate-950 transition-colors duration-500 selection:bg-sky-300 selection:text-slate-950"
       style={{
-        backgroundColor: isLife ? "#f4fefb" : "#f5f7fa",
-        backgroundImage: isLife
-          ? [
-              "radial-gradient(ellipse at 5% 8%,  rgba(20,184,166,0.15)  0%, transparent 36%)",
-              "radial-gradient(ellipse at 92% 6%,  rgba(6,182,212,0.16)  0%, transparent 32%)",
-              "radial-gradient(ellipse at 8%  55%, rgba(20,184,166,0.10)  0%, transparent 36%)",
-              "radial-gradient(ellipse at 88% 62%, rgba(99,102,241,0.08)  0%, transparent 32%)",
-              "radial-gradient(ellipse at 40% 90%, rgba(6,182,212,0.12)   0%, transparent 36%)",
-              "radial-gradient(circle, rgba(20,184,166,0.16) 1px, transparent 1px)",
-            ].join(", ")
-          : [
-              "radial-gradient(ellipse at 5% 8%,  rgba(56,189,248,0.18)  0%, transparent 36%)",
-              "radial-gradient(ellipse at 92% 6%,  rgba(132,204,22,0.20)  0%, transparent 32%)",
-              "radial-gradient(ellipse at 8%  55%, rgba(56,189,248,0.12)  0%, transparent 36%)",
-              "radial-gradient(ellipse at 88% 62%, rgba(248,113,113,0.10) 0%, transparent 32%)",
-              "radial-gradient(ellipse at 40% 90%, rgba(132,204,22,0.14)  0%, transparent 36%)",
-              "radial-gradient(circle, rgba(100,116,139,0.22) 1px, transparent 1px)",
-            ].join(", "),
+        backgroundColor: "#f5f7fa",
+        backgroundImage: [
+            "radial-gradient(ellipse at 5% 8%,  rgba(56,189,248,0.18)  0%, transparent 36%)",
+            "radial-gradient(ellipse at 92% 6%,  rgba(132,204,22,0.20)  0%, transparent 32%)",
+            "radial-gradient(ellipse at 8%  55%, rgba(56,189,248,0.12)  0%, transparent 36%)",
+            "radial-gradient(ellipse at 88% 62%, rgba(248,113,113,0.10) 0%, transparent 32%)",
+            "radial-gradient(ellipse at 40% 90%, rgba(132,204,22,0.14)  0%, transparent 36%)",
+            "radial-gradient(circle, rgba(100,116,139,0.22) 1px, transparent 1px)",
+          ].join(", "),
         backgroundSize: "100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 28px 28px",
         backgroundAttachment: "fixed, fixed, fixed, fixed, fixed, scroll",
       }}
     >
-      <header className={`sticky top-0 z-30 border-b backdrop-blur transition-colors duration-500 ${isLife ? "border-teal-200/40 bg-[#f4fefb]/70" : "border-slate-200/50 bg-[#f5f7fa]/70"}`}>
+      <header className={`relative sticky top-0 z-30 border-b backdrop-blur transition-colors duration-500 ${isLife ? "border-slate-200/50 bg-[#f5f7fa]/70" : "border-slate-200/50 bg-[#f5f7fa]/70"}`}>
         {/* Desktop Header (lg+) */}
         <div className="hidden items-center px-[clamp(1.5rem,4vw,4rem)] py-4 lg:grid lg:grid-cols-[1fr_auto_1fr]">
           <a href="#top" className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-900 lg:justify-self-start">
@@ -1831,28 +1822,22 @@ export default function Home() {
         </div>
 
         {/* Mobile Menu Drawer */}
-        <div
-          className={`border-t lg:hidden bg-white ${isLife ? "border-teal-200" : "border-slate-200"} ${
-            mobileMenuOpen ? "px-6 py-4 sm:px-8 [animation:menu-in_0.2s_ease-out]" : "h-0 overflow-hidden"
-          }`}
-        >
-          <nav className="space-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`block rounded-lg px-4 py-2 text-sm font-medium transition ${
-                  isLife
-                    ? "text-teal-900 hover:bg-teal-50"
-                    : "text-slate-700 hover:bg-white"
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-        </div>
+        {mobileMenuOpen && (
+          <div className="absolute right-4 top-full z-50 w-44 rounded-2xl border border-slate-200/50 bg-[#f5f7fa]/70 backdrop-blur shadow-lg py-2 [animation:menu-in_0.2s_ease-out] lg:hidden">
+            <nav className="space-y-0.5 px-2">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-white/60"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        )}
       </header>
 
       <div className={`transition-opacity duration-300 ${contentVisible ? "opacity-100" : "opacity-0"}`}>
@@ -1860,10 +1845,10 @@ export default function Home() {
         🚧 {t.devBanner}
       </div>
 
-      <section id="top" className="px-6 py-20 sm:px-8">
+      <section id="top" className="px-6 pt-6 pb-4 sm:px-8 sm:pt-8 sm:pb-6">
         <div className="mx-auto max-w-6xl">
           <p className={`text-center text-sm uppercase tracking-[0.32em] ${displayedMode === "life" ? "text-teal-600" : "text-sky-600"}`}>{heroContent.topLabel}</p>
-          <h1 className="mt-6 text-center text-4xl font-semibold tracking-tight text-slate-950 sm:text-6xl">{heroContent.heading}</h1>
+          <h1 className="mt-3 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{heroContent.heading}</h1>
         </div>
       </section>
 
