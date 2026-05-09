@@ -16,7 +16,7 @@ export const en = {
   },
   hero: {
     topLabel: "Xinyu Tian | Phoenix",
-    heading: "This is for you to know who I am",
+    heading: "This Is for You to Know Who I Am",
     description:
       "NUS Master's student working on computer vision, AI research, and content creation. I also create content that reflects study life, travel, and personal growth in Singapore.",
     explore: "Explore Projects",
@@ -24,7 +24,7 @@ export const en = {
   },
   lifeHero: {
     topLabel: "Xinyu Tian | Phoenix",
-    heading: "This is for you to know my life",
+    heading: "This Is for You to Know My Life",
     description:
       "This mode showcases my self-media direction, travel documentation, and personal reflections while keeping one consistent personal brand.",
     explore: "Explore Media",
@@ -32,7 +32,7 @@ export const en = {
   },
   about: {
     label: "About Me",
-    heading: "NUS Master's student exploring computer vision, AI, and digital storytelling",
+    heading: "NUS Master's Student Exploring Computer Vision, AI, and Digital Storytelling",
     body: "I enjoy building data-driven vision systems for industrial imaging, and I care deeply about turning research into working solutions. Outside of engineering, I create travel and study content that reflects growth and life in Singapore.",
   },
   focusAreas: [
@@ -49,12 +49,12 @@ export const en = {
       description: "Sharing study life, travel experiences, and personal reflections through multimedia.",
     },
   ],
-  projectBadge: "Case study",
-  projectsHeading: "Selected work and research highlights",
-  viewDetails: "View details ->",
+  projectBadge: "Case Study",
+  projectsHeading: "Selected Work and Research Highlights",
+  viewDetails: "View Details ->",
   education: {
     label: "Education",
-    heading: "Academic background and qualifications",
+    heading: "Academic Background and Qualifications",
     entries: [
       {
         degree: "Master of Physics for Technology",
@@ -92,11 +92,11 @@ export const en = {
   },
   experience: {
     label: "Experience",
-    heading: "Internships and professional experience",
+    heading: "Internships and Professional Experience",
   },
   skills: {
     label: "Skills",
-    heading: "Technical skills and languages",
+    heading: "Technical Skills and Languages",
     groups: {
       programming: "Programming",
       cvml: "Computer Vision & ML",
@@ -112,18 +112,18 @@ export const en = {
   },
   gallery: {
     label: "Life & Travel",
-    heading: "Stories from campus, Singapore, and beyond",
+    heading: "Stories from Campus, Singapore, and Beyond",
     description:
       "This section is a great place to link to blog posts, videos, or reflections that show your personality and journey.",
   },
   lifeHighlights: [
-    "NUS study life and research reflections",
-    "Singapore food, culture, and city stories",
-    "Travel ideas from Asia and beyond",
+    "NUS Study Life and Research Reflections",
+    "Singapore Food, Culture, and City Stories",
+    "Travel Ideas from Asia and Beyond",
   ],
   media: {
     label: "Media",
-    heading: "Media brand matrix and featured video highlights",
+    heading: "Media Brand Matrix and Featured Video Highlights",
     description:
       "Use this module to present your creator ecosystem and route traffic across different media channels.",
     matrix: [
@@ -146,7 +146,7 @@ export const en = {
   },
   travel: {
     label: "Travel",
-    heading: "A swipeable travel gallery",
+    heading: "A Swipeable Travel Gallery",
     description: "A horizontal gallery for destinations, stories, and memorable frames.",
     cards: [
       { title: "Singapore City Walk", subtitle: "Urban textures and daily rhythm" },
@@ -157,12 +157,12 @@ export const en = {
   },
   contact: {
     label: "Contact",
-    heading: "Let's connect",
+    heading: "Let's Connect",
     description:
       "I'm open to collaboration, internship opportunities, and research conversations in computer vision and AI. Reach out if you want to work together or discuss ideas.",
     emailLabel: "Email",
     connectLabel: "Connect with me",
-    back: "Back to top",
+    back: "Back to Top",
   },
   contactCard: {
     title: "Contact me",
