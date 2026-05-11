@@ -16,37 +16,59 @@ export const en = {
   },
   hero: {
     topLabel: "Xinyu Tian | Phoenix",
-    heading: "This Is for You to Know Who I Am",
-    description:
-      "NUS Master's student working on computer vision, AI research, and content creation. I also create content that reflects study life, travel, and personal growth in Singapore.",
-    explore: "Explore Projects",
-    contact: "Contact Me",
+    heading: "This is for You to Know Who I Am",
   },
   lifeHero: {
     topLabel: "Xinyu Tian | Phoenix",
-    heading: "This Is for You to Know My Life",
-    description:
-      "This mode showcases my self-media direction, travel documentation, and personal reflections while keeping one consistent personal brand.",
-    explore: "Explore Media",
-    contact: "Contact Me",
+    heading: "This is for You to Know My Life",
   },
   about: {
     label: "About Me",
-    heading: "NUS Master's Student Exploring Computer Vision, AI, and Digital Storytelling",
-    body: "I enjoy building data-driven vision systems for industrial imaging, and I care deeply about turning research into working solutions. Outside of engineering, I create travel and study content that reflects growth and life in Singapore.",
+    heading: "CV Engineer by Training. Storyteller by Passion.",
+    tagline: "CV Engineer · Content Creator · World Explorer",
+    body: [
+      "I'm a Physics MSc student at NUS, currently building computer vision systems for industrial inspection at an A*STAR lab. I specialize in segmentation, anomaly detection, and making AI actually work in production.",
+      "Beyond the code, I document my student life, travels, and thinking journey as a bilingual content creator.",
+    ],
+    statsWork: ["🎓 NUS MSc Physics", "🔬 A*STAR Research", "💻 Computer Vision"],
+    statsLife: ["🎬 Bilingual Creator", "📍 Based in Singapore", "🌏 5+ Countries"],
+    followersCount: "100+",
+    followersLabel: "Followers",
+    travelCount: "20+",
+    travelLabel: "Countries & Regions",
   },
-  focusAreas: [
+  focusAreasWork: [
     {
+      icon: "🔬",
       title: "Computer Vision",
-      description: "Building models for segmentation, anomaly detection, and industrial image analysis.",
+      description: "Segmentation, anomaly detection & industrial inspection — building real systems at an A*STAR-affiliated lab.",
     },
     {
-      title: "AI Research",
-      description: "Developing practical AI solutions with a strong emphasis on reliability and explainability.",
+      icon: "🤖",
+      title: "AI Engineering",
+      description: "Turning research into production-ready, explainable AI solutions with a focus on reliability.",
     },
     {
-      title: "Life & Storytelling",
-      description: "Sharing study life, travel experiences, and personal reflections through multimedia.",
+      icon: "📝",
+      title: "Research & Thesis",
+      description: "NUS MSc Physics, focused on applied deep learning for industrial imaging and computer vision.",
+    },
+  ],
+  focusAreasLife: [
+    {
+      icon: "🎬",
+      title: "Content Creation",
+      description: "Bilingual travel & study vlogs documenting life in Singapore and beyond.",
+    },
+    {
+      icon: "🌍",
+      title: "World Travel",
+      description: "Explored 5+ countries, turning every trip into a story worth sharing.",
+    },
+    {
+      icon: "📚",
+      title: "NUS Student Life",
+      description: "Physics, AI, friendships, and the everyday magic of studying abroad in Singapore.",
     },
   ],
   projectBadge: "Case Study",

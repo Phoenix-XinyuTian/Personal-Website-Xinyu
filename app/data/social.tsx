@@ -69,4 +69,17 @@ export const socialLinks = [
       </svg>
     ),
   },
+  {
+    name: "RedNote",
+    href: "https://www.xiaohongshu.com/user/profile/5f1b2b3c0000000001004b2e",
+    icon: (
+      <span className="flex h-5 w-5 items-center justify-center rounded-md bg-[#FF2442] p-[3px]">
+        <img
+          src="https://cdn.simpleicons.org/xiaohongshu/ffffff"
+          alt="Rednote"
+          className="h-full w-full"
+        />
+      </span>
+    ),
+  },
 ] as const;

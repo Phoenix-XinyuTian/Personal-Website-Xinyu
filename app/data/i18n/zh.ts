@@ -19,36 +19,58 @@ export const zh: Translation = {
   hero: {
     topLabel: "Xinyu Tian | Phoenix",
     heading: "现在你知道我是谁了",
-    description:
-      "NUS 硕士生，专注于计算机视觉，AI研究，同时兼顾自媒体创作、旅行与个人成长的内容。",
-    explore: "探索",
-    contact: "联系方式",
   },
   lifeHero: {
     topLabel: "Xinyu Tian | Phoenix",
     heading: "你将了解我的生活",
-    description:
-      "该模式展示我的自媒体方向、旅行内容和个人反思，同时保持统一的个人品牌风格。",
-    explore: "探索媒体",
-    contact: "联系方式",
   },
   about: {
     label: "关于我",
-    heading: "NUS 硕士生，探索计算机视觉、人工智能与数字叙事",
-    body: "我喜欢为工业成像构建数据驱动的视觉系统，并重视将研究转化为可用的解决方案。工程之外，我创作旅行与学习内容，记录新加坡的成长与生活。",
+    heading: "白天做视觉算法，晚上做内容创作",
+    tagline: "CV工程师 · 内容创作者 · 世界旅行者",
+    body: [
+      "我就读于新加坡国立大学技术物理硕士，目前在 A*STAR 的实验室从事工业视觉方向的研究，专注于图像分割、异常检测与可落地的 AI 系统开发。",
+      "工程之外，我以双语内容创作者的身份记录学习生活、旅行见闻与思想进步。",
+    ],
+    statsWork: ["🎓 NUS 物理硕士", "🔬 A*STAR 科研", "💻 计算机视觉"],
+    statsLife: ["🎬 双语内容创作者", "📍 定居新加坡", "🌏 5+ 国家旅行"],
+    followersCount: "100+",
+    followersLabel: "全网粉丝",
+    travelCount: "20+",
+    travelLabel: "去过的国家与地区",
   },
-  focusAreas: [
+  focusAreasWork: [
     {
+      icon: "🔬",
       title: "计算机视觉",
-      description: "构建用于分割、异常检测和工业图像分析的模型。",
+      description: "图像分割、异常检测与工业检测，目前在 A*STAR 关联实验室开发可落地的视觉系统。",
     },
     {
-      title: "AI 研究",
-      description: "开发兼具可靠性与可解释性的实用 AI 解决方案。",
+      icon: "🤖",
+      title: "AI 工程",
+      description: "将研究成果转化为可靠、可解释的生产级 AI 方案。",
     },
     {
-      title: "工程背景",
-      description: "通过多媒体分享学习生活、旅行体验和个人感悟。",
+      icon: "📝",
+      title: "科研与毕业论文",
+      description: "NUS 物理硕士，专注于工业成像方向的深度学习应用研究。",
+    },
+  ],
+  focusAreasLife: [
+    {
+      icon: "🎬",
+      title: "内容创作",
+      description: "双语旅行与留学 vlog，记录新加坡及世界各地的生活点滴。",
+    },
+    {
+      icon: "🌍",
+      title: "世界旅行",
+      description: "已探索 5+ 国家，将每段旅途化为值得分享的故事。",
+    },
+    {
+      icon: "📚",
+      title: "NUS 留学生活",
+      description: "物理、AI、友情，以及海外求学的日常与惊喜。",
     },
   ],
   projectBadge: "案例",
