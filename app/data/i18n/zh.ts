@@ -47,7 +47,7 @@ export const zh: Translation = {
       description: "开发兼具可靠性与可解释性的实用 AI 解决方案。",
     },
     {
-      title: "生活与故事",
+      title: "工程背景",
       description: "通过多媒体分享学习生活、旅行体验和个人感悟。",
     },
   ],
