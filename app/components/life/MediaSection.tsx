@@ -2,6 +2,10 @@ import { type Translation } from "../../data/i18n/en";
 import { socialLinks } from "../../data/social";
 import YoutubeGallery from "./YoutubeGallery";
 
+const SOCIAL_NAME_ALIAS: Record<string, string> = {
+  小红书: "RedNote",
+};
+
 const PLATFORM_HREFS: Record<string, string> = {
   YouTube: "https://www.youtube.com/@Phoenix_Tian",
   Instagram: "https://www.instagram.com/phoenix.tian.vlog/",
@@ -27,14 +31,15 @@ export default function MediaSection({
         <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
           {t.media.heading}
         </h2>
-        <p className="mt-4 mx-auto max-w-3xl text-center text-base leading-8 text-slate-500">
+        <p className="mt-4 text-center text-base leading-8 text-slate-500">
           {t.media.description}
         </p>
 
         {/* Platform pills */}
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           {t.media.matrix.map((item) => {
-            const social = socialLinks.find((s) => s.name === item.name);
+            const socialName = SOCIAL_NAME_ALIAS[item.name] ?? item.name;
+            const social = socialLinks.find((s) => s.name === socialName);
             const href = PLATFORM_HREFS[item.name] ?? "#";
             return (
               <a

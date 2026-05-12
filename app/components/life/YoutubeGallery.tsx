@@ -241,7 +241,7 @@ export default function YoutubeGallery({
 
         {byDate.length > 0 && (
           <div className="border-t border-slate-100 pt-4 flex flex-col gap-4">
-            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+            <p className="text-xs font-semibold tracking-widest text-slate-400">
               {newestLabel}
             </p>
             {byDate.map((v) => (

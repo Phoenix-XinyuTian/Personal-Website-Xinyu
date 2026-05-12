@@ -145,9 +145,9 @@ export const en = {
   ],
   media: {
     label: "Media",
-    heading: "Featured Videos",
+    heading: "Creator Platforms & Featured Videos",
     description:
-      "I document student life, travels, and AI insights across multiple platforms — in both English and Chinese.",
+      "I document student life, travels, and career insights across multiple platforms — in both English and Chinese.",
     matrix: [
       { name: "YouTube", role: "Long-form vlogs and study/life episodes" },
       { name: "Instagram", role: "Visual storytelling and travel moments" },

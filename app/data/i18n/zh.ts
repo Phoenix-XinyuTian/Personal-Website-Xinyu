@@ -144,8 +144,8 @@ export const zh: Translation = {
   ],
   media: {
     label: "自媒体",
-    heading: "创作平台 & 最新视频",
-    description: "用中英双语记录留学生活、旅行见闻与AI洞见，分发于多个内容平台。",
+    heading: "创作平台 & 精选视频",
+    description: "用中英双语记录留学生活、旅行经历与思想进步，发布于多个内容平台。",
     matrix: [
       { name: "YouTube", role: "长视频：留学日常与旅行Vlog" },
       { name: "Instagram", role: "视觉叙事与旅行瞬间" },
