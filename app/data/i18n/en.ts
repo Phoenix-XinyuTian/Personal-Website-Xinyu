@@ -145,26 +145,17 @@ export const en = {
   ],
   media: {
     label: "Media",
-    heading: "Media Brand Matrix and Featured Video Highlights",
+    heading: "Featured Videos",
     description:
-      "Use this module to present your creator ecosystem and route traffic across different media channels.",
+      "I document student life, travels, and AI insights across multiple platforms — in both English and Chinese.",
     matrix: [
       { name: "YouTube", role: "Long-form vlogs and study/life episodes" },
       { name: "Instagram", role: "Visual storytelling and travel moments" },
       { name: "X", role: "Short thoughts, updates, and AI/life snippets" },
-      { name: "RedNote", role: "Lifestyle and city guides" },
+      { name: "RedNote", role: "Lifestyle and city guides (Chinese)" },
     ],
-    featuredLabel: "Featured Videos",
-    featuredMain: {
-      title: "NUS Study Week: Real Routines in Singapore",
-      description: "A representative video slot for your current most popular content.",
-    },
-    clipsLabel: "Highlights",
-    clips: [
-      "Singapore campus day in 60 seconds",
-      "Top 5 creator spots in Singapore",
-      "Weekly growth reflection vlog",
-    ],
+    featuredVideosLabel: "Featured Videos",
+    newestVideoLabel: "Latest Published",
   },
   travel: {
     label: "Travel",

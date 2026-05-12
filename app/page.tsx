@@ -119,7 +119,7 @@ export default function Home() {
           </>
         ) : (
           <>
-            <MediaSection t={t} />
+            <MediaSection t={t} lang={language} />
             <TravelSection t={t} />
             <LifeSection t={t} />
           </>
