@@ -17,12 +17,14 @@ export const zh: Translation = {
     life: "生活",
   },
   hero: {
-    topLabel: "Xinyu Tian | Phoenix",
-    heading: "现在你知道我是谁了",
+    greeting: "你好，我是 Xinyu。",
+    intro: "我专注于 ",
+    rotatingWords: ["计算机视觉", "AI 研究"],
   },
   lifeHero: {
-    topLabel: "Xinyu Tian | Phoenix",
-    heading: "你将了解我的生活",
+    greeting: "你好，我是 Phoenix。",
+    intro: "我热爱 ",
+    rotatingWords: ["内容创作", "留学 Vlog", "环球旅行"],
   },
   about: {
     label: "关于我",
@@ -33,7 +35,7 @@ export const zh: Translation = {
       "工程之外，我以双语内容创作者的身份记录学习生活、旅行见闻与思想进步。",
     ],
     statsWork: ["🎓 新加坡国立大学 物理硕士", "🔬 A*STAR 科研", "💻 计算机视觉"],
-    statsLife: ["🎬 双语内容创作者", "📍 定居新加坡", "🌏 5+ 国家旅行"],
+    statsLife: ["🎬 双语内容创作者", "📍 定居新加坡", "🌏 20+ 国家与地区"],
     followersCount: "100+",
     followersLabel: "全网粉丝",
     travelCount: "20+",
@@ -67,7 +69,7 @@ export const zh: Translation = {
     {
       icon: "🌍",
       title: "世界旅行",
-      description: "已探索 5+ 国家，将每段旅途化为值得分享的故事。",
+      description: "已探索 20+ 个国家与地区，将每段旅途化为值得分享的故事。",
     },
     {
       icon: "📚",
@@ -128,10 +130,10 @@ export const zh: Translation = {
       languages: "语言",
     },
     languages: [
-      { name: "普通话", level: "母语", flag: "🇨🇳" },
-      { name: "英语", level: "专业", flag: "🇬🇧" },
-      { name: "粤语", level: "初学者", flag: "🇭🇰" },
-      { name: "日语", level: "初学者", flag: "🇯🇵" },
+      { name: "普通话", level: "母语", flag: "CN" },
+      { name: "英语", level: "专业", flag: "GB" },
+      { name: "粤语", level: "初学者", flag: "HK" },
+      { name: "日语", level: "初学者", flag: "JP" },
     ],
   },
   gallery: {
@@ -147,7 +149,7 @@ export const zh: Translation = {
   media: {
     label: "自媒体",
     heading: "创作平台 & 精选视频",
-    description: "用中英双语记录留学生活、旅行经历与思想进步，发布于多个内容平台。",
+    description: "用中英双语记录留学生活、旅行经历与思想感悟，发布于多个内容平台。",
     matrix: [
       { name: "YouTube", role: "长视频：留学日常与旅行Vlog" },
       { name: "Instagram", role: "视觉叙事与旅行瞬间" },
@@ -156,6 +158,7 @@ export const zh: Translation = {
     ],
     featuredVideosLabel: "精选视频",
     newestVideoLabel: "最新发布",
+    playHint: "播放",
   },
   travel: {
     label: "旅行",

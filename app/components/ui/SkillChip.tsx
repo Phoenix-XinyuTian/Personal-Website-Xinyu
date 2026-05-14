@@ -2,7 +2,7 @@ import { skillMap, type SkillItem } from "../../data/skills";
 
 export function SkillChip({ skill }: { skill: SkillItem }) {
   return (
-    <div className="inline-flex cursor-default items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm transition hover:scale-105 hover:shadow-md sm:px-3 sm:py-1.5 sm:text-sm">
+    <div className="inline-flex cursor-default items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm transition hover:scale-105 hover:shadow-md sm:px-3 sm:py-1.5 sm:text-sm">
       {skill.path && skill.hex && (
         <svg
           role="img"

@@ -15,6 +15,7 @@ import MediaSection from "./components/life/MediaSection";
 import TravelSection from "./components/life/TravelSection";
 import LifeSection from "./components/life/LifeSection";
 import Footer from "./components/Footer";
+import HeroSection from "./components/HeroSection";
 
 const translations: Record<SiteLanguage, Translation> = { en, zh };
 
@@ -101,12 +102,7 @@ export default function Home() {
           🚧 {t.devBanner}
         </div>
 
-        <section id="top" className="px-6 pt-6 pb-4 sm:px-8 sm:pt-8 sm:pb-6">
-          <div className="mx-auto max-w-6xl">
-            <p className={`text-center text-sm uppercase tracking-[0.32em] ${displayedMode === "life" ? "text-teal-600" : "text-sky-600"}`}>{displayedMode === "work" ? t.hero.topLabel : t.lifeHero.topLabel}</p>
-            <h1 className="mt-3 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{displayedMode === "work" ? t.hero.heading : t.lifeHero.heading}</h1>
-          </div>
-        </section>
+        <HeroSection t={t} mode={displayedMode} />
 
         <AboutSection t={t} mode={displayedMode} />
 

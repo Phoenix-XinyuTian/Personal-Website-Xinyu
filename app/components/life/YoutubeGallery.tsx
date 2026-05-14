@@ -43,18 +43,18 @@ function DurationBadge({ duration, hidden }: { duration: string; hidden?: boolea
 }
 
 /* Subtle play hint — small pill bottom-left, appears on hover */
-function PlayHint() {
+function PlayHint({ label }: { label: string }) {
   return (
     <div className="absolute bottom-2 left-2 flex items-center gap-1.5 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 px-2.5 py-1 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
       <svg viewBox="0 0 10 10" fill="white" className="h-2.5 w-2.5 drop-shadow">
         <path d="M2 1.5 L8.5 5 L2 8.5 Z" />
       </svg>
-      <span className="text-[10px] font-medium text-white drop-shadow tracking-wide">Play</span>
+      <span className="text-[10px] font-medium text-white drop-shadow tracking-wide">{label}</span>
     </div>
   );
 }
 
-function HeroVideo({ video, lang }: { video: YoutubeVideo; lang: "en" | "zh" }) {
+function HeroVideo({ video, lang, playHintLabel }: { video: YoutubeVideo; lang: "en" | "zh"; playHintLabel: string }) {
   const [showPreview, setShowPreview] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
 
@@ -91,7 +91,7 @@ function HeroVideo({ video, lang }: { video: YoutubeVideo; lang: "en" | "zh" }) 
         {/* Subtle dark vignette on hover */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-2xl pointer-events-none" />
 
-        {!showPreview && <PlayHint />}
+        {!showPreview && <PlayHint label={playHintLabel} />}
         <DurationBadge duration={video.duration} hidden={showPreview} />
 
         {/* Click overlay — always sends to YouTube */}
@@ -178,9 +178,11 @@ function SkeletonSide() {
 export default function YoutubeGallery({
   lang,
   newestLabel,
+  playHintLabel,
 }: {
   lang: "en" | "zh";
   newestLabel: string;
+  playHintLabel: string;
 }) {
   const [videos, setVideos] = useState<YoutubeVideo[]>([]);
   const [loading, setLoading] = useState(true);
@@ -231,7 +233,7 @@ export default function YoutubeGallery({
     <div className="flex flex-col gap-6 lg:flex-row lg:gap-6 lg:items-start">
       {/* Hero — most viewed */}
       <div className="flex-1 lg:flex-[2]">
-        {hero && <HeroVideo video={hero} lang={lang} />}
+        {hero && <HeroVideo video={hero} lang={lang} playHintLabel={playHintLabel} />}
       </div>
 
       {/* Right column */}

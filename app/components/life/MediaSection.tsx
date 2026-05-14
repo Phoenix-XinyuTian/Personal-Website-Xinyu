@@ -87,7 +87,7 @@ export default function MediaSection({
               @Phoenix_Tian ↗
             </a>
           </div>
-          <YoutubeGallery lang={lang} newestLabel={t.media.newestVideoLabel} />
+          <YoutubeGallery lang={lang} newestLabel={t.media.newestVideoLabel} playHintLabel={t.media.playHint} />
         </div>
       </div>
     </section>

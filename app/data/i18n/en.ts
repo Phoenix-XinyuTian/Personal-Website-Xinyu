@@ -15,12 +15,14 @@ export const en = {
     life: "Life",
   },
   hero: {
-    topLabel: "Xinyu Tian | Phoenix",
-    heading: "This is for You to Know Who I Am",
+    greeting: "Hello, I am Xinyu.",
+    intro: "I work on ",
+    rotatingWords: ["Computer Vision", "AI Research"],
   },
   lifeHero: {
-    topLabel: "Xinyu Tian | Phoenix",
-    heading: "This is for You to Know My Life",
+    greeting: "Hello, this is Phoenix here.",
+    intro: "I am passionate about ",
+    rotatingWords: ["Content Creation", "Study Vlog", "World Travel"],
   },
   about: {
     label: "About Me",
@@ -31,7 +33,7 @@ export const en = {
       "Beyond the code, I document my student life, travels, and thinking journey as a bilingual content creator.",
     ],
     statsWork: ["🎓 NUS MSc Physics", "🔬 A*STAR Research", "💻 Computer Vision"],
-    statsLife: ["🎬 Bilingual Creator", "📍 Based in Singapore", "🌏 5+ Countries"],
+    statsLife: ["🎬 Bilingual Creator", "📍 Based in Singapore", "🌏 20+ Countries & Regions"],
     followersCount: "100+",
     followersLabel: "Followers",
     travelCount: "20+",
@@ -65,7 +67,7 @@ export const en = {
     {
       icon: "🌍",
       title: "World Travel",
-      description: "Explored 5+ countries, turning every trip into a story worth sharing.",
+      description: "Explored 20+ countries & regions, turning every trip into a story worth sharing.",
     },
     {
       icon: "📚",
@@ -128,10 +130,10 @@ export const en = {
       languages: "Languages",
     },
     languages: [
-      { name: "Mandarin", level: "Native", flag: "🇨🇳" },
-      { name: "English", level: "Professional", flag: "🇬🇧" },
-      { name: "Cantonese", level: "Beginner", flag: "🇭🇰" },
-      { name: "Japanese", level: "Beginner", flag: "🇯🇵" },
+      { name: "Mandarin", level: "Native", flag: "CN" },
+      { name: "English", level: "Professional", flag: "GB" },
+      { name: "Cantonese", level: "Beginner", flag: "HK" },
+      { name: "Japanese", level: "Beginner", flag: "JP" },
     ],
   },
   gallery: {
@@ -158,6 +160,7 @@ export const en = {
     ],
     featuredVideosLabel: "Featured Videos",
     newestVideoLabel: "Latest Published",
+    playHint: "Play",
   },
   travel: {
     label: "Travel",

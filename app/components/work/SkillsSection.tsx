@@ -1,6 +1,12 @@
 import { programmingSkills, cvmlSkills, toolsSkills } from "../../data/skills";
 import { type Translation } from "../../data/i18n/en";
 import { SkillChip } from "../ui/SkillChip";
+import CN from "country-flag-icons/react/3x2/CN";
+import GB from "country-flag-icons/react/3x2/GB";
+import HK from "country-flag-icons/react/3x2/HK";
+import JP from "country-flag-icons/react/3x2/JP";
+
+const FLAG_COMPONENTS: Record<string, React.ComponentType<{ className?: string }>> = { CN, GB, HK, JP };
 
 export default function SkillsSection({ t }: { t: Translation }) {
   const groups = [
@@ -39,9 +45,9 @@ export default function SkillsSection({ t }: { t: Translation }) {
               {t.skills.languages.map((lang) => (
                 <div
                   key={lang.name}
-                  className="inline-flex cursor-default items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm transition hover:scale-105 hover:shadow-md sm:px-3 sm:py-1.5 sm:text-sm"
+                  className="inline-flex cursor-default items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm transition hover:scale-105 hover:shadow-md sm:px-3 sm:py-1.5 sm:text-sm"
                 >
-                  <span className="text-base leading-none">{lang.flag}</span>
+                  {(() => { const Flag = FLAG_COMPONENTS[lang.flag]; return Flag ? <Flag className="h-4 w-auto rounded-sm ring-2 ring-inset ring-slate-400" /> : null; })()}
                   {lang.name} · {lang.level}
                 </div>
               ))}
