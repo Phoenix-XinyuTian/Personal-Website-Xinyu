@@ -24,7 +24,7 @@ export const en = {
   },
   about: {
     label: "About Me",
-    heading: "CV Engineer by Training. Storyteller by Passion.",
+    heading: "CV Engineer by Technology. Storyteller by Passion.",
     tagline: "CV Engineer · Content Creator · World Explorer",
     body: [
       "I'm a Physics MSc student at NUS, currently building computer vision systems for industrial inspection at an A*STAR lab. I specialize in segmentation, anomaly detection, and making AI actually work in production.",
@@ -36,12 +36,14 @@ export const en = {
     followersLabel: "Followers",
     travelCount: "20+",
     travelLabel: "Countries & Regions",
+    astarRole: "Research Intern",
+    nusRole: "MSc Physics for Technology",
   },
   focusAreasWork: [
     {
       icon: "🔬",
       title: "Computer Vision",
-      description: "Segmentation, anomaly detection & industrial inspection — building real systems at an A*STAR-affiliated lab.",
+      description: "Segmentation, anomaly detection & industrial inspection — building real systems at an A*STAR IME lab.",
     },
     {
       icon: "🤖",
@@ -51,7 +53,7 @@ export const en = {
     {
       icon: "📝",
       title: "Research & Thesis",
-      description: "NUS MSc Physics, focused on applied deep learning for industrial imaging and computer vision.",
+      description: "NUS MSc of Physics for Technology, focused on applied deep learning for industrial imaging and computer vision.",
     },
   ],
   focusAreasLife: [

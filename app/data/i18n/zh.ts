@@ -26,24 +26,26 @@ export const zh: Translation = {
   },
   about: {
     label: "关于我",
-    heading: "白天做视觉算法，晚上做内容创作",
-    tagline: "CV工程师 · 内容创作者 · 世界旅行者",
+    heading: "通过技术做视觉算法，通过内容创作表达自我",
+    tagline: "计算机视觉工程师 · 内容创作者 · 世界旅行",
     body: [
       "我就读于新加坡国立大学技术物理硕士，目前在 A*STAR 的实验室从事工业视觉方向的研究，专注于图像分割、异常检测与可落地的 AI 系统开发。",
       "工程之外，我以双语内容创作者的身份记录学习生活、旅行见闻与思想进步。",
     ],
-    statsWork: ["🎓 NUS 物理硕士", "🔬 A*STAR 科研", "💻 计算机视觉"],
+    statsWork: ["🎓 新加坡国立大学 物理硕士", "🔬 A*STAR 科研", "💻 计算机视觉"],
     statsLife: ["🎬 双语内容创作者", "📍 定居新加坡", "🌏 5+ 国家旅行"],
     followersCount: "100+",
     followersLabel: "全网粉丝",
     travelCount: "20+",
     travelLabel: "去过的国家与地区",
+    astarRole: "科研实习",
+    nusRole: "技术物理硕士",
   },
   focusAreasWork: [
     {
       icon: "🔬",
       title: "计算机视觉",
-      description: "图像分割、异常检测与工业检测，目前在 A*STAR 关联实验室开发可落地的视觉系统。",
+      description: "图像分割、异常检测与工业检测，目前在 A*STAR IME 实验室开发可落地的视觉系统。",
     },
     {
       icon: "🤖",
@@ -53,7 +55,7 @@ export const zh: Translation = {
     {
       icon: "📝",
       title: "科研与毕业论文",
-      description: "NUS 物理硕士，专注于工业成像方向的深度学习应用研究。",
+      description: "NUS 技术物理硕士，专注于工业成像方向的深度学习应用研究。",
     },
   ],
   focusAreasLife: [

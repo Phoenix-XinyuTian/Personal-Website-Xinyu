@@ -125,7 +125,7 @@ export default function Home() {
           </>
         )}
 
-        <ContactSection t={t} mode={displayedMode} />
+        <ContactSection t={t} mode={displayedMode} lang={language} />
       </div>
 
       <Footer t={t} />

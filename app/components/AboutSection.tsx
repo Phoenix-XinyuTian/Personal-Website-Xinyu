@@ -126,7 +126,7 @@ export default function AboutSection({ t, mode }: { t: Translation; mode: SiteMo
                   />
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold text-slate-950">A*STAR</p>
-                    <p className="mt-0.5 text-xs text-slate-500">Research Intern</p>
+                    <p className="mt-0.5 text-xs text-slate-500">{t.about.astarRole}</p>
                   </div>
                 </a>
                 <a
@@ -146,7 +146,7 @@ export default function AboutSection({ t, mode }: { t: Translation; mode: SiteMo
                   />
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold text-slate-950">NUS</p>
-                    <p className="mt-0.5 text-xs text-slate-500">MSc Physics</p>
+                    <p className="mt-0.5 text-xs text-slate-500">{t.about.nusRole}</p>
                   </div>
                 </a>
               </>
