@@ -11,6 +11,7 @@ export interface ExperienceLocalized {
   title: string;
   company: string;
   location: string;
+  period?: string;
   bullets: BulletItem[];
 }
 
@@ -41,6 +42,7 @@ export const experiences: ExperienceItem[] = [
         title: "Computer Vision Research Intern",
         company: "A*STAR — Agency for Science, Technology and Research",
         location: "Singapore · Hybrid",
+        period: "Aug 2025 – Apr 2026",
         bullets: [
           { text: "Built an end-to-end CNN-based defect detection pipeline for AOG identification on wafer SEM images." },
           { text: "Curated and pixel-annotated 288 high-resolution SEM images using CVAT to construct the training set." },
@@ -52,6 +54,7 @@ export const experiences: ExperienceItem[] = [
         title: "计算机视觉研究实习生",
         company: "A*STAR — 新加坡科学、技术与研究局",
         location: "新加坡 · 混合办公",
+        period: "2025年8月 – 2026年4月",
         bullets: [
           { text: "构建端到端 CNN 缺陷检测流水线，用于晶圆 SEM 表面图像中 AOG 的识别。" },
           { text: "通过 SEM 设备手动采集并使用 CVAT 进行像素级标注，构建包含 288 张高分辨率图像的训练集。" },

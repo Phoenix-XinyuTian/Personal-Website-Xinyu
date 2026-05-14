@@ -42,7 +42,7 @@ function ExperienceCard({
           </p>
           <div className="mt-2 flex flex-wrap items-center gap-2">
             <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
-              {item.startDate} – {item.endDate}
+              {local.period ?? `${item.startDate} – ${item.endDate}`}
             </span>
             <span className="text-xs text-slate-500 sm:text-sm">{local.location}</span>
           </div>
