@@ -18,12 +18,12 @@ export const zh: Translation = {
   },
   hero: {
     greeting: "你好，我是 Xinyu。",
-    intro: "我专注于 ",
-    rotatingWords: ["计算机视觉", "AI 研究"],
+    intro: "我的工作聚焦于 ",
+    rotatingWords: ["计算机视觉", "AI 研究", "半导体技术"],
   },
   lifeHero: {
     greeting: "你好，我是 Phoenix。",
-    intro: "我热爱 ",
+    intro: "我也热爱 ",
     rotatingWords: ["内容创作", "留学 Vlog", "环球旅行"],
   },
   about: {

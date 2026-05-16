@@ -1,10 +1,14 @@
+"use client";
+
 import { type Translation } from "../data/i18n/en";
 
 export default function Footer({ t }: { t: Translation }) {
   return (
     <footer className="border-t border-slate-200/60 px-6 pb-12 pt-10 sm:px-8">
       <div className="mx-auto max-w-6xl flex flex-col items-center gap-2.5 text-center">
-        <p
+        <a
+          href="#"
+          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
           className="text-sm font-semibold tracking-widest uppercase"
           style={{
             backgroundImage: "linear-gradient(to right, #38bdf8 0%, #818cf8 26%, #fbbf24 55%, #f97316 78%, #ef4444 100%)",
@@ -14,7 +18,7 @@ export default function Footer({ t }: { t: Translation }) {
           }}
         >
           Xinyu Tian · Phoenix
-        </p>
+        </a>
 
         <p className="text-sm text-slate-500">{t.footer.roles}</p>
 

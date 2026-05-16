@@ -17,7 +17,7 @@ export const en = {
   hero: {
     greeting: "Hello, I am Xinyu.",
     intro: "I work on ",
-    rotatingWords: ["Computer Vision", "AI Research"],
+    rotatingWords: ["Computer Vision", "AI Research", "Semiconductor Technology"],
   },
   lifeHero: {
     greeting: "Hello, this is Phoenix here.",
