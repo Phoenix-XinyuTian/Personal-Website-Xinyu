@@ -16,6 +16,7 @@ import TravelSection from "./components/life/TravelSection";
 import LifeSection from "./components/life/LifeSection";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
+import NewsSection from "./components/NewsSection";
 
 const translations: Record<SiteLanguage, Translation> = { en, zh };
 
@@ -54,6 +55,7 @@ export default function Home() {
     displayedMode === "work"
       ? [
           { href: "#about", label: t.nav.about },
+          { href: "#news", label: t.nav.news },
           { href: "#experience", label: t.nav.experience },
           { href: "#skills", label: t.nav.skills },
           { href: "#projects", label: t.nav.projects },
@@ -62,6 +64,7 @@ export default function Home() {
         ]
       : [
           { href: "#about", label: t.nav.about },
+          { href: "#news", label: t.nav.news },
           { href: "#media", label: t.nav.media },
           { href: "#travel", label: t.nav.travel },
           { href: "#life", label: t.nav.life },
@@ -105,6 +108,7 @@ export default function Home() {
         <HeroSection t={t} mode={displayedMode} />
 
         <AboutSection t={t} mode={displayedMode} />
+        <NewsSection t={t} mode={displayedMode} lang={language} />
 
         {displayedMode === "work" ? (
           <>
@@ -121,7 +125,7 @@ export default function Home() {
           </>
         )}
 
-        <ContactSection t={t} mode={displayedMode} lang={language} />
+        <ContactSection t={t} mode={displayedMode} lang={language} onLanguageChange={setLanguage} />
       </div>
 
       <Footer t={t} />

@@ -11,6 +11,7 @@ export const zh: Translation = {
     contact: "联系方式",
     media: "自媒体",
     travel: "旅行",
+    news: "动态",
   },
   modeSwitch: {
     work: "工作",
@@ -169,6 +170,24 @@ export const zh: Translation = {
       { title: "东南亚短途旅行", subtitle: "短旅程也有强叙事" },
       { title: "海岸放空", subtitle: "慢节奏与重置" },
       { title: "山野周末", subtitle: "自然、节奏与反思" },
+    ],
+  },
+  news: {
+    label: "动态",
+    heading: "近期动态与里程碑",
+    newBadge: "新",
+    workItems: [
+      { date: "2026-04", title: "结束在 A*STAR 的科研实习项目" },
+      { date: "2025-08", title: "开始在 NUS 的硕士学习" },
+      { date: "2025-08", title: "开始在 A*STAR 的科研实习" },
+      { date: "2025-06", title: "从 SWJTU 应用物理学本科毕业" },
+      { date: "2021-09", title: "开始在 SWJTU 应用物理学本科学习" },
+    ],
+    lifeItems: [
+      { date: "2025-08", title: "开创 YouTube 自媒体频道" },
+      { date: "2024-11", title: "在日本东京访问学习" },
+      { date: "2024-01", title: "在香港旅行访问" },
+      { date: "2023-07", title: "在新加坡访问学习" },
     ],
   },
   contact: {

@@ -9,6 +9,7 @@ export const en = {
     contact: "Contact",
     media: "Media",
     travel: "Travel",
+    news: "News",
   },
   modeSwitch: {
     work: "Work",
@@ -171,6 +172,24 @@ export const en = {
       { title: "Southeast Asia Trip", subtitle: "Short journey, strong visual story" },
       { title: "Coastline Escape", subtitle: "Slow moments and reset" },
       { title: "Mountain Weekend", subtitle: "Nature, pace, and reflection" },
+    ],
+  },
+  news: {
+    label: "News",
+    heading: "Recent Updates & Milestones",
+    newBadge: "NEW",
+    workItems: [
+      { date: "2026-04", title: "Completed Research Internship at A*STAR" },
+      { date: "2025-08", title: "Started MSc Physics at NUS" },
+      { date: "2025-08", title: "Joined A*STAR as Research Intern" },
+      { date: "2025-06", title: "Graduated from SWJTU with BSc in Applied Physics" },
+      { date: "2021-09", title: "Started Applied Physics BSc at SWJTU" },
+    ],
+    lifeItems: [
+      { date: "2025-08", title: "Launched YouTube channel" },
+      { date: "2024-11", title: "Visited Tokyo, Japan for studies" },
+      { date: "2024-01", title: "Traveled to Hong Kong" },
+      { date: "2023-07", title: "Visited Singapore for academic exchange" },
     ],
   },
   contact: {

@@ -1,8 +1,9 @@
 import { type Translation } from "../data/i18n/en";
-import { type SiteMode } from "../types";
+import { type SiteMode, type SiteLanguage } from "../types";
 import { socialLinks } from "../data/social";
+import LanguageDropdown from "./ui/LanguageDropdown";
 
-export default function ContactSection({ t, mode, lang }: { t: Translation; mode: SiteMode; lang: "en" | "zh" }) {
+export default function ContactSection({ t, mode, lang, onLanguageChange }: { t: Translation; mode: SiteMode; lang: SiteLanguage; onLanguageChange: (lang: SiteLanguage) => void }) {
   return (
     <section id="contact" className="px-6 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl rounded-[2rem] border border-slate-200 bg-white p-10 shadow-xl">
@@ -45,12 +46,21 @@ export default function ContactSection({ t, mode, lang }: { t: Translation; mode
               </div>
             </div>
 
-            <a
-              href="#top"
-              className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-slate-100 hover:shadow-md"
-            >
-              {t.contact.back}
-            </a>
+            <div className="flex items-center gap-2">
+              <a
+                href="#top"
+                className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-slate-100 hover:shadow-md"
+              >
+                {t.contact.back}
+              </a>
+              <LanguageDropdown
+                language={lang}
+                onSelect={onLanguageChange}
+                triggerClassName="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-slate-100 hover:shadow-md"
+                contentDark
+                showFullLabel
+              />
+            </div>
           </div>
         </div>
       </div>

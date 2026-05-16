@@ -7,9 +7,15 @@ import { LOCALES, type SiteLanguage } from "../../types";
 export default function LanguageDropdown({
   language,
   onSelect,
+  triggerClassName,
+  contentDark = false,
+  showFullLabel = false,
 }: {
   language: SiteLanguage;
   onSelect: (lang: SiteLanguage) => void;
+  triggerClassName?: string;
+  contentDark?: boolean;
+  showFullLabel?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -38,12 +44,14 @@ export default function LanguageDropdown({
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 sm:px-1 font-semibold text-slate-950 transition hover:border-slate-300 hover:bg-slate-100"
+        className={triggerClassName ?? "inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 sm:px-1 font-semibold text-slate-950 transition hover:border-slate-300 hover:bg-slate-100"}
       >
-        <Globe className="h-4 w-4 shrink-0 text-slate-500" strokeWidth={1.8} />
-        <span className="hidden sm:inline text-[13px] font-normal text-slate-500">{current.short}</span>
+        <Globe className={`h-4 w-4 shrink-0 ${contentDark ? "text-black" : "text-slate-500"}`} strokeWidth={1.8} />
+        <span className={`${showFullLabel ? "inline" : "hidden sm:inline"} text-[13px] font-normal ${contentDark ? "text-black" : "text-slate-500"}`}>
+          {showFullLabel ? current.label : current.short}
+        </span>
         <ChevronDown
-          className={`hidden sm:block h-3 w-3 shrink-0 text-slate-400 transition-transform duration-150 ${open ? "rotate-180" : ""}`}
+          className={`${showFullLabel ? "block" : "hidden sm:block"} h-3 w-3 shrink-0 transition-transform duration-150 ${contentDark ? "text-black" : "text-slate-400"} ${open ? "rotate-180" : ""}`}
           strokeWidth={2.5}
         />
       </button>
