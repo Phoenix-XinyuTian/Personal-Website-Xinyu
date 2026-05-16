@@ -175,7 +175,7 @@ export const zh: Translation = {
   news: {
     label: "动态",
     heading: "近期动态与里程碑",
-    newBadge: "新",
+    newBadge: "最新",
     workItems: [
       { date: "2026-04", title: "结束在 A*STAR 的科研实习项目" },
       { date: "2025-08", title: "开始在 NUS 的硕士学习" },
