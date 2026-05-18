@@ -26,7 +26,11 @@ export default function Home() {
   const [displayedMode, setDisplayedMode] = useState<SiteMode>("work");
 
   useEffect(() => {
-    if (navigator.language.startsWith("zh")) setLanguage("zh");
+    const languageTimer = window.setTimeout(() => {
+      if (navigator.language.startsWith("zh")) setLanguage("zh");
+    }, 0);
+
+    return () => window.clearTimeout(languageTimer);
   }, []);
 
   const [contentVisible, setContentVisible] = useState(true);
@@ -120,7 +124,7 @@ export default function Home() {
         ) : (
           <>
             <MediaSection t={t} lang={language} />
-            <TravelSection t={t} />
+            <TravelSection lang={language} />
             <LifeSection t={t} />
           </>
         )}

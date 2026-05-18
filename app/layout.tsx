@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import "maplibre-gl/dist/maplibre-gl.css";
 import "./globals.css";
 
 const manrope = Manrope({
