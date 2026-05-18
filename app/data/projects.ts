@@ -30,7 +30,7 @@ export const projects: ProjectItem[] = [
     href: "#",
     i18n: {
       en: {
-        title: "Logistics Analytics Dashboard",
+        title: "RGBD Multimodal Object Recognition",
         description:
           "A data pipeline and dashboard for logistics tracking, KPI visualization, and operational insights.",
         tags: ["Data Analytics", "Python", "Visualization"],
