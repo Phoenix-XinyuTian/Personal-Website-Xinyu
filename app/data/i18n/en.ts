@@ -180,8 +180,8 @@ export const en = {
     newBadge: "NEW",
     workItems: [
       { date: "2026-04", title: "Completed Research Internship at A*STAR" },
-      { date: "2025-08", title: "Started MSc Physics at NUS" },
       { date: "2025-08", title: "Joined A*STAR as Research Intern" },
+      { date: "2025-08", title: "Started MSc Physics at NUS" },
       { date: "2025-06", title: "Graduated from SWJTU with BSc in Applied Physics" },
       { date: "2021-09", title: "Started Applied Physics BSc at SWJTU" },
     ],

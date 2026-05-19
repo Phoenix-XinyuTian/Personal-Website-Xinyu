@@ -178,8 +178,8 @@ export const zh: Translation = {
     newBadge: "最新",
     workItems: [
       { date: "2026-04", title: "结束在 A*STAR 的科研实习项目" },
-      { date: "2025-08", title: "开始在 NUS 的硕士学习" },
       { date: "2025-08", title: "开始在 A*STAR 的科研实习" },
+      { date: "2025-08", title: "开始在 NUS 的硕士学习" },
       { date: "2025-06", title: "从 SWJTU 应用物理学本科毕业" },
       { date: "2021-09", title: "开始在 SWJTU 应用物理学本科学习" },
     ],
