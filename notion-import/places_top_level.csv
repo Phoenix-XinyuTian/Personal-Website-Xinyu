@@ -1,0 +1,25 @@
+Name,Level,Display Type,Parent Name,Top Level Name,Country Code,Region Code,Latitude,Longitude,Map Display,Visited,Stats Scope,Notes
+China,Top-level,Country,,China,CN,CN,35.8617,104.1954,true,true,Country,"Mainland China top-level record."
+Hong Kong SAR,Top-level,Special Administrative Region,China,Hong Kong SAR,HK,HK,22.3193,114.1694,true,true,Region,"Display independently as a visited region, while keeping China as administrative parent."
+Macau SAR,Top-level,Special Administrative Region,China,Macau SAR,MO,MO,22.1987,113.5439,true,false,Region,"Display independently as a region when visited."
+Taiwan Region,Top-level,Region,China,Taiwan Region,TW,TW,23.6978,120.9605,true,false,Region,"Use region wording for website statistics."
+Singapore,Top-level,City State,,Singapore,SG,SG,1.3521,103.8198,true,true,Country,"City-state; no province layer needed."
+Japan,Top-level,Country,,Japan,JP,JP,36.2048,138.2529,true,true,Country,
+South Korea,Top-level,Country,,South Korea,KR,KR,35.9078,127.7669,true,false,Country,
+Thailand,Top-level,Country,,Thailand,TH,TH,15.87,100.9925,true,false,Country,
+Malaysia,Top-level,Country,,Malaysia,MY,MY,4.2105,101.9758,true,false,Country,
+Indonesia,Top-level,Country,,Indonesia,ID,ID,-0.7893,113.9213,true,false,Country,
+Vietnam,Top-level,Country,,Vietnam,VN,VN,14.0583,108.2772,true,false,Country,
+Philippines,Top-level,Country,,Philippines,PH,PH,12.8797,121.774,true,false,Country,
+United States,Top-level,Country,,United States,US,US,37.0902,-95.7129,true,false,Country,
+Canada,Top-level,Country,,Canada,CA,CA,56.1304,-106.3468,true,false,Country,
+United Kingdom,Top-level,Country,,United Kingdom,GB,GB,55.3781,-3.436,true,false,Country,
+Australia,Top-level,Country,,Australia,AU,AU,-25.2744,133.7751,true,false,Country,
+New Zealand,Top-level,Country,,New Zealand,NZ,NZ,-40.9006,174.886,true,false,Country,
+France,Top-level,Country,,France,FR,FR,46.2276,2.2137,true,false,Country,
+Germany,Top-level,Country,,Germany,DE,DE,51.1657,10.4515,true,false,Country,
+Italy,Top-level,Country,,Italy,IT,IT,41.8719,12.5674,true,false,Country,
+Spain,Top-level,Country,,Spain,ES,ES,40.4637,-3.7492,true,false,Country,
+Switzerland,Top-level,Country,,Switzerland,CH,CH,46.8182,8.2275,true,false,Country,
+Netherlands,Top-level,Country,,Netherlands,NL,NL,52.1326,5.2913,true,false,Country,
+United Arab Emirates,Top-level,Country,,United Arab Emirates,AE,AE,23.4241,53.8478,true,false,Country,
