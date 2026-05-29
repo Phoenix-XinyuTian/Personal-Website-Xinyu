@@ -18,7 +18,7 @@ export default function AboutSection({ t, mode }: { t: Translation; mode: SiteMo
   const badgeBg = isLife ? "bg-teal-100/60 text-teal-700" : "bg-sky-100/60 text-sky-700";
 
   return (
-    <section id="about" className="pt-4 pb-10">
+    <section id="about" className="scroll-mt-24 pt-4 pb-10">
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
         <p className={`mb-4 text-center text-sm uppercase tracking-[0.32em] ${accentText}`}>
           {t.about.label}

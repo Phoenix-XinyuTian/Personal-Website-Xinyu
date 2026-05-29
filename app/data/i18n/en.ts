@@ -187,6 +187,7 @@ export const en = {
     ],
     lifeItems: [
       { date: "2025-08", title: "Launched YouTube channel" },
+      { date: "2025-07", title: "Move to Live in Singapore" },
       { date: "2024-11", title: "Visited Tokyo, Japan for studies" },
       { date: "2024-01", title: "Traveled to Hong Kong" },
       { date: "2023-07", title: "Visited Singapore for academic exchange" },

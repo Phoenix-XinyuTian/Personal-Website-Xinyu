@@ -55,10 +55,46 @@ export default function Home() {
 
   const t = translations[language];
 
+  const [activeSection, setActiveSection] = useState("top");
+
+  useEffect(() => {
+    setActiveSection("top");
+
+    const sectionIds =
+      displayedMode === "work"
+        ? ["top", "about", "news", "experience", "skills", "projects", "education", "contact"]
+        : ["top", "about", "news", "media", "travel", "life", "contact"];
+
+    const visible = new Set<string>();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) visible.add(entry.target.id);
+          else visible.delete(entry.target.id);
+        });
+        for (const id of sectionIds) {
+          if (visible.has(id)) {
+            setActiveSection(id);
+            return;
+          }
+        }
+      },
+      { rootMargin: "-64px 0px -50% 0px", threshold: 0 },
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [displayedMode]);
+
   const navLinks =
     displayedMode === "work"
       ? [
-          { href: "#about", label: t.nav.about },
+          { href: "#top", label: t.nav.about },
           { href: "#news", label: t.nav.news },
           { href: "#experience", label: t.nav.experience },
           { href: "#skills", label: t.nav.skills },
@@ -67,7 +103,7 @@ export default function Home() {
           { href: "#contact", label: t.nav.contact },
         ]
       : [
-          { href: "#about", label: t.nav.about },
+          { href: "#top", label: t.nav.about },
           { href: "#news", label: t.nav.news },
           { href: "#media", label: t.nav.media },
           { href: "#travel", label: t.nav.travel },
@@ -98,6 +134,7 @@ export default function Home() {
         onModeChange={handleModeChange}
         onLanguageChange={setLanguage}
         navLinks={navLinks}
+        activeSection={activeSection}
         mobileMenuOpen={mobileMenuOpen}
         onMobileMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
         onMobileMenuClose={() => setMobileMenuOpen(false)}

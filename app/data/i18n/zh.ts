@@ -185,6 +185,7 @@ export const zh: Translation = {
     ],
     lifeItems: [
       { date: "2025-08", title: "开创 YouTube 自媒体频道" },
+      { date: "2025-07", title: "从中国大陆移居到新加坡" },
       { date: "2024-11", title: "在日本东京访问学习" },
       { date: "2024-01", title: "在香港旅行访问" },
       { date: "2023-07", title: "在新加坡访问学习" },

@@ -49,7 +49,7 @@ export default function NewsSection({
   const sortedItems = [...raw].sort((a, b) => b.date.localeCompare(a.date));
 
   return (
-    <section id="news" className="px-6 pt-2 pb-6 sm:px-8 sm:pb-8">
+    <section id="news" className="scroll-mt-24 px-6 pt-2 pb-6 sm:px-8 sm:pb-8">
       <div className="mx-auto max-w-4xl">
         <p className={`text-center text-sm uppercase tracking-[0.32em] ${mode === "life" ? "text-teal-600" : "text-sky-600"}`}>
           {t.news.label}
