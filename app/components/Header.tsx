@@ -33,10 +33,7 @@ export default function Header({
 }) {
   const isLife = mode === "life";
 
-  const isActive = (href: string) =>
-    href === "#top"
-      ? activeSection === "top" || activeSection === "about"
-      : `#${activeSection}` === href;
+  const isActive = (href: string) => `#${activeSection}` === href;
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href === "#top") {
@@ -115,7 +112,7 @@ export default function Header({
                     ? isLife
                       ? "bg-teal-100/70 font-semibold text-teal-700"
                       : "bg-sky-100/70 font-semibold text-sky-700"
-                    : "text-slate-600 hover:text-slate-900"
+                    : "text-slate-600 hover:bg-slate-200 hover:text-slate-900"
                 }`}
               >
                 {link.label}
@@ -226,7 +223,7 @@ export default function Header({
                       ? isLife
                         ? "bg-teal-50/80 text-teal-700"
                         : "bg-sky-50/80 text-sky-700"
-                      : "text-slate-700 hover:bg-white/60"
+                      : "text-slate-700 hover:bg-slate-100 hover:text-slate-950"
                   }`}
                   onClick={(e) => { handleNavClick(e, link.href); onMobileMenuClose(); }}
                 >

@@ -58,37 +58,49 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState("top");
 
   useEffect(() => {
-    setActiveSection("top");
-
     const sectionIds =
       displayedMode === "work"
-        ? ["top", "about", "news", "experience", "skills", "projects", "education", "contact"]
-        : ["top", "about", "news", "media", "travel", "life", "contact"];
+        ? ["top", "news", "experience", "skills", "projects", "education", "contact"]
+        : ["top", "news", "media", "travel", "life", "contact"];
 
-    const visible = new Set<string>();
+    let rafId = 0;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) visible.add(entry.target.id);
-          else visible.delete(entry.target.id);
-        });
-        for (const id of sectionIds) {
-          if (visible.has(id)) {
-            setActiveSection(id);
-            return;
-          }
+    const update = () => {
+      if (window.scrollY < 80) {
+        setActiveSection(sectionIds[0]);
+        return;
+      }
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+        setActiveSection(sectionIds[sectionIds.length - 1]);
+        return;
+      }
+
+      const viewportCenter = window.innerHeight / 2;
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const { top, bottom } = el.getBoundingClientRect();
+        if (top <= viewportCenter && bottom > viewportCenter) {
+          setActiveSection(id);
+          return;
         }
-      },
-      { rootMargin: "-64px 0px -50% 0px", threshold: 0 },
-    );
+      }
+    };
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    const onScroll = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(update);
+    };
 
-    return () => observer.disconnect();
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, [displayedMode]);
 
   const navLinks =
