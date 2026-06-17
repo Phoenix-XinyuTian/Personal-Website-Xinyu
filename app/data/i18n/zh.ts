@@ -58,7 +58,7 @@ export const zh: Translation = {
     {
       icon: "📝",
       title: "科研与毕业论文",
-      description: "NUS 技术物理硕士，专注于工业成像方向的深度学习应用研究。",
+      description: "新加坡国立大学技术物理硕士，专注于工业成像方向的深度学习应用研究。",
     },
   ],
   focusAreasLife: [
@@ -74,7 +74,7 @@ export const zh: Translation = {
     },
     {
       icon: "📚",
-      title: "NUS 留学生活",
+      title: "留学生活",
       description: "物理、AI、友情，以及海外求学的日常与惊喜。",
     },
   ],

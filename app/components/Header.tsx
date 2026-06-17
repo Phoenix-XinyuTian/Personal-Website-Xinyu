@@ -2,6 +2,7 @@
 
 import { Orbitron } from "next/font/google";
 import { Flame } from "lucide-react";
+import { useRef, useEffect, useState } from "react";
 import { type SiteLanguage, type SiteMode } from "../types";
 import { type Translation } from "../data/i18n/en";
 import LanguageDropdown from "./ui/LanguageDropdown";
@@ -32,13 +33,43 @@ export default function Header({
   t: Translation;
 }) {
   const isLife = mode === "life";
+  const navContainerRef = useRef<HTMLDivElement>(null);
+  const activeNavRef = useRef<HTMLAnchorElement>(null);
+  const [indicatorStyle, setIndicatorStyle] = useState<{ width: number; left: number } | null>(null);
+
+  useEffect(() => {
+    if (activeNavRef.current && navContainerRef.current) {
+      const activeRect = activeNavRef.current.getBoundingClientRect();
+      const containerRect = navContainerRef.current.getBoundingClientRect();
+      setIndicatorStyle({
+        width: activeRect.width,
+        left: activeRect.left - containerRect.left,
+      });
+    }
+  }, [activeSection]);
 
   const isActive = (href: string) => `#${activeSection}` === href;
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     if (href === "#top") {
-      e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    if (href === "#news") {
+      const newsEl = document.getElementById("news");
+      if (newsEl) {
+        const elementHeight = newsEl.offsetHeight;
+        const scrollTop = newsEl.offsetTop - (window.innerHeight / 2) + (elementHeight / 2);
+        window.scrollTo({ top: Math.max(0, scrollTop), behavior: "smooth" });
+      }
+      return;
+    }
+
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -98,7 +129,20 @@ export default function Header({
           </button>
         </div>
 
-        <div className="flex flex-nowrap items-center gap-[clamp(0.25rem,0.5vw,0.5rem)] text-[clamp(0.75rem,1.2vw,0.875rem)] lg:justify-self-end">
+        <div className="flex flex-nowrap items-center gap-[clamp(0.25rem,0.5vw,0.5rem)] text-[clamp(0.75rem,1.2vw,0.875rem)] lg:justify-self-end relative" ref={navContainerRef}>
+          {indicatorStyle && (
+            <span
+              aria-hidden="true"
+              className={`pointer-events-none absolute -bottom-4 rounded-full shadow-sm transition-all duration-300 ease-in-out h-1 ${
+                isLife ? "bg-teal-400" : "bg-sky-400"
+              }`}
+              style={{
+                width: `${indicatorStyle.width}px`,
+                left: 0,
+                transform: `translateX(${indicatorStyle.left}px)`,
+              }}
+            />
+          )}
           {navLinks.map((link) => {
             const active = isActive(link.href);
             return (
@@ -107,12 +151,9 @@ export default function Header({
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
                 aria-current={active ? "location" : undefined}
-                className={`whitespace-nowrap rounded-full px-2.5 py-1 transition-all duration-200 ${
-                  active
-                    ? isLife
-                      ? "bg-teal-100/70 font-semibold text-teal-700"
-                      : "bg-sky-100/70 font-semibold text-sky-700"
-                    : "text-slate-600 hover:bg-slate-200 hover:text-slate-900"
+                ref={active ? activeNavRef : null}
+                className={`whitespace-nowrap rounded-full px-2.5 py-1 transition-colors duration-200 ${
+                  active ? "text-black" : "text-slate-600 hover:text-slate-900"
                 }`}
               >
                 {link.label}
@@ -218,12 +259,10 @@ export default function Header({
                   key={link.href}
                   href={link.href}
                   aria-current={active ? "location" : undefined}
-                  className={`relative block rounded-lg px-3 py-2 text-sm font-medium transition ${
+                  className={`relative block rounded-lg px-3 py-2 text-sm transition-colors ${
                     active
-                      ? isLife
-                        ? "bg-teal-50/80 text-teal-700"
-                        : "bg-sky-50/80 text-sky-700"
-                      : "text-slate-700 hover:bg-slate-100 hover:text-slate-950"
+                      ? "text-black"
+                      : "text-slate-700 hover:text-slate-950"
                   }`}
                   onClick={(e) => { handleNavClick(e, link.href); onMobileMenuClose(); }}
                 >

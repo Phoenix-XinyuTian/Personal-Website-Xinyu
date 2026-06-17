@@ -24,7 +24,7 @@ export default function ContactSection({ t, mode, lang, onLanguageChange }: { t:
 
             <div>
               <p className="mb-4 font-semibold text-slate-950">{t.contact.connectLabel}</p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-5">
                 {socialLinks.map((item) => {
                   const displayName = item.name === "RedNote" && lang === "zh" ? "小红书" : item.name;
                   return (
@@ -33,7 +33,7 @@ export default function ContactSection({ t, mode, lang, onLanguageChange }: { t:
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 transition hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-100 hover:shadow-md"
+                        className="inline-flex items-center transition hover:-translate-y-0.5 [&_svg]:h-7 [&_svg]:w-7 [&_span]:h-7 [&_span]:w-7"
                       >
                         {item.icon}
                       </a>
