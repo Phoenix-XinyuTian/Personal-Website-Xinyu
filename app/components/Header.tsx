@@ -76,7 +76,7 @@ export default function Header({
   return (
     <header className={`relative sticky top-0 z-30 border-b backdrop-blur transition-colors duration-500 ${isLife ? "border-slate-200/50 bg-[#f5f7fa]/70" : "border-slate-200/50 bg-[#f5f7fa]/70"}`}>
       {/* Desktop Header (lg+) */}
-      <div className="hidden items-center px-[clamp(1.5rem,4vw,4rem)] py-4 lg:grid lg:grid-cols-[1fr_auto_1fr]">
+      <div className="hidden items-center px-[clamp(1.5rem,4vw,4rem)] py-2 lg:grid lg:grid-cols-[1fr_auto_1fr]">
         <a
           href="#top"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
@@ -133,7 +133,7 @@ export default function Header({
           {indicatorStyle && (
             <span
               aria-hidden="true"
-              className={`pointer-events-none absolute -bottom-4 rounded-full shadow-sm transition-all duration-300 ease-in-out h-1 ${
+              className={`pointer-events-none absolute -bottom-2 rounded-full shadow-sm transition-all duration-300 ease-in-out h-1 ${
                 isLife ? "bg-teal-400" : "bg-sky-400"
               }`}
               style={{
@@ -165,7 +165,7 @@ export default function Header({
       </div>
 
       {/* Mobile Header (sm and below) */}
-      <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-6 py-4 sm:px-8 lg:hidden">
+      <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-6 py-2 sm:px-8 lg:hidden">
         {/* Mobile Brand - Shortened */}
         <a
           href="#top"

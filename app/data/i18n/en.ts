@@ -77,7 +77,7 @@ export const en = {
     },
   ],
   projectBadge: "Case Study",
-  projectsHeading: "Selected Work and Research Highlights",
+  projectsHeading: "Selected Work and Research Experiences",
   viewDetails: "View Details ->",
   education: {
     label: "Education",

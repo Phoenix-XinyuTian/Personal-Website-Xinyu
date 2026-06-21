@@ -6,7 +6,7 @@ import LanguageDropdown from "./ui/LanguageDropdown";
 export default function ContactSection({ t, mode, lang, onLanguageChange }: { t: Translation; mode: SiteMode; lang: SiteLanguage; onLanguageChange: (lang: SiteLanguage) => void }) {
   return (
     <section id="contact" className="px-6 py-20 sm:px-8">
-      <div className="mx-auto max-w-6xl rounded-[2rem] border border-slate-200 bg-white p-10 shadow-xl">
+      <div className="mx-auto max-w-6xl rounded-[2rem] border border-slate-200 bg-white px-10 py-7 shadow-xl">
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
           <div>
             <p className={`text-center text-sm uppercase tracking-[0.32em] ${mode === "life" ? "text-teal-600" : "text-sky-600"}`}>{t.contact.label}</p>
@@ -17,7 +17,7 @@ export default function ContactSection({ t, mode, lang, onLanguageChange }: { t:
           <div className="space-y-6 text-sm text-slate-600">
             <div>
               <p className="mb-4 font-semibold text-slate-950">{t.contact.emailLabel}</p>
-              <a href="mailto:xinyu.tian.phoenix@gmail.com" className={mode === "life" ? "text-teal-600 hover:text-teal-800" : "text-sky-600 hover:text-sky-800"}>
+              <a href="mailto:xinyu.tian.phoenix@gmail.com" className={`text-base font-medium ${mode === "life" ? "text-teal-600 hover:text-teal-800" : "text-sky-600 hover:text-sky-800"}`}>
                 {t.contactCard.email}
               </a>
             </div>
@@ -28,25 +28,24 @@ export default function ContactSection({ t, mode, lang, onLanguageChange }: { t:
                 {socialLinks.map((item) => {
                   const displayName = item.name === "RedNote" && lang === "zh" ? "小红书" : item.name;
                   return (
-                    <div key={item.name} className="relative group">
-                      <a
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center transition hover:-translate-y-0.5 [&_svg]:h-7 [&_svg]:w-7 [&_span]:h-7 [&_span]:w-7"
-                      >
-                        {item.icon}
-                      </a>
-                      <span className="pointer-events-none absolute top-full left-1/2 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md border border-slate-200 bg-white px-2 py-1 text-xs text-slate-700 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative inline-flex items-center transition hover:-translate-y-0.5 [&_svg]:h-7 [&_svg]:w-7 [&_span:not(.tooltip)]:h-7 [&_span:not(.tooltip)]:w-7"
+                    >
+                      {item.icon}
+                      <span className="tooltip pointer-events-none absolute top-full left-1/2 mt-1 -translate-x-1/2 whitespace-nowrap rounded-md border border-slate-200 bg-white px-2 py-1 text-xs text-slate-700 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-150">
                         {displayName}
                       </span>
-                    </div>
+                    </a>
                   );
                 })}
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 mt-8">
               <a
                 href="#top"
                 className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-slate-100 hover:shadow-md"

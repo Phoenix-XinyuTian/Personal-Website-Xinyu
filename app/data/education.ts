@@ -6,7 +6,6 @@ export const educationGalleryImages = [
   ],
   [
     "/images/11.jpeg",
-    "/images/12.jpeg",
     "/images/13.jpeg",
     "/images/14.jpeg",
     "/images/15.jpeg",

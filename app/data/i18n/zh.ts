@@ -5,7 +5,7 @@ export const zh: Translation = {
     about: "关于",
     projects: "项目",
     education: "教育经历",
-    experience: "实习经历",
+    experience: "工作经历",
     skills: "技能",
     life: "生活",
     contact: "联系方式",
@@ -79,7 +79,7 @@ export const zh: Translation = {
     },
   ],
   projectBadge: "案例",
-  projectsHeading: "精选作品与研究亮点",
+  projectsHeading: "精选作品集与研究经历",
   viewDetails: "查看详情 ->",
   education: {
     label: "教育经历",
@@ -118,7 +118,7 @@ export const zh: Translation = {
     ],
   },
   experience: {
-    label: "实习经历",
+    label: "工作经历",
     heading: "实习与职业经历",
   },
   skills: {
