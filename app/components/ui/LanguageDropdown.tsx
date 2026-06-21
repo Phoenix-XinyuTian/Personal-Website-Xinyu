@@ -60,7 +60,7 @@ export default function LanguageDropdown({
         <div
           role="listbox"
           aria-label="Select language"
-          className="absolute right-0 top-full z-50 mt-1.5 min-w-[9rem] rounded-2xl border border-slate-200 bg-white py-1 shadow-lg [animation:lang-dropdown-in_0.13s_ease-out]"
+          className="absolute right-0 top-full z-50 mt-1.5 w-max rounded-2xl border border-slate-200 bg-white p-1.5 shadow-lg [animation:lang-dropdown-in_0.13s_ease-out]"
         >
           {LOCALES.map((locale) => {
             const isCurrent = locale.code === language;
@@ -72,7 +72,7 @@ export default function LanguageDropdown({
                 type="button"
                 disabled={isCurrent}
                 onClick={() => { onSelect(locale.code); setOpen(false); }}
-                className={`flex w-full items-center gap-2 px-3 py-2 text-sm transition ${
+                className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition ${
                   isCurrent
                     ? "cursor-default font-semibold text-sky-600"
                     : "text-slate-700 hover:bg-slate-50"
