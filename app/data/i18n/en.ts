@@ -17,12 +17,12 @@ export const en = {
     life: "Life",
   },
   hero: {
-    greeting: "Hello, I am Xinyu.",
+    greeting: "Hello, I'm Xinyu.",
     intro: "I work on ",
-    rotatingWords: ["Computer Vision", "AI Research", "Semiconductor Technology"],
+    rotatingWords: ["Computer Vision", "AI Research", "Software Engineering"],
   },
   lifeHero: {
-    greeting: "Hello, this is Phoenix here.",
+    greeting: "Hey, this is Phoenix here.",
     intro: "I am passionate about ",
     rotatingWords: ["Content Creation", "Study Vlog", "World Travel"],
   },
@@ -31,8 +31,9 @@ export const en = {
     heading: "CV Engineer by Technology. Storyteller by Passion.",
     tagline: "CV Engineer · Content Creator · World Explorer",
     body: [
-      "I'm a Physics MSc student at NUS, currently building computer vision systems for industrial inspection at an A*STAR lab. I specialize in segmentation, anomaly detection, and making AI actually work in production.",
-      "Beyond the code, I document my student life, travels, and thinking journey as a bilingual content creator.",
+      "I'm an MSc student at the National University of Singapore (NUS), working at the intersection of computer vision, deep learning, and AI applications. My focus is on turning AI into the physical world and developing interesting projects.",
+      "With a physics background and a research path that has brought me through CNT optoelectronics, RGB-D salient object detection, and SEM-based wafer inspection at A*STAR, I'm building toward a career as a Computer Vision Engineer in Singapore's tech and semiconductor industry.",
+      "Outside the lab, I document my student life, travels, and reflections as a bilingual creator (English / 简体中文).",
     ],
     statsWork: ["🎓 NUS MSc Physics", "🔬 A*STAR Research", "💻 Computer Vision", "🗣️ Mandarin · English"],
     statsLife: ["🎬 Bilingual Creator", "📍 Based in Singapore", "🌏 20+ Countries & Regions"],
@@ -40,7 +41,7 @@ export const en = {
     followersLabel: "Followers",
     travelCount: "20+",
     travelLabel: "Countries & Regions",
-    astarRole: "Research Intern",
+    astarRole: "AI Research Affiliate",
     nusRole: "MSc Physics for Technology",
   },
   focusAreasWork: [

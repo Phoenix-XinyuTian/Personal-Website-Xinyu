@@ -21,7 +21,7 @@ export const zh: Translation = {
   hero: {
     greeting: "你好，我是 Xinyu。",
     intro: "我的工作聚焦于 ",
-    rotatingWords: ["计算机视觉", "AI 研究", "半导体技术"],
+    rotatingWords: ["计算机视觉", "AI 研究", "软件工程"],
   },
   lifeHero: {
     greeting: "你好，我是 Phoenix。",
@@ -33,8 +33,8 @@ export const zh: Translation = {
     heading: "通过技术做视觉算法，通过内容创作表达自我",
     tagline: "计算机视觉工程师 · 内容创作者 · 世界旅行",
     body: [
-      "我就读于新加坡国立大学技术物理硕士，目前在 A*STAR 的实验室从事工业视觉方向的研究，专注于图像分割、异常检测与可落地的 AI 系统开发。",
-      "工程之外，我以双语内容创作者的身份记录学习生活、旅行见闻与思想进步。",
+      "我是新加坡国立大学（NUS）的硕士研究生，研究方向横跨计算机视觉、深度学习与 AI 应用。我专注于让 AI 真正落地到实际工具与物理世界中，也乐于折腾各种有意思的项目。",
+      "实验室之外，我也以中英双语创作者的身份，记录自己的学生生活、旅行见闻与思考。",
     ],
     statsWork: ["🎓 新加坡国立大学 物理硕士", "🔬 A*STAR 科研", "💻 计算机视觉", "🗣️ 普通话 · 英语"],
     statsLife: ["🎬 双语内容创作者", "📍 定居新加坡", "🌏 20+ 国家与地区"],
@@ -42,7 +42,7 @@ export const zh: Translation = {
     followersLabel: "全网粉丝",
     travelCount: "20+",
     travelLabel: "去过的国家与地区",
-    astarRole: "科研实习",
+    astarRole: "AI 科研成员",
     nusRole: "技术物理硕士",
   },
   focusAreasWork: [
