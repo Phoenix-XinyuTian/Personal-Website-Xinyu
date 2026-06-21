@@ -13,6 +13,7 @@ import ProjectsSection from "./components/work/ProjectsSection";
 import EducationSection from "./components/work/EducationSection";
 import MediaSection from "./components/life/MediaSection";
 import TravelSection from "./components/life/TravelSection";
+import LanguageSection from "./components/life/LanguageSection";
 import LifeSection from "./components/life/LifeSection";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
@@ -61,7 +62,7 @@ export default function Home() {
     const sectionIds =
       displayedMode === "work"
         ? ["top", "news", "experience", "skills", "projects", "education", "contact"]
-        : ["top", "news", "media", "travel", "life", "contact"];
+        : ["top", "news", "media", "travel", "languages", "life", "contact"];
 
     let rafId = 0;
 
@@ -119,6 +120,7 @@ export default function Home() {
           { href: "#news", label: t.nav.news },
           { href: "#media", label: t.nav.media },
           { href: "#travel", label: t.nav.travel },
+          { href: "#languages", label: t.nav.language },
           { href: "#life", label: t.nav.life },
           { href: "#contact", label: t.nav.contact },
         ];
@@ -174,6 +176,7 @@ export default function Home() {
           <>
             <MediaSection t={t} lang={language} />
             <TravelSection lang={language} />
+            <LanguageSection t={t} />
             <LifeSection t={t} />
           </>
         )}

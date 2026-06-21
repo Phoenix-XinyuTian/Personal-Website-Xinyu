@@ -38,15 +38,27 @@ export default function Header({
   const [indicatorStyle, setIndicatorStyle] = useState<{ width: number; left: number } | null>(null);
 
   useEffect(() => {
-    if (activeNavRef.current && navContainerRef.current) {
-      const activeRect = activeNavRef.current.getBoundingClientRect();
-      const containerRect = navContainerRef.current.getBoundingClientRect();
-      setIndicatorStyle({
-        width: activeRect.width,
-        left: activeRect.left - containerRect.left,
-      });
-    }
-  }, [activeSection]);
+    const measure = () => {
+      if (activeNavRef.current && navContainerRef.current) {
+        const activeRect = activeNavRef.current.getBoundingClientRect();
+        const containerRect = navContainerRef.current.getBoundingClientRect();
+        setIndicatorStyle({
+          width: activeRect.width,
+          left: activeRect.left - containerRect.left,
+        });
+      }
+    };
+
+    measure();
+
+    // Re-measure on any reflow (language switch, async font load, viewport resize)
+    // so the indicator never lingers at a stale position between two nav items.
+    const container = navContainerRef.current;
+    if (!container) return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [activeSection, language]);
 
   const isActive = (href: string) => `#${activeSection}` === href;
 

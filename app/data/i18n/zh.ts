@@ -12,6 +12,7 @@ export const zh: Translation = {
     media: "自媒体",
     travel: "旅行",
     news: "动态",
+    language: "语言",
   },
   modeSwitch: {
     work: "工作",
@@ -35,7 +36,7 @@ export const zh: Translation = {
       "我就读于新加坡国立大学技术物理硕士，目前在 A*STAR 的实验室从事工业视觉方向的研究，专注于图像分割、异常检测与可落地的 AI 系统开发。",
       "工程之外，我以双语内容创作者的身份记录学习生活、旅行见闻与思想进步。",
     ],
-    statsWork: ["🎓 新加坡国立大学 物理硕士", "🔬 A*STAR 科研", "💻 计算机视觉"],
+    statsWork: ["🎓 新加坡国立大学 物理硕士", "🔬 A*STAR 科研", "💻 计算机视觉", "🗣️ 普通话 · 英语"],
     statsLife: ["🎬 双语内容创作者", "📍 定居新加坡", "🌏 20+ 国家与地区"],
     followersCount: "100+",
     followersLabel: "全网粉丝",
@@ -128,11 +129,21 @@ export const zh: Translation = {
       programming: "编程",
       cvml: "计算机视觉与机器学习",
       tools: "工具",
-      languages: "语言",
+      ai: "AI 辅助开发",
     },
-    languages: [
+  },
+  languages: {
+    label: "语言与文化",
+    heading: "我掌握与正在学习的语言",
+    groups: {
+      proficient: "已掌握",
+      learning: "正在学习",
+    },
+    proficient: [
       { name: "普通话", level: "母语", flag: "CN" },
       { name: "英语", level: "专业", flag: "GB" },
+    ],
+    learning: [
       { name: "粤语", level: "初学者", flag: "HK" },
       { name: "日语", level: "初学者", flag: "JP" },
     ],

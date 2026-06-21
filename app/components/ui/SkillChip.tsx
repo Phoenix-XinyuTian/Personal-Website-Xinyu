@@ -3,7 +3,13 @@ import { skillMap, type SkillItem } from "../../data/skills";
 export function SkillChip({ skill }: { skill: SkillItem }) {
   return (
     <div className="inline-flex cursor-default items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700 shadow-sm transition hover:scale-105 hover:shadow-md sm:px-3 sm:py-1.5 sm:text-sm">
-      {skill.path && skill.hex && (
+      {skill.img ? (
+        <img
+          src={skill.img}
+          alt={skill.name}
+          className="h-3.5 w-3.5 shrink-0 rounded-[3px] object-contain sm:h-4 sm:w-4"
+        />
+      ) : skill.path && skill.hex && (
         <svg
           role="img"
           viewBox="0 0 24 24"

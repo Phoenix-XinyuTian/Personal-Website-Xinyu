@@ -17,7 +17,7 @@ import {
   siLatex,
 } from "simple-icons";
 
-export type SkillItem = { name: string; hex?: string; path?: string };
+export type SkillItem = { name: string; hex?: string; path?: string; img?: string };
 
 export const programmingSkills: SkillItem[] = [
   { name: "Python", hex: siPython.hex, path: siPython.path },
@@ -44,6 +44,14 @@ export const toolsSkills: SkillItem[] = [
   { name: "Anaconda",hex: siAnaconda.hex,path: siAnaconda.path },
   { name: "LaTeX",   hex: siLatex.hex,   path: siLatex.path },
   { name: "CVAT" },
+];
+
+export const aiSkills: SkillItem[] = [
+  { name: "Claude Code",    img: "/logos/claudecode-color.svg" },
+  { name: "Codex",          img: "/logos/codex-color.svg" },
+  { name: "ChatGPT",        img: "/logos/openai.svg" },
+  { name: "Cursor",         img: "/logos/cursor.svg" },
+  { name: "GitHub Copilot", img: "/logos/copilot-color.svg" },
 ];
 
 export const skillMap: Record<string, SkillItem> = {

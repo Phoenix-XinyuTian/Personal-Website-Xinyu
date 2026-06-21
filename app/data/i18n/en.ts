@@ -10,6 +10,7 @@ export const en = {
     media: "Media",
     travel: "Travel",
     news: "News",
+    language: "Language",
   },
   modeSwitch: {
     work: "Work",
@@ -33,7 +34,7 @@ export const en = {
       "I'm a Physics MSc student at NUS, currently building computer vision systems for industrial inspection at an A*STAR lab. I specialize in segmentation, anomaly detection, and making AI actually work in production.",
       "Beyond the code, I document my student life, travels, and thinking journey as a bilingual content creator.",
     ],
-    statsWork: ["🎓 NUS MSc Physics", "🔬 A*STAR Research", "💻 Computer Vision"],
+    statsWork: ["🎓 NUS MSc Physics", "🔬 A*STAR Research", "💻 Computer Vision", "🗣️ Mandarin · English"],
     statsLife: ["🎬 Bilingual Creator", "📍 Based in Singapore", "🌏 20+ Countries & Regions"],
     followersCount: "100+",
     followersLabel: "Followers",
@@ -128,11 +129,21 @@ export const en = {
       programming: "Programming",
       cvml: "Computer Vision & ML",
       tools: "Tools",
-      languages: "Languages",
+      ai: "AI-Assisted Development",
     },
-    languages: [
+  },
+  languages: {
+    label: "Language & Culture",
+    heading: "Languages I Speak & Am Learning",
+    groups: {
+      proficient: "Proficient",
+      learning: "Exploring",
+    },
+    proficient: [
       { name: "Mandarin", level: "Native", flag: "CN" },
       { name: "English", level: "Professional", flag: "GB" },
+    ],
+    learning: [
       { name: "Cantonese", level: "Beginner", flag: "HK" },
       { name: "Japanese", level: "Beginner", flag: "JP" },
     ],
