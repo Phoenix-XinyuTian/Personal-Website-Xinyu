@@ -19,29 +19,31 @@ export const en = {
   hero: {
     greeting: "Hello, I'm Xinyu.",
     intro: "I work on ",
-    rotatingWords: ["Computer Vision", "AI Research", "Software Engineering"],
+    rotatingWords: ["Computer Vision", "AI Research", "Machine Learning"],
   },
   lifeHero: {
-    greeting: "Hey, this is Phoenix here.",
+    greeting: "Hey, Phoenix here.",
     intro: "I am passionate about ",
     rotatingWords: ["Content Creation", "Study Vlog", "World Travel"],
   },
   about: {
     label: "About Me",
     heading: "CV Engineer by Technology. Storyteller by Passion.",
-    tagline: "CV Engineer · Content Creator · World Explorer",
+    tagline: "Computer Vision · Machine Learning · AI Application",
     body: [
-      "I'm an MSc student at the National University of Singapore (NUS), working at the intersection of computer vision, deep learning, and AI applications. My focus is on turning AI into the physical world and developing interesting projects.",
-      "With a physics background and a research path that has brought me through CNT optoelectronics, RGB-D salient object detection, and SEM-based wafer inspection at A*STAR, I'm building toward a career as a Computer Vision Engineer in Singapore's tech and semiconductor industry.",
-      "Outside the lab, I document my student life, travels, and reflections as a bilingual creator (English / 简体中文).",
+      "I'm an MSc student at the **National University of Singapore (NUS)**, working at the intersection of computer vision, deep learning, and AI applications. My focus is on bringing AI into the physical world and building interesting projects.",
+      "Outside the lab, I document my student life, travels, and reflections as a bilingual creator.",
     ],
+    statusWork: "Open to full-time CV/ML Engineer roles · Starting from Feb 2027",
+    downloadResume: "Resume",
+    emailLabel: "Email",
     statsWork: ["🎓 NUS MSc Physics", "🔬 A*STAR Research", "💻 Computer Vision", "🗣️ Mandarin · English"],
     statsLife: ["🎬 Bilingual Creator", "📍 Based in Singapore", "🌏 20+ Countries & Regions"],
     followersCount: "100+",
     followersLabel: "Followers",
     travelCount: "20+",
     travelLabel: "Countries & Regions",
-    astarRole: "AI Research Affiliate",
+    astarRole: "Computer Vision Research",
     nusRole: "MSc Physics for Technology",
   },
   focusAreasWork: [
@@ -53,12 +55,12 @@ export const en = {
     {
       icon: "🤖",
       title: "AI Engineering",
-      description: "Turning research into production-ready, explainable AI solutions with a focus on reliability.",
+      description: "Bridging research and engineering — turning models into reliable, interpretable tools.",
     },
     {
       icon: "📝",
       title: "Research & Thesis",
-      description: "NUS MSc of Physics for Technology, focused on applied deep learning for industrial imaging and computer vision.",
+      description: "NUS MSc thesis: applied deep learning for industrial imaging and semiconductor inspection.",
     },
   ],
   focusAreasLife: [
@@ -128,7 +130,7 @@ export const en = {
     heading: "Technical Skills and Languages",
     groups: {
       programming: "Programming",
-      cvml: "Computer Vision & ML",
+      cvml: "Computer Vision & Machine Learning",
       tools: "Tools",
       ai: "AI-Assisted Development",
     },

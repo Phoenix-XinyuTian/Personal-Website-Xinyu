@@ -50,13 +50,13 @@ export default function NewsSection({
 
   return (
     <section id="news" className="scroll-mt-24 px-6 pt-2 pb-6 sm:px-8 sm:pb-8">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-3xl">
         <p className={`text-center text-sm uppercase tracking-[0.32em] ${mode === "life" ? "text-teal-600" : "text-sky-600"}`}>
           {t.news.label}
         </p>
 
         <div className="mt-5 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
-          <ul className="space-y-3">
+          <ul className="mx-auto flex w-fit flex-col gap-3">
             {sortedItems.map((item, idx) => {
               const isNew = idx === 0;
               const [year, month] = item.date.split("-");
@@ -74,7 +74,7 @@ export default function NewsSection({
                       </span>
                     )}
                   </span>
-                  <span className="flex-1 text-[15px] leading-7 text-slate-800">
+                  <span className="text-[15px] leading-7 text-slate-800">
                     {renderTitleWithLinks(item.title, mode)}
                   </span>
                 </li>

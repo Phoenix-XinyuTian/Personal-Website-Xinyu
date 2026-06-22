@@ -262,7 +262,7 @@ export default function Header({
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="absolute right-4 top-full z-50 w-44 rounded-2xl border border-slate-200/50 bg-[#f5f7fa]/70 backdrop-blur shadow-lg py-2 [animation:menu-in_0.2s_ease-out] lg:hidden">
+        <div className="absolute right-0 top-full z-50 w-max rounded-2xl border border-slate-200 bg-white shadow-lg py-2 [animation:menu-in_0.2s_ease-out] lg:hidden">
           <nav className="space-y-0.5 px-2">
             {navLinks.map((link) => {
               const active = isActive(link.href);
@@ -271,7 +271,7 @@ export default function Header({
                   key={link.href}
                   href={link.href}
                   aria-current={active ? "location" : undefined}
-                  className={`relative block rounded-lg px-3 py-2 text-sm transition-colors ${
+                  className={`relative block rounded-lg px-3 py-2 text-right text-sm transition-colors ${
                     active
                       ? "text-black"
                       : "text-slate-700 hover:text-slate-950"
@@ -281,12 +281,12 @@ export default function Header({
                   {active && (
                     <span
                       aria-hidden="true"
-                      className={`absolute left-1.5 top-1/2 h-3 w-0.5 -translate-y-1/2 rounded-full ${
+                      className={`absolute right-1.5 top-1/2 h-3 w-0.5 -translate-y-1/2 rounded-full ${
                         isLife ? "bg-teal-500" : "bg-sky-500"
                       }`}
                     />
                   )}
-                  <span className={active ? "pl-2" : undefined}>{link.label}</span>
+                  <span className={active ? "pr-2" : undefined}>{link.label}</span>
                 </a>
               );
             })}

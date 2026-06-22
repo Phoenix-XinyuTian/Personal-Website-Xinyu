@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Globe, ChevronDown, Check } from "lucide-react";
+import { Globe, ChevronDown } from "lucide-react";
 import { LOCALES, type SiteLanguage } from "../../types";
 
 export default function LanguageDropdown({
@@ -17,6 +17,7 @@ export default function LanguageDropdown({
   contentDark?: boolean;
   showFullLabel?: boolean;
 }) {
+  // Short language label (EN / 简中) is shown on all breakpoints, incl. mobile.
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const current = LOCALES.find((l) => l.code === language) ?? LOCALES[0]!;
@@ -47,7 +48,7 @@ export default function LanguageDropdown({
         className={triggerClassName ?? "inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 sm:px-1 font-semibold text-slate-950 transition hover:border-slate-300 hover:bg-slate-100"}
       >
         <Globe className={`h-4 w-4 shrink-0 ${contentDark ? "text-black" : "text-slate-500"}`} strokeWidth={1.8} />
-        <span className={`${showFullLabel ? "inline" : "hidden sm:inline"} text-[13px] font-normal ${contentDark ? "text-black" : "text-slate-500"}`}>
+        <span className={`inline text-[13px] font-normal ${contentDark ? "text-black" : "text-slate-500"}`}>
           {showFullLabel ? current.label : current.short}
         </span>
         <ChevronDown
@@ -72,15 +73,12 @@ export default function LanguageDropdown({
                 type="button"
                 disabled={isCurrent}
                 onClick={() => { onSelect(locale.code); setOpen(false); }}
-                className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition ${
+                className={`flex w-full items-center rounded-lg px-3 py-2 text-sm transition ${
                   isCurrent
                     ? "cursor-default font-semibold text-sky-600"
                     : "text-slate-700 hover:bg-slate-50"
                 }`}
               >
-                <span className="flex h-4 w-4 shrink-0 items-center justify-center text-sky-600">
-                  {isCurrent && <Check className="h-3.5 w-3.5" strokeWidth={2.5} />}
-                </span>
                 {locale.label}
               </button>
             );

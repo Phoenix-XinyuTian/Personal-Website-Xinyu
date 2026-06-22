@@ -8,6 +8,7 @@ import {
   siTensorflow,
   siOpencv,
   siNumpy,
+  siScikitlearn,
   siGit,
   siGithub,
   siDocker,
@@ -15,6 +16,8 @@ import {
   siJupyter,
   siAnaconda,
   siLatex,
+  siNextdotjs,
+  siVercel,
 } from "simple-icons";
 
 export type SkillItem = { name: string; hex?: string; path?: string; img?: string };
@@ -23,9 +26,9 @@ export const programmingSkills: SkillItem[] = [
   { name: "Python", hex: siPython.hex, path: siPython.path },
   { name: "C", hex: siC.hex, path: siC.path },
   { name: "C++", hex: siCplusplus.hex, path: siCplusplus.path },
-  { name: "MATLAB" },
   { name: "JavaScript", hex: siJavascript.hex, path: siJavascript.path },
   { name: "TypeScript", hex: siTypescript.hex, path: siTypescript.path },
+  { name: "Next.js", hex: siNextdotjs.hex, path: siNextdotjs.path },
 ];
 
 export const cvmlSkills: SkillItem[] = [
@@ -33,17 +36,18 @@ export const cvmlSkills: SkillItem[] = [
   { name: "TensorFlow", hex: siTensorflow.hex, path: siTensorflow.path },
   { name: "OpenCV", hex: siOpencv.hex, path: siOpencv.path },
   { name: "NumPy", hex: siNumpy.hex, path: siNumpy.path },
+  { name: "scikit-learn", hex: siScikitlearn.hex, path: siScikitlearn.path },
 ];
 
 export const toolsSkills: SkillItem[] = [
-  { name: "Git",     hex: siGit.hex,     path: siGit.path },
   { name: "GitHub",  hex: siGithub.hex,  path: siGithub.path },
+  { name: "Git",     hex: siGit.hex,     path: siGit.path },
   { name: "Docker",  hex: siDocker.hex,  path: siDocker.path },
   { name: "Linux",   hex: siLinux.hex,   path: siLinux.path },
   { name: "Jupyter", hex: siJupyter.hex, path: siJupyter.path },
   { name: "Anaconda",hex: siAnaconda.hex,path: siAnaconda.path },
   { name: "LaTeX",   hex: siLatex.hex,   path: siLatex.path },
-  { name: "CVAT" },
+  { name: "Vercel",  hex: siVercel.hex,  path: siVercel.path },
 ];
 
 export const aiSkills: SkillItem[] = [
