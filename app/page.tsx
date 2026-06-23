@@ -29,6 +29,13 @@ export default function Home() {
   useEffect(() => {
     const languageTimer = window.setTimeout(() => {
       if (navigator.language.startsWith("zh")) setLanguage("zh");
+
+      // Domain-based default mode: phoenixtian.com → Life, xinyutian.me → Work.
+      // Visitors can still toggle freely afterwards.
+      if (window.location.hostname.includes("phoenixtian")) {
+        setMode("life");
+        setDisplayedMode("life");
+      }
     }, 0);
 
     return () => window.clearTimeout(languageTimer);

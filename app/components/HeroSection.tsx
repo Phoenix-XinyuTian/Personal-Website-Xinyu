@@ -33,7 +33,7 @@ export default function HeroSection({ t, mode }: { t: Translation; mode: SiteMod
         <p className="mb-4 text-2xl font-medium text-slate-700 motion-safe:animate-[fadeInUp_0.6s_ease-out] sm:text-3xl">
           {heroData.greeting}
         </p>
-        <p className="text-3xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-5xl">
+        <p className="text-2xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-4xl">
           <span>{heroData.intro}</span>
           <span
             className={`inline-block ${mode === "life" ? "text-teal-600" : "text-sky-600"} border-b-2 border-current pb-1 whitespace-nowrap`}
