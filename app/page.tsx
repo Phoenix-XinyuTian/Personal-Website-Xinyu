@@ -169,7 +169,7 @@ export default function Home() {
 
         <HeroSection t={t} mode={displayedMode} />
 
-        <AboutSection t={t} mode={displayedMode} />
+        <AboutSection t={t} mode={displayedMode} lang={language} />
         <NewsSection t={t} mode={displayedMode} lang={language} />
 
         {displayedMode === "work" ? (

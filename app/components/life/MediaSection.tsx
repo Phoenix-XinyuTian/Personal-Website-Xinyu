@@ -9,7 +9,7 @@ const SOCIAL_NAME_ALIAS: Record<string, string> = {
 const PLATFORM_HREFS: Record<string, string> = {
   YouTube: "https://www.youtube.com/@Phoenix_Tian",
   Instagram: "https://www.instagram.com/phoenix.tian.vlog/",
-  X: "https://x.com/Xinyu_Tian_AI",
+  Facebook: "https://www.facebook.com/share/1EWvuK1fBZ/?mibextid=wwXIfr",
   RedNote: "https://www.xiaohongshu.com/user/profile/5f1b2b3c0000000001004b2e",
   小红书: "https://www.xiaohongshu.com/user/profile/5f1b2b3c0000000001004b2e",
 };

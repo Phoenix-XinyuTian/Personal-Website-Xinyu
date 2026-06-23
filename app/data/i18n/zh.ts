@@ -30,19 +30,19 @@ export const zh: Translation = {
   },
   about: {
     label: "关于我",
-    heading: "以技术铸就视觉工程，以热爱讲述故事",
     taglineWork: "计算机视觉 · 机器学习 · AI 应用",
     bodyWork: [
-      "我是**新加坡国立大学（NUS）**的硕士研究生，研究方向横跨计算机视觉、深度学习与 AI 应用，也在探索如何把研究想法转化为企业界的真实应用。",
-      "实验室之外，我也以双语内容创作者的身份记录自己的旅程——欢迎切换到 Life 模式了解更多。",
+      "我是**新加坡国立大学（NUS）**的硕士研究生，兴趣方向横跨计算机视觉、机器学习与 AI 应用。我喜欢从问题定义、数据理解、模型实验到结果验证完整推进工作，构建可复现的 CV/ML 流程，并将研究想法转化为可靠、能解决真实问题的系统。",
+      "实验室之外，我也以双语内容创作者的身份记录自己的旅程，分享关于学习、旅行与个人成长的故事。欢迎切换到 Life 模式了解更多。",
     ],
-    taglineLife: "创作者 · 旅行者 · 故事讲述者",
+    taglineLife: "内容创作 · 环球旅行 · 讲述故事",
     bodyLife: [
       "工作之外，我是一名**中英双语内容创作者**，记录自己在新加坡的学生生活、旅途见闻，以及一路上的点滴思考。",
       "从世界各地的角落到日常的校园瞬间，我喜欢用故事去连接不同语言与文化背景的人。",
       "想了解我的职业一面？点击上方切换到 Work 模式，看看我的技术背景。",
     ],
     statusWork: "寻找全职 CV/ML Engineer 机会 · 2027 年 2 月起 · Singapore",
+    statusLife: "关注我，查看我的自媒体内容与旅行故事",
     downloadResume: "简历",
     emailLabel: "邮箱",
     statsWork: ["🎓 新加坡国立大学 物理硕士", "💻 计算机视觉", "🤖 机器学习", "🗣️ 普通话 · 英语"],
@@ -174,7 +174,7 @@ export const zh: Translation = {
     matrix: [
       { name: "YouTube", role: "长视频：留学日常与旅行Vlog" },
       { name: "Instagram", role: "视觉叙事与旅行瞬间" },
-      { name: "X", role: "碎片思考、AI动态与生活感悟" },
+      { name: "Facebook", role: "动态、生活点滴与好友互动" },
       { name: "小红书", role: "生活方式与城市探店（中文）" },
     ],
     featuredVideosLabel: "精选视频",
@@ -216,7 +216,7 @@ export const zh: Translation = {
     heading: "让我们保持联系",
     description:
       "我愿意合作、实习机会和关于计算机视觉与 AI 的研究交流。如果你想一起工作或讨论想法，请与我联系。",
-    emailLabel: "电子邮件",
+    emailLabel: "邮箱",
     connectLabel: "联系方式",
     back: "回到顶部",
   },

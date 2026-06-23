@@ -28,11 +28,10 @@ export const en = {
   },
   about: {
     label: "About Me",
-    heading: "CV Engineer by Technology. Storyteller by Passion.",
     taglineWork: "Computer Vision · Machine Learning · AI Application",
     bodyWork: [
-      "I'm an MSc student at the **National University of Singapore (NUS)**, working across computer vision, deep learning, and AI applications — exploring how research ideas translate into real-world industry uses.",
-      "Beyond the lab, I document my journey as a bilingual content creator — feel free to explore Life mode for more.",
+      "I'm a Master's student at the **National University of Singapore (NUS)**, with interests spanning computer vision, machine learning, and AI applications. I enjoy working across problem framing, data understanding, model experimentation, and result validation — building reproducible CV/ML pipelines and turning research ideas into reliable systems that solve real-world problems.",
+      "Beyond the lab, I also document my journey as a bilingual content creator, sharing stories about learning, travel, and personal growth. Switch to Life mode to learn more.",
     ],
     taglineLife: "Creator · Traveler · Storyteller",
     bodyLife: [
@@ -41,6 +40,7 @@ export const en = {
       "Curious about my professional side? Switch to Work mode above to see my technical background.",
     ],
     statusWork: "Open to full-time CV/ML Engineer roles · Starting from Feb 2027",
+    statusLife: "Follow me for my latest content and travel stories",
     downloadResume: "Resume",
     emailLabel: "Email",
     statsWork: ["🎓 NUS MSc Physics", "💻 Computer Vision", "🤖 Machine Learning", "🗣️ Mandarin · English"],
@@ -176,7 +176,7 @@ export const en = {
     matrix: [
       { name: "YouTube", role: "Long-form vlogs and study/life episodes" },
       { name: "Instagram", role: "Visual storytelling and travel moments" },
-      { name: "X", role: "Short thoughts, updates, and AI/life snippets" },
+      { name: "Facebook", role: "Updates and moments shared with friends" },
       { name: "RedNote", role: "Lifestyle and city guides (Chinese)" },
     ],
     featuredVideosLabel: "Featured Videos",
