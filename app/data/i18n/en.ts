@@ -107,7 +107,7 @@ export const en = {
           "Developing end-to-end CV pipelines with PyTorch for deployment-ready prototypes.",
           "Collaborating with research groups on AI-driven solutions for advanced manufacturing quality control.",
         ],
-        skills: ["Computer Vision", "Deep Learning", "Machine Learning", "Python", "PyTorch", "OpenCV"],
+        skills: ["Computer Vision", "Machine Learning", "Python", "PyTorch", "OpenCV", "English Communication"],
       },
       {
         degree: "Bachelor of Science",

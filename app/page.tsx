@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { type SiteLanguage, type SiteMode } from "./types";
 import { en, type Translation } from "./data/i18n/en";
 import { zh } from "./data/i18n/zh";
@@ -20,6 +20,11 @@ import HeroSection from "./components/HeroSection";
 import NewsSection from "./components/NewsSection";
 
 const translations: Record<SiteLanguage, Translation> = { en, zh };
+
+const SECTION_IDS: Record<SiteMode, string[]> = {
+  work: ["top", "news", "experience", "skills", "projects", "education", "contact"],
+  life: ["top", "news", "media", "travel", "languages", "life", "contact"],
+};
 
 export default function Home() {
   const [language, setLanguage] = useState<SiteLanguage>("en");
@@ -61,15 +66,39 @@ export default function Home() {
     return () => { if (transitionRef.current) clearTimeout(transitionRef.current); };
   }, []);
 
+  // Switching language reflows the page (EN/ZH text differ in height), which would
+  // otherwise shift the content under the viewport. Pin the topmost visible section
+  // across the switch so the reader stays where they were.
+  const langAnchorRef = useRef<{ el: HTMLElement; top: number } | null>(null);
+
+  const handleLanguageChange = (newLang: SiteLanguage) => {
+    if (newLang === language) return;
+    for (const id of SECTION_IDS[displayedMode]) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const rect = el.getBoundingClientRect();
+      if (rect.bottom > 0) {
+        langAnchorRef.current = { el, top: rect.top };
+        break;
+      }
+    }
+    setLanguage(newLang);
+  };
+
+  useLayoutEffect(() => {
+    const anchor = langAnchorRef.current;
+    if (!anchor) return;
+    langAnchorRef.current = null;
+    const delta = anchor.el.getBoundingClientRect().top - anchor.top;
+    if (delta) window.scrollBy({ top: delta, behavior: "instant" as ScrollBehavior });
+  }, [language]);
+
   const t = translations[language];
 
   const [activeSection, setActiveSection] = useState("top");
 
   useEffect(() => {
-    const sectionIds =
-      displayedMode === "work"
-        ? ["top", "news", "experience", "skills", "projects", "education", "contact"]
-        : ["top", "news", "media", "travel", "languages", "life", "contact"];
+    const sectionIds = SECTION_IDS[displayedMode];
 
     let rafId = 0;
 
@@ -153,7 +182,7 @@ export default function Home() {
         mode={mode}
         language={language}
         onModeChange={handleModeChange}
-        onLanguageChange={setLanguage}
+        onLanguageChange={handleLanguageChange}
         navLinks={navLinks}
         activeSection={activeSection}
         mobileMenuOpen={mobileMenuOpen}
@@ -188,7 +217,7 @@ export default function Home() {
           </>
         )}
 
-        <ContactSection t={t} mode={displayedMode} lang={language} onLanguageChange={setLanguage} />
+        <ContactSection t={t} mode={displayedMode} lang={language} onLanguageChange={handleLanguageChange} />
       </div>
 
       <Footer t={t} />
