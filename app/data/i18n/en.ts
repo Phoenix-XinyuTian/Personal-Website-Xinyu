@@ -30,12 +30,12 @@ export const en = {
     label: "About Me",
     taglineWork: "Computer Vision · Machine Learning · AI Application",
     bodyWork: [
-      "I'm a Master's student at the **National University of Singapore (NUS)**, with interests spanning computer vision, machine learning, and AI applications. I enjoy working across problem framing, data understanding, model experimentation, and result validation — building reproducible CV/ML pipelines and turning research ideas into reliable systems that solve real-world problems.",
+      "I'm **Xinyu Tian**, a Master's student at the **National University of Singapore (NUS)**, with interests spanning computer vision, machine learning, and AI applications. I enjoy working across problem framing, data understanding, model experimentation, and result validation — building reproducible CV/ML pipelines and turning research ideas into reliable systems that solve real-world problems.",
       "Beyond the lab, I also document my journey as a bilingual content creator, sharing stories about learning, travel, and personal growth. Switch to Life mode to learn more.",
     ],
     taglineLife: "Creator · Traveler · Storyteller",
     bodyLife: [
-      "Off the clock, I'm a **bilingual content creator**, documenting my student life in Singapore, the places I travel to, and the little reflections along the way.",
+      "My creator brand is **Phoenix Tian**. I'm a **bilingual content creator**, documenting my student life in Singapore, the places I travel to, and the little reflections along the way.",
       "From far-flung corners of the world to everyday campus moments, I love telling stories that connect people across languages and cultures.",
       "Curious about my professional side? Switch to Work mode above to see my technical background.",
     ],
