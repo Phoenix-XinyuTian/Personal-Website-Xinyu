@@ -18,24 +18,24 @@ const cormorant = Cormorant_Garamond({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
-  title: "Xinyu Tian | Phoenix",
+  title: "Xinyu Tian | Phoenix Tian",
   description:
-    "Dual-mode personal brand website for Xinyu Tian | Phoenix",
+    "Dual-mode personal brand website for Xinyu Tian | Phoenix Tian",
   metadataBase: new URL(siteUrl),
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Xinyu Tian | Phoenix",
+    title: "Xinyu Tian | Phoenix Tian",
     description:
-      "Dual-mode personal brand website for Xinyu Tian | Phoenix",
+      "Dual-mode personal brand website for Xinyu Tian | Phoenix Tian",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Xinyu Tian | Phoenix",
+    title: "Xinyu Tian | Phoenix Tian",
     description:
-      "Dual-mode personal brand website for Xinyu Tian | Phoenix",
+      "Dual-mode personal brand website for Xinyu Tian | Phoenix Tian",
     images: ["/favicon.ico"],
   },
 };

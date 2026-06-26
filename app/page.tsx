@@ -35,11 +35,23 @@ export default function Home() {
     const languageTimer = window.setTimeout(() => {
       if (navigator.language.startsWith("zh")) setLanguage("zh");
 
-      // Domain-based default mode: phoenixtian.com → Life, xinyutian.me → Work.
-      // Visitors can still toggle freely afterwards.
-      if (window.location.hostname.includes("phoenixtian")) {
-        setMode("life");
-        setDisplayedMode("life");
+      // Default mode resolution. Visitors can still toggle freely afterwards.
+      // 1) Explicit ?mode=life|work query param wins — this is how phoenixtian.com
+      //    carries its Life intent through the domain-level redirect to xinyutian.me
+      //    (the redirect strips the original hostname, so we pass it via the URL).
+      // 2) Otherwise fall back to the hostname (works when a domain is served
+      //    directly without a redirect): phoenixtian.com → Life.
+      const queryMode = new URLSearchParams(window.location.search).get("mode");
+      const initialMode: SiteMode | null =
+        queryMode === "life" || queryMode === "work"
+          ? queryMode
+          : window.location.hostname.includes("phoenixtian")
+            ? "life"
+            : null;
+
+      if (initialMode) {
+        setMode(initialMode);
+        setDisplayedMode(initialMode);
       }
     }, 0);
 
