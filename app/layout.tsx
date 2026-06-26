@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { getHostname, isPhoenixHost } from "./site-host";
 import "maplibre-gl/dist/maplibre-gl.css";
 import "./globals.css";
 
@@ -17,28 +18,42 @@ const cormorant = Cormorant_Garamond({
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
-export const metadata: Metadata = {
-  title: "Xinyu Tian | Phoenix Tian",
-  description:
-    "Dual-mode personal brand website for Xinyu Tian | Phoenix Tian",
-  metadataBase: new URL(siteUrl),
-  icons: {
-    icon: "/favicon.ico",
-  },
-  openGraph: {
+// Dynamic metadata: the canonical URL must point at whichever domain actually
+// served the request so Google indexes xinyutian.me and phoenixtian.com
+// independently. Reading the hostname makes this depend on the request, hence
+// generateMetadata rather than a static metadata object.
+export async function generateMetadata(): Promise<Metadata> {
+  const hostname = await getHostname();
+  const canonical = isPhoenixHost(hostname)
+    ? "https://phoenixtian.com/"
+    : "https://xinyutian.me/";
+
+  return {
     title: "Xinyu Tian | Phoenix Tian",
     description:
       "Dual-mode personal brand website for Xinyu Tian | Phoenix Tian",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Xinyu Tian | Phoenix Tian",
-    description:
-      "Dual-mode personal brand website for Xinyu Tian | Phoenix Tian",
-    images: ["/favicon.ico"],
-  },
-};
+    metadataBase: new URL(siteUrl),
+    alternates: {
+      canonical,
+    },
+    icons: {
+      icon: "/favicon.ico",
+    },
+    openGraph: {
+      title: "Xinyu Tian | Phoenix Tian",
+      description:
+        "Dual-mode personal brand website for Xinyu Tian | Phoenix Tian",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Xinyu Tian | Phoenix Tian",
+      description:
+        "Dual-mode personal brand website for Xinyu Tian | Phoenix Tian",
+      images: ["/favicon.ico"],
+    },
+  };
+}
 
 export default function RootLayout({
   children,
