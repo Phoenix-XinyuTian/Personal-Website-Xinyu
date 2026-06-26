@@ -23,15 +23,24 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 // independently. Reading the hostname makes this depend on the request, hence
 // generateMetadata rather than a static metadata object.
 export async function generateMetadata(): Promise<Metadata> {
-  const hostname = await getHostname();
-  const canonical = isPhoenixHost(hostname)
+  const isPhoenix = isPhoenixHost(await getHostname());
+
+  // Per-domain title/description so each domain is indexed for its own brand:
+  // xinyutian.me → the professional (Work) identity, phoenixtian.com → the
+  // creator (Life) identity.
+  const title = isPhoenix
+    ? "Phoenix Tian | Tech, Travel & Life"
+    : "Xinyu Tian | Computer Vision & AI";
+  const description = isPhoenix
+    ? "Phoenix Tian(Phoenix蓝色火焰) is the creator brand of Xinyu Tian, sharing tech, travel, and life in Singapore across YouTube, Instagram, TikTok, and other platforms."
+    : "Xinyu Tian, also known as Tian Xinyu or 田新宇, is a NUS master's student in Singapore focused on computer vision, AI, and professional technology projects. Explore his LinkedIn, GitHub, experiences and work.";
+  const canonical = isPhoenix
     ? "https://phoenixtian.com/"
     : "https://xinyutian.me/";
 
   return {
-    title: "Xinyu Tian | Phoenix Tian",
-    description:
-      "Dual-mode personal brand website for Xinyu Tian | Phoenix Tian",
+    title,
+    description,
     metadataBase: new URL(siteUrl),
     alternates: {
       canonical,
@@ -40,16 +49,14 @@ export async function generateMetadata(): Promise<Metadata> {
       icon: "/favicon.ico",
     },
     openGraph: {
-      title: "Xinyu Tian | Phoenix Tian",
-      description:
-        "Dual-mode personal brand website for Xinyu Tian | Phoenix Tian",
+      title,
+      description,
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Xinyu Tian | Phoenix Tian",
-      description:
-        "Dual-mode personal brand website for Xinyu Tian | Phoenix Tian",
+      title,
+      description,
       images: ["/favicon.ico"],
     },
   };
