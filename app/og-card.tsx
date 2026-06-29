@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { getHostname, isPhoenixHost } from "./site-host";
 
 export const ogImageSize = {
@@ -15,11 +17,22 @@ type OgCardConfig = {
   chip: string;
   domain: string;
   footer: string;
-  initials: string;
+  footerSize: number;
+  portraitAlt: string;
+  portraitPath: string;
   subtitle: string;
+  subtitleSize: number;
   title: string;
   topics: string[];
 };
+
+async function getPublicImageDataUri(path: string): Promise<string> {
+  const image = await readFile(join(process.cwd(), "public", path));
+  const extension = path.split(".").pop();
+  const mimeType = extension === "png" ? "image/png" : "image/jpeg";
+
+  return `data:${mimeType};base64,${image.toString("base64")}`;
+}
 
 async function getOgCardConfig(): Promise<OgCardConfig> {
   const isPhoenix = isPhoenixHost(await getHostname());
@@ -31,9 +44,12 @@ async function getOgCardConfig(): Promise<OgCardConfig> {
       background: "#f0fdfa",
       chip: "Creator Brand",
       domain: "phoenixtian.com",
-      footer: "Bilingual stories from Singapore and beyond",
-      initials: "PT",
-      subtitle: "Tech · Travel · Life in Singapore",
+      footer: "Bilingual stories from Singapore and everywhere of the world.",
+      footerSize: 23,
+      portraitAlt: "Phoenix Tian portrait",
+      portraitPath: "images/Phoenix-Tian.jpg",
+      subtitle: "Content Creation · Travel · Life",
+      subtitleSize: 40,
       title: "Phoenix Tian",
       topics: ["YouTube", "Instagram", "TikTok", "RedNote"],
     };
@@ -45,9 +61,12 @@ async function getOgCardConfig(): Promise<OgCardConfig> {
     background: "#f0f9ff",
     chip: "Professional Site",
     domain: "xinyutian.me",
-    footer: "Open to CV/ML Engineer roles from Feb 2027",
-    initials: "XT",
+    footer: "Building reliable computer vision and AI systems",
+    footerSize: 26,
+    portraitAlt: "Xinyu Tian portrait",
+    portraitPath: "images/Xinyu-Tian.jpg",
     subtitle: "Computer Vision · AI Engineering · NUS",
+    subtitleSize: 34,
     title: "Xinyu Tian",
     topics: ["Computer Vision", "Machine Learning", "AI Systems"],
   };
@@ -55,6 +74,7 @@ async function getOgCardConfig(): Promise<OgCardConfig> {
 
 export async function generateOgImage() {
   const card = await getOgCardConfig();
+  const portraitSrc = await getPublicImageDataUri(card.portraitPath);
 
   return new ImageResponse(
     (
@@ -83,27 +103,21 @@ export async function generateOgImage() {
             width: "100%",
             height: "100%",
             display: "flex",
-            border: "1px solid rgba(15,23,42,0.10)",
+            border: "2px solid rgba(255,255,255,0.92)",
             borderRadius: 32,
-            background: "rgba(255,255,255,0.78)",
-            boxShadow: "0 28px 80px rgba(15,23,42,0.14)",
+            background: "rgba(255,255,255,0.88)",
+            boxShadow:
+              "0 42px 90px rgba(15,23,42,0.16), 0 14px 32px rgba(15,23,42,0.10), inset 0 0 0 1px rgba(15,23,42,0.06)",
             overflow: "hidden",
             position: "relative",
           }}
         >
           <div
             style={{
-              width: 16,
-              height: "100%",
-              background: card.accent,
-            }}
-          />
-          <div
-            style={{
               flex: 1,
               display: "flex",
               flexDirection: "column",
-              justifyContent: "space-between",
+              justifyContent: "flex-start",
               padding: "54px 60px",
             }}
           >
@@ -134,7 +148,7 @@ export async function generateOgImage() {
                 <div
                   style={{
                     color: "#64748b",
-                    fontSize: 26,
+                    fontSize: 30,
                     fontWeight: 600,
                   }}
                 >
@@ -158,11 +172,13 @@ export async function generateOgImage() {
               <div
                 style={{
                   display: "flex",
-                  maxWidth: 720,
+                  width: "100%",
+                  maxWidth: 740,
                   color: "#334155",
-                  fontSize: 42,
+                  fontSize: card.subtitleSize,
                   fontWeight: 600,
                   lineHeight: 1.18,
+                  whiteSpace: "nowrap",
                 }}
               >
                 {card.subtitle}
@@ -174,6 +190,7 @@ export async function generateOgImage() {
                 display: "flex",
                 flexDirection: "column",
                 gap: 20,
+                marginTop: 26,
               }}
             >
               <div style={{ display: "flex", gap: 14 }}>
@@ -185,9 +202,9 @@ export async function generateOgImage() {
                       border: "1px solid rgba(15,23,42,0.12)",
                       borderRadius: 999,
                       color: "#334155",
-                      fontSize: 24,
+                      fontSize: 22,
                       fontWeight: 650,
-                      padding: "11px 18px",
+                      padding: "7px 18px",
                     }}
                   >
                     {topic}
@@ -197,8 +214,9 @@ export async function generateOgImage() {
               <div
                 style={{
                   color: "#64748b",
-                  fontSize: 26,
+                  fontSize: card.footerSize,
                   fontWeight: 600,
+                  whiteSpace: "nowrap",
                 }}
               >
                 {card.footer}
@@ -208,29 +226,35 @@ export async function generateOgImage() {
 
           <div
             style={{
-              width: 310,
+              width: 342,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              paddingRight: 58,
+              paddingRight: 56,
             }}
           >
             <div
               style={{
-                width: 220,
-                height: 220,
-                borderRadius: 56,
-                background: card.accent,
-                color: "#ffffff",
+                width: 318,
+                height: 318,
+                borderRadius: 74,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: 72,
-                fontWeight: 800,
-                boxShadow: "0 24px 56px rgba(15,23,42,0.24)",
+                boxShadow: "0 30px 64px rgba(15,23,42,0.24)",
               }}
             >
-              {card.initials}
+              {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse renders static markup, not next/image. */}
+              <img
+                alt={card.portraitAlt}
+                src={portraitSrc}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: 74,
+                  objectFit: "cover",
+                }}
+              />
             </div>
           </div>
         </div>
