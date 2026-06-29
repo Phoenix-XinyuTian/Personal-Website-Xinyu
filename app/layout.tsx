@@ -16,8 +16,6 @@ const cormorant = Cormorant_Garamond({
   weight: ["400", "500", "600", "700"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-
 // Dynamic metadata: the canonical URL must point at whichever domain actually
 // served the request so Google indexes xinyutian.me and phoenixtian.com
 // independently. Reading the hostname makes this depend on the request, hence
@@ -41,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title,
     description,
-    metadataBase: new URL(siteUrl),
+    metadataBase: new URL(canonical),
     alternates: {
       canonical,
     },
@@ -56,12 +54,12 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       type: "website",
+      url: canonical,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/favicon.ico"],
     },
   };
 }
