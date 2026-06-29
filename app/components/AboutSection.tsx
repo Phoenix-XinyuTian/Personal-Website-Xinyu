@@ -80,8 +80,8 @@ export default function AboutSection({ t, mode }: { t: Translation; mode: SiteMo
           {/* Photo — spans rows 1-2 on desktop */}
           <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm lg:row-span-2">
             <Image
-              src="/images/portrait.jpeg"
-              alt="Xinyu Tian portrait"
+              src={isLife ? "/images/Phoenix-Tian.jpg" : "/images/Xinyu-Tian.jpg"}
+              alt={isLife ? "Phoenix Tian portrait" : "Xinyu Tian portrait"}
               width={600}
               height={600}
               className="h-full w-full object-cover"

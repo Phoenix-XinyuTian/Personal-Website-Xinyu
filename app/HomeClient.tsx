@@ -212,7 +212,7 @@ export default function HomeClient({ defaultMode }: { defaultMode: SiteMode }) {
         <ContactSection t={t} mode={displayedMode} lang={language} onLanguageChange={handleLanguageChange} />
       </div>
 
-      <Footer t={t} />
+      <Footer t={t} mode={displayedMode} />
     </main>
   );
 }

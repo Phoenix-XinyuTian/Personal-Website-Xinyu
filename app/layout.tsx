@@ -45,8 +45,12 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical,
     },
+    // Per-domain browser-tab icon: phoenixtian.com (creator brand) uses the
+    // media-brand avatar, xinyutian.me (professional) keeps the default favicon.
+    // Root-relative paths resolve against the serving origin, so this is correct
+    // on each domain regardless of metadataBase.
     icons: {
-      icon: "/favicon.ico",
+      icon: isPhoenix ? "/phoenix-icon.png" : "/favicon.ico",
     },
     openGraph: {
       title,

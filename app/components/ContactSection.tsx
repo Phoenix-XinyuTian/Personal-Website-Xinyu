@@ -21,7 +21,7 @@ export default function ContactSection({ t, mode, lang, onLanguageChange }: { t:
           <div>
             <p className={`text-center text-sm uppercase tracking-[0.32em] ${mode === "life" ? "text-teal-600" : "text-sky-600"}`}>{t.contact.label}</p>
             <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{t.contact.heading}</h2>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600">{t.contact.description}</p>
+            <p className="mt-6 max-w-2xl text-justify text-base leading-7 text-slate-600">{mode === "life" ? t.contact.descriptionLife : t.contact.description}</p>
           </div>
 
           <div className="space-y-6 text-sm text-slate-600">

@@ -19,7 +19,7 @@ export const en = {
   hero: {
     greeting: "Hello, I'm Xinyu.",
     intro: "I work on ",
-    rotatingWords: ["Computer Vision", "AI Research", "Machine Learning"],
+    rotatingWords: ["Computer Vision", "AI Engineering", "Machine Learning"],
   },
   lifeHero: {
     greeting: "Hey, Phoenix here.",
@@ -205,7 +205,7 @@ export const en = {
     ],
     lifeItems: [
       { date: "2025-08", title: "Launched YouTube channel" },
-      { date: "2025-07", title: "Move to Live in Singapore" },
+      { date: "2025-07", title: "Moved to Singapore from Mainland China" },
       { date: "2024-11", title: "Visited Tokyo, Japan for studies" },
       { date: "2024-01", title: "Traveled to Hong Kong" },
       { date: "2023-07", title: "Visited Singapore for academic exchange" },
@@ -216,6 +216,8 @@ export const en = {
     heading: "Let's Connect",
     description:
       "I'm open to collaboration, internship opportunities, and research conversations in computer vision and AI. Reach out if you want to work together or discuss ideas.",
+    descriptionLife:
+      "For collaborations, brand partnerships, or just to say hi — reach out anytime.",
     emailLabel: "Email",
     connectLabel: "Connect with me",
     back: "Back to Top",
@@ -231,7 +233,8 @@ export const en = {
   devBanner: "This website is still under development",
   footer: {
     tagline: "Creator of Life, Code, and Stories",
-    roles: "NUS MSc · Computer Vision · Content Creator · World Travel",
+    rolesWork: "NUS MSc · Computer Vision · AI Engineering",
+    rolesLife: "Content Creation · World Travel · Story Telling",
     collaborationLabel: "Collaboration",
     email: "xinyu.tian.phoenix@gmail.com",
     copyright: "© 2026 Xinyu Tian (Phoenix) · Built with Next.js & Vercel",

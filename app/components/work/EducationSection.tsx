@@ -337,7 +337,7 @@ export default function EducationSection({ t }: { t: Translation }) {
                   }}
                 >
                   {(() => {
-                    const images = educationGalleryImages[index] ?? ["/images/portrait.jpeg"];
+                    const images = educationGalleryImages[index] ?? ["/images/Xinyu-Tian.jpg"];
                     const loopedImages = images.length > 1 ? [...images, ...images, ...images] : images;
                     const carouselState = mobileCarouselStates[index] ?? {
                       logicalIndex: 0,
@@ -388,7 +388,7 @@ export default function EducationSection({ t }: { t: Translation }) {
                   onMouseLeave={() => { setEducationCarouselPaused((prev) => { const next = [...prev]; next[index] = false; return next; }); }}
                 >
                   {(() => {
-                    const images = educationGalleryImages[index] ?? ["/images/portrait.jpeg"];
+                    const images = educationGalleryImages[index] ?? ["/images/Xinyu-Tian.jpg"];
                     const carouselState = educationCarouselStates[index] ?? {
                       current: 0,
                       previous: null,

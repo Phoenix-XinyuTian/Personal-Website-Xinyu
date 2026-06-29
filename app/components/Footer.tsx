@@ -1,8 +1,9 @@
 "use client";
 
 import { type Translation } from "../data/i18n/en";
+import { type SiteMode } from "../types";
 
-export default function Footer({ t }: { t: Translation }) {
+export default function Footer({ t, mode }: { t: Translation; mode: SiteMode }) {
   return (
     <footer className="border-t border-slate-200/60 px-6 pb-12 pt-10 sm:px-8">
       <div className="mx-auto max-w-6xl flex flex-col items-center gap-2.5 text-center">
@@ -20,7 +21,7 @@ export default function Footer({ t }: { t: Translation }) {
           Xinyu Tian · Phoenix
         </a>
 
-        <p className="text-sm text-slate-500">{t.footer.roles}</p>
+        <p className="text-sm text-slate-500">{mode === "life" ? t.footer.rolesLife : t.footer.rolesWork}</p>
 
         <p className="text-sm italic text-slate-400">{t.footer.tagline}</p>
 
