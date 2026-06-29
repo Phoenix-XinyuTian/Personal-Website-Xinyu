@@ -3,7 +3,17 @@ import { type SiteMode, type SiteLanguage } from "../types";
 import { socialLinks } from "../data/social";
 import LanguageDropdown from "./ui/LanguageDropdown";
 
+// Which platforms appear in the Connect area, ordered per mode.
+const CONNECT_PLATFORMS: Record<SiteMode, readonly string[]> = {
+  work: ["LinkedIn", "GitHub", "X"],
+  life: ["YouTube", "Instagram", "Facebook", "TikTok", "X", "Threads", "RedNote"],
+};
+
 export default function ContactSection({ t, mode, lang, onLanguageChange }: { t: Translation; mode: SiteMode; lang: SiteLanguage; onLanguageChange: (lang: SiteLanguage) => void }) {
+  const connectLinks = CONNECT_PLATFORMS[mode]
+    .map((name) => socialLinks.find((s) => s.name === name))
+    .filter((s): s is (typeof socialLinks)[number] => Boolean(s));
+
   return (
     <section id="contact" className="px-6 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl rounded-[2rem] border border-slate-200 bg-white px-10 py-7 shadow-xl">
@@ -25,7 +35,7 @@ export default function ContactSection({ t, mode, lang, onLanguageChange }: { t:
             <div>
               <p className="mb-4 font-semibold text-slate-950">{t.contact.connectLabel}</p>
               <div className="flex flex-wrap gap-5">
-                {socialLinks.map((item) => {
+                {connectLinks.map((item) => {
                   const displayName = item.name === "RedNote" && lang === "zh" ? "小红书" : item.name;
                   return (
                     <a

@@ -14,7 +14,6 @@ import EducationSection from "./components/work/EducationSection";
 import MediaSection from "./components/life/MediaSection";
 import TravelSection from "./components/life/TravelSection";
 import LanguageSection from "./components/life/LanguageSection";
-import LifeSection from "./components/life/LifeSection";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import NewsSection from "./components/NewsSection";
@@ -23,7 +22,7 @@ const translations: Record<SiteLanguage, Translation> = { en, zh };
 
 const SECTION_IDS: Record<SiteMode, string[]> = {
   work: ["top", "news", "experience", "skills", "projects", "education", "contact"],
-  life: ["top", "news", "media", "travel", "languages", "life", "contact"],
+  life: ["top", "news", "media", "travel", "languages", "contact"],
 };
 
 // `defaultMode` is resolved on the server from the request hostname (and an
@@ -152,7 +151,6 @@ export default function HomeClient({ defaultMode }: { defaultMode: SiteMode }) {
           { href: "#media", label: t.nav.media },
           { href: "#travel", label: t.nav.travel },
           { href: "#languages", label: t.nav.language },
-          { href: "#life", label: t.nav.life },
           { href: "#contact", label: t.nav.contact },
         ];
 
@@ -208,7 +206,6 @@ export default function HomeClient({ defaultMode }: { defaultMode: SiteMode }) {
             <MediaSection t={t} lang={language} />
             <TravelSection lang={language} />
             <LanguageSection t={t} />
-            <LifeSection t={t} />
           </>
         )}
 

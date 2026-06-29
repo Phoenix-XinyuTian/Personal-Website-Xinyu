@@ -8,11 +8,11 @@ export const zh: Translation = {
     experience: "工作经历",
     skills: "技能",
     life: "生活",
-    contact: "联系方式",
+    contact: "联系",
     media: "自媒体",
     travel: "旅行",
     news: "动态",
-    language: "语言",
+    language: "文化",
   },
   modeSwitch: {
     work: "工作",
@@ -142,8 +142,10 @@ export const zh: Translation = {
     },
   },
   languages: {
-    label: "语言与文化",
-    heading: "我掌握与正在学习的语言",
+    label: "文化",
+    heading: "连接不同的语言与文化",
+    description:
+      "我对世界的好奇，不只是去过哪里，而是如何通过镜头、文字与故事，连接不同语言与文化背景的人和生活方式。",
     groups: {
       proficient: "已掌握",
       learning: "正在学习",
@@ -171,12 +173,8 @@ export const zh: Translation = {
     label: "自媒体",
     heading: "创作平台 & 精选视频",
     description: "用中英双语记录留学生活、旅行经历与思想感悟，发布于多个内容平台。",
-    matrix: [
-      { name: "YouTube", role: "长视频：留学日常与旅行Vlog" },
-      { name: "Instagram", role: "视觉叙事与旅行瞬间" },
-      { name: "Facebook", role: "动态、生活点滴与好友互动" },
-      { name: "小红书", role: "生活方式与城市探店（中文）" },
-    ],
+    internationalLabel: "国际平台",
+    chineseLabel: "中国平台",
     featuredVideosLabel: "精选视频",
     newestVideoLabel: "最新发布",
     playHint: "播放",

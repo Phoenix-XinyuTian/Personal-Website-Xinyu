@@ -5,7 +5,7 @@ import { type SiteMode, type SiteLanguage } from "../types";
 import EntityLogo from "./ui/EntityLogo";
 import { socialLinks } from "../data/social";
 
-const MEDIA_PLATFORM_NAMES = ["YouTube", "Instagram", "Facebook", "RedNote"] as const;
+const MEDIA_PLATFORM_NAMES = ["YouTube", "Instagram", "TikTok", "RedNote"] as const;
 const mediaPlatforms = socialLinks.filter((s) =>
   (MEDIA_PLATFORM_NAMES as readonly string[]).includes(s.name)
 );
@@ -57,7 +57,7 @@ function renderWithBold(text: string) {
   );
 }
 
-export default function AboutSection({ t, mode, lang }: { t: Translation; mode: SiteMode; lang: SiteLanguage }) {
+export default function AboutSection({ t, mode }: { t: Translation; mode: SiteMode; lang: SiteLanguage }) {
   const isLife = mode === "life";
   const focusAreas = isLife ? t.focusAreasLife : t.focusAreasWork;
   const stats = isLife ? t.about.statsLife : t.about.statsWork;
@@ -236,30 +236,6 @@ export default function AboutSection({ t, mode, lang }: { t: Translation; mode: 
                   <XGlyph />
                   X
                 </a>
-                <a href={emailHref} className={ctaClass}>
-                  <Mail className="h-4 w-4 shrink-0" strokeWidth={1.8} />
-                  {t.about.emailLabel}
-                </a>
-              </div>
-            </div>
-          )}
-
-          {/* Follow + CTA — long strip card at the very bottom (life mode only) */}
-          {isLife && (
-            <div className="flex flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm md:flex-row md:items-center md:justify-between lg:col-span-3">
-              <div className="flex items-center gap-2 text-[15px] text-black">
-                <span className="text-2xl leading-none" aria-hidden="true">👉</span>
-                {t.about.statusLife}
-              </div>
-              <div className="flex flex-wrap gap-3">
-                {mediaPlatforms.map((p) => (
-                  <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer" className={ctaClass}>
-                    <span className="flex h-4 w-4 shrink-0 items-center justify-center [&_svg]:h-4 [&_svg]:w-4 [&>span]:h-4 [&>span]:w-4">
-                      {p.icon}
-                    </span>
-                    {p.name === "RedNote" && lang === "zh" ? "小红书" : p.name}
-                  </a>
-                ))}
                 <a href={emailHref} className={ctaClass}>
                   <Mail className="h-4 w-4 shrink-0" strokeWidth={1.8} />
                   {t.about.emailLabel}

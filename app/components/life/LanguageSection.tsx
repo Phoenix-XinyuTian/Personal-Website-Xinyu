@@ -19,6 +19,9 @@ export default function LanguageSection({ t }: { t: Translation }) {
         <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
           {t.languages.heading}
         </h2>
+        <p className="mx-auto mt-4 max-w-4xl text-center text-base leading-8 text-slate-500">
+          {t.languages.description}
+        </p>
 
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {groups.map((group) => (

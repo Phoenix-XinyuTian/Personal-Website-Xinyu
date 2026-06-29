@@ -10,7 +10,7 @@ export const en = {
     media: "Media",
     travel: "Travel",
     news: "News",
-    language: "Language",
+    language: "Culture",
   },
   modeSwitch: {
     work: "Work",
@@ -142,8 +142,10 @@ export const en = {
     },
   },
   languages: {
-    label: "Language & Culture",
-    heading: "Languages I Speak & Am Learning",
+    label: "Culture",
+    heading: "Connecting Across Languages & Cultures",
+    description:
+      "My curiosity about the world isn't just about where I've been — it's about connecting with people and ways of life across different languages and cultural backgrounds, through the lens, writing, and stories.",
     groups: {
       proficient: "Proficient",
       learning: "Exploring",
@@ -173,12 +175,8 @@ export const en = {
     heading: "Creator Platforms & Featured Videos",
     description:
       "I document student life, travels, and career insights across multiple platforms — in both English and Chinese.",
-    matrix: [
-      { name: "YouTube", role: "Long-form vlogs and study/life episodes" },
-      { name: "Instagram", role: "Visual storytelling and travel moments" },
-      { name: "Facebook", role: "Updates and moments shared with friends" },
-      { name: "RedNote", role: "Lifestyle and city guides (Chinese)" },
-    ],
+    internationalLabel: "International Platforms",
+    chineseLabel: "Chinese Platforms",
     featuredVideosLabel: "Featured Videos",
     newestVideoLabel: "Latest Published",
     playHint: "Play",

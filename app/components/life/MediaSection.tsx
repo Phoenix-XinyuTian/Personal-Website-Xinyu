@@ -2,17 +2,60 @@ import { type Translation } from "../../data/i18n/en";
 import { socialLinks } from "../../data/social";
 import YoutubeGallery from "./YoutubeGallery";
 
-const SOCIAL_NAME_ALIAS: Record<string, string> = {
-  小红书: "RedNote",
+const INTERNATIONAL_PLATFORMS = ["YouTube", "TikTok", "Instagram"] as const;
+const CHINESE_PLATFORMS = ["RedNote", "Bilibili", "Douyin"] as const;
+
+// Localized labels shown beside each platform logo. The Chinese platforms get
+// their native names when the site is in Chinese.
+const PLATFORM_LABELS: Record<string, { en: string; zh: string }> = {
+  YouTube: { en: "YouTube", zh: "YouTube" },
+  TikTok: { en: "TikTok", zh: "TikTok" },
+  Instagram: { en: "Instagram", zh: "Instagram" },
+  RedNote: { en: "RedNote", zh: "小红书" },
+  Bilibili: { en: "Bilibili", zh: "哔哩哔哩" },
+  Douyin: { en: "Douyin", zh: "抖音" },
 };
 
-const PLATFORM_HREFS: Record<string, string> = {
-  YouTube: "https://www.youtube.com/@Phoenix_Tian",
-  Instagram: "https://www.instagram.com/phoenix.tian.vlog/",
-  Facebook: "https://www.facebook.com/share/1EWvuK1fBZ/?mibextid=wwXIfr",
-  RedNote: "https://www.xiaohongshu.com/user/profile/5f1b2b3c0000000001004b2e",
-  小红书: "https://www.xiaohongshu.com/user/profile/5f1b2b3c0000000001004b2e",
-};
+function PlatformCard({
+  title,
+  names,
+  lang,
+}: {
+  title: string;
+  names: readonly string[];
+  lang: "en" | "zh";
+}) {
+  return (
+    <div className="rounded-2xl border border-white/80 bg-white/30 p-4 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+      <h3 className="text-center text-lg font-semibold tracking-wide text-slate-900">
+        {title}
+      </h3>
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+        {names.map((name) => {
+          const social = socialLinks.find((s) => s.name === name);
+          if (!social) return null;
+          const label = PLATFORM_LABELS[name]?.[lang] ?? name;
+          return (
+            <a
+              key={name}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2.5 rounded-full border border-slate-200 bg-white px-4 py-3 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-teal-400 hover:shadow-md"
+            >
+              <span className="shrink-0 flex h-6 w-6 items-center justify-center [&_svg]:h-6 [&_svg]:w-6 [&>span]:h-6 [&>span]:w-6">
+                {social.icon}
+              </span>
+              <span className="text-[15px] font-medium text-slate-700 group-hover:text-teal-700 transition-colors">
+                {label}
+              </span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 export default function MediaSection({
   t,
@@ -35,38 +78,10 @@ export default function MediaSection({
           {t.media.description}
         </p>
 
-        {/* Platform pills */}
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          {t.media.matrix.map((item) => {
-            const socialName = SOCIAL_NAME_ALIAS[item.name] ?? item.name;
-            const social = socialLinks.find((s) => s.name === socialName);
-            const href = PLATFORM_HREFS[item.name] ?? "#";
-            return (
-              <a
-                key={item.name}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 shadow-sm hover:border-teal-400 hover:shadow-md transition-all duration-200"
-              >
-                {social && (
-                  <span className="shrink-0 flex h-5 w-5 items-center justify-center">
-                    {social.icon}
-                  </span>
-                )}
-                <span className="text-sm font-medium text-slate-700 group-hover:text-teal-700 transition-colors">
-                  {item.name}
-                </span>
-                <svg
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                  className="h-3 w-3 text-slate-300 group-hover:text-teal-500 transition-colors"
-                >
-                  <path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06Z" />
-                </svg>
-              </a>
-            );
-          })}
+        {/* Platform cards: international (left) + Chinese (right) */}
+        <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2">
+          <PlatformCard title={t.media.internationalLabel} names={INTERNATIONAL_PLATFORMS} lang={lang} />
+          <PlatformCard title={t.media.chineseLabel} names={CHINESE_PLATFORMS} lang={lang} />
         </div>
 
         {/* Video gallery */}
