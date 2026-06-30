@@ -148,7 +148,7 @@ export async function generateOgImage() {
                 <div
                   style={{
                     color: "#64748b",
-                    fontSize: 30,
+                    fontSize: 34,
                     fontWeight: 600,
                   }}
                 >
@@ -199,12 +199,17 @@ export async function generateOgImage() {
                     key={topic}
                     style={{
                       display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
                       border: "1px solid rgba(15,23,42,0.12)",
                       borderRadius: 999,
                       color: "#334155",
                       fontSize: 22,
                       fontWeight: 650,
-                      padding: "7px 18px",
+                      height: 46,
+                      lineHeight: 1,
+                      padding: "0 18px",
+                      whiteSpace: "nowrap",
                     }}
                   >
                     {topic}
