@@ -23,7 +23,7 @@ function ExperienceCard({
   return (
     <article className="mx-auto w-full rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-8 lg:w-fit lg:max-w-4xl">
       {/* Header */}
-      <div className="flex items-center gap-4 border-b border-slate-100 pb-5">
+      <div className="flex flex-col items-center gap-4 border-b border-slate-100 pb-5 text-center sm:flex-row sm:text-left">
         {item.logoSrc && !logoError ? (
           <a href={item.website} target="_blank" rel="noopener noreferrer" className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl sm:h-14 sm:w-14">
             <img src={item.logoSrc} alt={local.company} className="h-full w-full object-contain" onError={() => setLogoError(true)} />
@@ -40,7 +40,7 @@ function ExperienceCard({
           <p className="mt-0.5 text-sm text-slate-700 sm:text-base">
             <a href={item.website} target="_blank" rel="noopener noreferrer" className="hover:text-sky-600 transition-colors">{local.company}</a>
           </p>
-          <div className="mt-2 flex flex-wrap items-center gap-2">
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-2 sm:justify-start">
             <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
               {local.period ?? `${item.startDate} – ${item.endDate}`}
             </span>
@@ -86,9 +86,9 @@ function ExperienceCard({
               if (m.type === "metric") {
                 return (
                   <div key={i} className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">{m.label}</p>
+                    <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 sm:text-left">{m.label}</p>
                     <p className="mt-1 text-3xl font-bold text-sky-600">{m.value}</p>
-                    {m.sublabel && <p className="mt-0.5 text-xs text-slate-500">{m.sublabel}</p>}
+                    {m.sublabel && <p className="mt-0.5 text-center text-xs text-slate-500 sm:text-left">{m.sublabel}</p>}
                   </div>
                 );
               }
@@ -100,7 +100,7 @@ function ExperienceCard({
 
       {/* Tech tags */}
       {item.techStack.length > 0 && (
-        <div className="mt-5 flex flex-wrap gap-1.5 border-t border-slate-100 pt-5">
+        <div className="mt-5 flex flex-wrap justify-center gap-1.5 border-t border-slate-100 pt-5 sm:justify-start">
           {item.techStack.map((tag) => (
             <SkillTag key={tag} name={tag} />
           ))}
@@ -152,7 +152,7 @@ export default function ExperienceSection({ t, language }: { t: Translation; lan
           <button
             type="button"
             onClick={() => setLightboxSrc(null)}
-            className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/30"
+            className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/30 sm:h-9 sm:w-9"
             aria-label="Close preview"
           >
             <X className="h-5 w-5" />

@@ -25,6 +25,13 @@ const SECTION_IDS: Record<SiteMode, string[]> = {
   life: ["top", "news", "media", "travel", "languages", "contact"],
 };
 
+function schedulePreferredLanguage(setSiteLanguage: (lang: SiteLanguage) => void) {
+  const id = window.setTimeout(() => {
+    if (navigator.language.startsWith("zh")) setSiteLanguage("zh");
+  }, 0);
+  return () => window.clearTimeout(id);
+}
+
 // `defaultMode` is resolved on the server from the request hostname (and an
 // optional ?mode= override) and handed in as the initial state, so the first
 // painted HTML already matches the domain — no client-side flash or correction.
@@ -37,7 +44,7 @@ export default function HomeClient({ defaultMode }: { defaultMode: SiteMode }) {
   useEffect(() => {
     // Language is the only default still resolved on the client: navigator.language
     // is unavailable on the server. Mode is fully server-resolved (see page.tsx).
-    if (navigator.language.startsWith("zh")) setLanguage("zh");
+    return schedulePreferredLanguage(setLanguage);
   }, []);
 
   const [contentVisible, setContentVisible] = useState(true);

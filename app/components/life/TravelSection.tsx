@@ -42,6 +42,9 @@ function getCopy(lang: SiteLanguage) {
     zoomOut: lang === "zh" ? "缩小地图" : "Zoom out",
     zoomIn: lang === "zh" ? "放大地图" : "Zoom in",
     atlasHint: lang === "zh" ? "点击亮点查看相册" : "Tap a lit place to preview its album",
+    mapLoading: lang === "zh" ? "地图加载中" : "Loading map",
+    mapUnavailable: lang === "zh" ? "互动地图暂时无法加载" : "Interactive map is temporarily unavailable",
+    staticPlaces: lang === "zh" ? "可直接查看这些地点" : "Preview these places directly",
     depth: lang === "zh" ? "访问深度" : "Visit depth",
     gallery: lang === "zh" ? "相册画廊" : "Album Gallery",
     photosFirst: lang === "zh" ? "照片优先" : "Photos first",
@@ -64,6 +67,58 @@ function statValue(label: string, value: string) {
   );
 }
 
+function initializeWorldMap({
+  container,
+  mapRef,
+  onReady,
+  onFailed,
+}: {
+  container: HTMLDivElement;
+  mapRef: { current: maplibregl.Map | null };
+  onReady: () => void;
+  onFailed: () => void;
+}) {
+  let loaded = false;
+  const timeoutId = window.setTimeout(() => {
+    if (!loaded) onFailed();
+  }, 7000);
+
+  try {
+    mapRef.current = new maplibregl.Map({
+      container,
+      style: "https://tiles.openfreemap.org/styles/liberty",
+      center: [94, 22],
+      zoom: 1.35,
+      minZoom: 1,
+      maxZoom: 9,
+      attributionControl: false,
+    });
+
+    mapRef.current.once("load", () => {
+      loaded = true;
+      window.clearTimeout(timeoutId);
+      onReady();
+    });
+
+    mapRef.current.on("error", () => {
+      if (!loaded) onFailed();
+    });
+
+    mapRef.current.addControl(
+      new maplibregl.AttributionControl({
+        compact: true,
+        customAttribution: "OpenFreeMap",
+      }),
+      "bottom-right",
+    );
+  } catch {
+    window.clearTimeout(timeoutId);
+    window.setTimeout(onFailed, 0);
+  }
+
+  return () => window.clearTimeout(timeoutId);
+}
+
 function WorldMap({
   lang,
   selectedPlace,
@@ -76,30 +131,25 @@ function WorldMap({
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const markersRef = useRef<Record<string, Marker>>({});
+  const [mapReady, setMapReady] = useState(false);
+  const [mapFailed, setMapFailed] = useState(false);
   const copy = getCopy(lang);
 
   useEffect(() => {
     if (!mapContainerRef.current || mapRef.current) return;
 
-    mapRef.current = new maplibregl.Map({
+    const clearMapTimeout = initializeWorldMap({
       container: mapContainerRef.current,
-      style: "https://tiles.openfreemap.org/styles/liberty",
-      center: [94, 22],
-      zoom: 1.35,
-      minZoom: 1,
-      maxZoom: 9,
-      attributionControl: false,
+      mapRef,
+      onReady: () => {
+        setMapReady(true);
+        setMapFailed(false);
+      },
+      onFailed: () => setMapFailed(true),
     });
 
-    mapRef.current.addControl(
-      new maplibregl.AttributionControl({
-        compact: true,
-        customAttribution: "OpenFreeMap",
-      }),
-      "bottom-right",
-    );
-
     return () => {
+      clearMapTimeout();
       Object.values(markersRef.current).forEach((marker) => marker.remove());
       markersRef.current = {};
       mapRef.current?.remove();
@@ -171,7 +221,7 @@ function WorldMap({
             type="button"
             aria-label={copy.zoomOut}
             onClick={() => mapRef.current?.zoomOut()}
-            className="grid h-8 w-8 place-items-center rounded-md border border-slate-200 bg-white text-slate-600 transition hover:border-teal-300 hover:text-teal-700"
+            className="grid h-10 w-10 place-items-center rounded-md border border-slate-200 bg-white text-slate-600 transition hover:border-teal-300 hover:text-teal-700 sm:h-8 sm:w-8"
           >
             <Minus className="h-4 w-4" aria-hidden="true" />
           </button>
@@ -180,7 +230,7 @@ function WorldMap({
             type="button"
             aria-label={copy.zoomIn}
             onClick={() => mapRef.current?.zoomIn()}
-            className="grid h-8 w-8 place-items-center rounded-md border border-slate-200 bg-white text-slate-600 transition hover:border-teal-300 hover:text-teal-700"
+            className="grid h-10 w-10 place-items-center rounded-md border border-slate-200 bg-white text-slate-600 transition hover:border-teal-300 hover:text-teal-700 sm:h-8 sm:w-8"
           >
             <Plus className="h-4 w-4" aria-hidden="true" />
           </button>
@@ -189,6 +239,30 @@ function WorldMap({
 
       <div className="relative h-[360px] bg-slate-100 sm:h-[430px]">
         <div ref={mapContainerRef} className="h-full w-full" />
+        {!mapReady && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#eef6f6] px-5 text-center">
+            <p className="text-sm font-semibold text-slate-800">
+              {mapFailed ? copy.mapUnavailable : copy.mapLoading}
+            </p>
+            <p className="mt-2 text-xs uppercase tracking-[0.18em] text-slate-500">{copy.staticPlaces}</p>
+            <div className="mt-4 flex max-w-full flex-wrap justify-center gap-2">
+              {visitedPlaces.slice(0, 6).map((place) => (
+                <button
+                  key={place.slug}
+                  type="button"
+                  onClick={() => onSelectPlace(place)}
+                  className={`min-h-10 rounded-full border px-3 text-xs font-semibold transition ${
+                    place.slug === selectedPlace.slug
+                      ? "border-teal-300 bg-white text-teal-700 shadow-sm"
+                      : "border-slate-200 bg-white/80 text-slate-600 hover:border-teal-200 hover:text-teal-700"
+                  }`}
+                >
+                  {place.name[lang]}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/70 to-transparent" />
       </div>
 
@@ -225,7 +299,7 @@ function AlbumCard({
     <button
       type="button"
       onClick={onSelect}
-      className={`group w-[285px] shrink-0 snap-start overflow-hidden rounded-lg border bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:w-[340px] ${
+      className={`group w-[285px] shrink-0 snap-start overflow-hidden rounded-lg border bg-white text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:w-[340px] sm:text-left ${
         isSelected ? "border-teal-400 ring-2 ring-teal-100" : "border-slate-200"
       }`}
     >
@@ -243,12 +317,12 @@ function AlbumCard({
       </div>
       <div className="p-4">
         <p className="text-lg font-semibold text-slate-950">{trip.title[lang]}</p>
-        <p className="mt-1 flex items-center gap-1.5 text-sm text-slate-500">
+        <p className="mt-1 flex items-center justify-center gap-1.5 text-sm text-slate-500 sm:justify-start">
           <MapPin className="h-3.5 w-3.5 text-teal-600" aria-hidden="true" />
           {trip.city[lang]}
         </p>
         <p className="mt-3 line-clamp-2 text-sm leading-6 text-slate-600">{trip.summary[lang]}</p>
-        <div className="mt-4 flex items-center justify-between text-xs font-semibold uppercase tracking-[0.16em] text-teal-700">
+        <div className="mt-4 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-teal-700 sm:justify-between sm:gap-0">
           <span>{copy.openAlbum}</span>
           <ChevronRight className="h-4 w-4" aria-hidden="true" />
         </div>
@@ -272,7 +346,7 @@ export default function TravelSection({ lang }: { lang: SiteLanguage }) {
   }, [publishedTrips]);
 
   return (
-    <section id="travel" className="scroll-mt-24 px-6 py-20 sm:px-8">
+    <section id="travel" className="scroll-mt-24 overflow-x-clip px-6 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <div>
           <div className="mx-auto max-w-5xl text-center">
@@ -354,7 +428,7 @@ export default function TravelSection({ lang }: { lang: SiteLanguage }) {
             </div>
           </div>
 
-          <div className="mt-5 overflow-x-auto pb-3">
+          <div className="mt-5 max-w-full overflow-x-auto overflow-y-hidden pb-3 [-webkit-overflow-scrolling:touch]">
             <div className="flex w-max snap-x gap-4 pr-6">
               {publishedTrips.map((trip) => (
                 <AlbumCard

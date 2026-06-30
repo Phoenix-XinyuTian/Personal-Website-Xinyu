@@ -182,7 +182,7 @@ export default function Header({
         <a
           href="#top"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-          className={`${orbitron.className} inline-flex items-center gap-1 justify-self-start text-sm uppercase tracking-[0.18em]`}
+          className={`${orbitron.className} -my-2 inline-flex min-h-10 items-center gap-1 justify-self-start py-2 text-sm uppercase tracking-[0.18em]`}
         >
           <span style={{
             backgroundImage: "linear-gradient(to right, #38bdf8 0%, #818cf8 26%, #fbbf24 55%, #f97316 78%, #ef4444 100%)",
@@ -214,7 +214,7 @@ export default function Header({
           <button
             type="button"
             onClick={() => onModeChange("work")}
-            className={`relative z-10 px-2 py-1 text-xs font-semibold transition-colors duration-300 ${
+            className={`relative z-10 min-h-10 px-3 py-2 text-xs font-semibold transition-colors duration-300 ${
               mode === "work" ? "text-white" : "text-slate-500"
             }`}
           >
@@ -223,7 +223,7 @@ export default function Header({
           <button
             type="button"
             onClick={() => onModeChange("life")}
-            className={`relative z-10 px-2 py-1 text-xs font-semibold transition-colors duration-300 ${
+            className={`relative z-10 min-h-10 px-3 py-2 text-xs font-semibold transition-colors duration-300 ${
               mode === "life" ? "text-white" : "text-slate-500"
             }`}
           >
@@ -233,11 +233,15 @@ export default function Header({
 
         {/* Mobile Menu & Language Buttons */}
         <div className="flex items-center justify-self-end gap-2">
-          <LanguageDropdown language={language} onSelect={onLanguageChange} />
+          <LanguageDropdown
+            language={language}
+            onSelect={onLanguageChange}
+            triggerClassName="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-2 font-semibold text-slate-950 transition hover:border-slate-300 hover:bg-slate-100"
+          />
           <button
             type="button"
             onClick={onMobileMenuToggle}
-            className={`inline-flex h-9 w-9 items-center justify-center rounded-full transition ${
+            className={`inline-flex h-10 w-10 items-center justify-center rounded-full transition ${
               mobileMenuOpen
                 ? isLife ? "bg-teal-400" : "bg-sky-400"
                 : "border border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-100"
@@ -262,7 +266,7 @@ export default function Header({
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="absolute right-0 top-full z-50 w-max rounded-2xl border border-slate-200 bg-white shadow-lg py-2 [animation:menu-in_0.2s_ease-out] lg:hidden">
+        <div className="absolute right-3 top-full z-50 min-w-44 rounded-2xl border border-slate-200 bg-white py-2 shadow-lg [animation:menu-in_0.2s_ease-out] lg:hidden">
           <nav className="space-y-0.5 px-2">
             {navLinks.map((link) => {
               const active = isActive(link.href);
@@ -271,7 +275,7 @@ export default function Header({
                   key={link.href}
                   href={link.href}
                   aria-current={active ? "location" : undefined}
-                  className={`relative block rounded-lg px-3 py-2 text-left text-sm transition-colors ${
+                  className={`relative block min-h-11 rounded-lg px-4 py-3 text-center text-sm transition-colors ${
                     active
                       ? "text-black"
                       : "text-slate-700 hover:text-slate-950"

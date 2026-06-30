@@ -35,11 +35,11 @@ function HeroContent({
   return (
     <section id="top" className="px-6 pt-4 pb-0 sm:px-8 sm:pt-6 sm:pb-1">
       <div className="mx-auto max-w-4xl text-center">
-        <p className="mb-4 text-center text-2xl font-medium text-slate-700 motion-safe:animate-[fadeInUp_0.6s_ease-out] sm:text-3xl">
+        <p className="mb-4 text-center text-xl font-medium text-slate-700 motion-safe:animate-[fadeInUp_0.6s_ease-out] sm:text-3xl">
           {heroData.greeting}
         </p>
-        <p className="text-center text-2xl font-semibold leading-tight tracking-normal text-slate-950 sm:text-4xl">
-          <span className="inline-flex max-w-full items-baseline justify-center gap-3 sm:gap-4">
+        <p className="text-center text-[1.05rem] font-semibold leading-7 tracking-normal text-slate-950 min-[430px]:text-xl sm:text-4xl sm:leading-tight">
+          <span className="inline-flex max-w-full items-baseline justify-center gap-1.5 sm:gap-4">
             <span className="shrink-0">{heroData.intro}</span>
             <span className={`relative inline-grid min-w-0 text-left ${mode === "life" ? "text-teal-600" : "text-sky-600"}`}>
               {heroData.rotatingWords.map((word) => (

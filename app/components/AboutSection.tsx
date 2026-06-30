@@ -18,7 +18,7 @@ const emailHref = "mailto:xinyu.tian.phoenix@gmail.com";
 // Restrained CTA pill: subtle grey border + white bg, lifts on hover like the
 // other bento cards (matches the site's card-float interaction).
 const ctaClass =
-  "inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-sm text-black shadow-sm transition hover:-translate-y-1 hover:shadow-md";
+  "inline-flex min-h-10 items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-sm text-black shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:min-h-0";
 
 // lucide-react dropped brand icons, so render LinkedIn/GitHub as monochrome
 // glyphs that inherit currentColor (grey → theme blue on hover, like the text).
@@ -116,12 +116,12 @@ export default function AboutSection({ t, mode }: { t: Translation; mode: SiteMo
             {isLife ? (
               <>
                 {/* Creator followers card */}
-                <a href="#media" className="rounded-2xl border border-slate-100 bg-white px-4 py-3 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                  <div className="flex items-baseline gap-1.5">
+                <div className="rounded-2xl border border-slate-100 bg-white px-4 py-3 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:text-left">
+                  <div className="flex items-baseline justify-center gap-1.5 sm:justify-start">
                     <p className="text-3xl font-bold text-teal-600">{t.about.followersCount}</p>
                     <p className="text-sm text-slate-500">{t.about.followersLabel}</p>
                   </div>
-                  <div className="mt-2 flex items-center gap-1.5">
+                  <div className="mt-2 flex items-center justify-center gap-1.5 sm:justify-start">
                     {mediaPlatforms.map((p) => (
                       <a
                         key={p.name}
@@ -143,9 +143,9 @@ export default function AboutSection({ t, mode }: { t: Translation; mode: SiteMo
                       </a>
                     ))}
                   </div>
-                </a>
+                </div>
                 {/* Travel card */}
-                <a href="#travel" className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-white px-4 py-3 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                <a href="#travel" className="flex flex-col items-center gap-2 rounded-2xl border border-slate-100 bg-white px-4 py-3 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:flex-row sm:gap-3 sm:text-left">
                   <span className="text-2xl leading-none">🌍</span>
                   <div>
                     <p className="text-3xl font-bold text-teal-600">{t.about.travelCount}</p>
@@ -159,7 +159,7 @@ export default function AboutSection({ t, mode }: { t: Translation; mode: SiteMo
                   href="https://www.a-star.edu.sg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                  className="flex flex-col items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:flex-row sm:text-left"
                 >
                   <EntityLogo
                     src="/logos/ASTAR.jpeg"
@@ -179,7 +179,7 @@ export default function AboutSection({ t, mode }: { t: Translation; mode: SiteMo
                   href="https://www.nus.edu.sg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                  className="flex flex-col items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md sm:flex-row sm:text-left"
                 >
                   <EntityLogo
                     src="/logos/NUS.jpeg"
@@ -202,8 +202,8 @@ export default function AboutSection({ t, mode }: { t: Translation; mode: SiteMo
           {/* Focus areas — full width row */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:col-span-3">
             {focusAreas.map((area) => (
-              <div key={area.title} className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
-                <div className="mb-2 flex items-center gap-2">
+              <div key={area.title} className="rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-sm sm:text-left">
+                <div className="mb-2 flex items-center justify-center gap-2 sm:justify-start">
                   <span className="text-2xl leading-none">{area.icon}</span>
                   <h3 className="font-semibold text-slate-950">{area.title}</h3>
                 </div>

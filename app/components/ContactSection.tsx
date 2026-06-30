@@ -43,7 +43,7 @@ export default function ContactSection({ t, mode, lang, onLanguageChange }: { t:
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative inline-flex items-center transition hover:-translate-y-0.5 [&_svg]:h-7 [&_svg]:w-7 [&_span:not(.tooltip)]:h-7 [&_span:not(.tooltip)]:w-7"
+                      className="group relative inline-flex min-h-11 min-w-11 items-center justify-center transition hover:-translate-y-0.5 sm:min-h-0 sm:min-w-0 [&_svg]:h-7 [&_svg]:w-7 [&_span:not(.tooltip)]:h-7 [&_span:not(.tooltip)]:w-7"
                     >
                       {item.icon}
                       <span className="tooltip pointer-events-none absolute top-full left-1/2 mt-1 -translate-x-1/2 whitespace-nowrap rounded-md border border-slate-200 bg-white px-2 py-1 text-xs text-slate-700 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-150">

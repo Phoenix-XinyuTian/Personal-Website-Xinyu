@@ -189,14 +189,30 @@ export default function YoutubeGallery({
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch("/api/youtube")
+    const controller = new AbortController();
+    let cancelled = false;
+    const timeoutId = window.setTimeout(() => controller.abort(), 8000);
+
+    fetch("/api/youtube", { signal: controller.signal })
       .then((r) => r.json())
       .then((data) => {
+        if (cancelled) return;
         if (data.videos) setVideos(data.videos);
         else setError(true);
       })
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
+      .catch(() => {
+        if (!cancelled) setError(true);
+      })
+      .finally(() => {
+        window.clearTimeout(timeoutId);
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+      controller.abort();
+    };
   }, []);
 
   if (loading) {
@@ -213,8 +229,16 @@ export default function YoutubeGallery({
 
   if (error || videos.length === 0) {
     return (
-      <div className="flex h-48 items-center justify-center rounded-2xl border border-teal-100 bg-teal-50/60 text-sm text-slate-400">
-        {lang === "zh" ? "暂无视频" : "No videos available"}
+      <div className="flex min-h-48 flex-col items-center justify-center rounded-2xl border border-teal-100 bg-teal-50/60 px-5 py-8 text-center text-sm text-slate-500">
+        <p>{lang === "zh" ? "视频暂时无法加载" : "Videos are temporarily unavailable"}</p>
+        <a
+          href="https://www.youtube.com/@Phoenix_Tian"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-flex min-h-10 items-center rounded-full border border-teal-200 bg-white px-4 text-sm font-semibold text-teal-700 transition hover:border-teal-300 hover:bg-teal-50"
+        >
+          {lang === "zh" ? "打开 YouTube 频道" : "Open YouTube channel"}
+        </a>
       </div>
     );
   }
@@ -222,7 +246,6 @@ export default function YoutubeGallery({
   // Top 3 by view count → featured
   const byViews = [...videos].sort((a, b) => parseInt(b.viewCount) - parseInt(a.viewCount));
   const [hero, side1, side2] = byViews;
-  const featuredIds = new Set([hero?.id, side1?.id, side2?.id]);
 
   // Latest 2 published
   const byDate = [...videos]
