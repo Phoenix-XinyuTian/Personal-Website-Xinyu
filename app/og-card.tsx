@@ -44,7 +44,7 @@ async function getOgCardConfig(): Promise<OgCardConfig> {
       background: "#f0fdfa",
       chip: "Creator Brand",
       domain: "phoenixtian.com",
-      footer: "Bilingual stories from Singapore and everywhere of the world.",
+      footer: "Bilingual stories from Singapore and around the world.",
       footerSize: 23,
       portraitAlt: "Phoenix Tian portrait",
       portraitPath: "images/Phoenix-Tian.jpg",

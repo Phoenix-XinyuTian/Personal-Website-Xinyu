@@ -30,8 +30,8 @@ export async function generateMetadata(): Promise<Metadata> {
     ? "Phoenix Tian | Tech, Travel & Life"
     : "Xinyu Tian | Computer Vision & AI";
   const description = isPhoenix
-    ? "Phoenix Tian(Phoenix蓝色火焰) is the creator brand of Xinyu Tian, sharing tech, travel, and life in Singapore across YouTube, Instagram, TikTok, and other platforms."
-    : "Xinyu Tian, also known as Tian Xinyu or 田新宇, is a NUS master's student in Singapore focused on computer vision, AI, and professional technology projects. Explore his LinkedIn, GitHub, experiences and work.";
+    ? "Phoenix Tian (Phoenix 蓝色火焰) is the creator brand of Xinyu Tian, sharing tech, travel, and life in Singapore across YouTube, Instagram, TikTok, and other platforms."
+    : "Xinyu Tian (Tian Xinyu or 田新宇) is a NUS master's student in Singapore focused on computer vision, AI. Explore his LinkedIn, GitHub, experiences and work.";
   const canonical = isPhoenix
     ? "https://phoenixtian.com/"
     : "https://xinyutian.me/";
@@ -55,6 +55,8 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       type: "website",
       url: canonical,
+      // og:site_name — the brand each domain represents.
+      siteName: isPhoenix ? "Phoenix Tian" : "Xinyu Tian",
     },
     twitter: {
       card: "summary_large_image",
