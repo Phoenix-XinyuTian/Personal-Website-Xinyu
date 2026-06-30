@@ -26,10 +26,10 @@ export default function LanguageSection({ t }: { t: Translation }) {
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {groups.map((group) => (
             <div key={group.key} className="rounded-[2rem] border border-teal-100 bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-teal-600">
+              <h3 className="mb-4 text-center text-xs font-semibold uppercase tracking-[0.24em] text-teal-600">
                 {group.label}
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap justify-center gap-2">
                 {group.items.map((lang) => {
                   const Flag = FLAG_COMPONENTS[lang.flag];
                   return (

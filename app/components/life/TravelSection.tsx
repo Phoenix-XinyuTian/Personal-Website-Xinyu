@@ -28,7 +28,7 @@ const depthLabels: Record<SiteLanguage, Record<VisitedPlace["depth"], string>> =
 
 function getCopy(lang: SiteLanguage) {
   return {
-    eyebrow: lang === "zh" ? "Life / Travel" : "Life / Travel",
+    eyebrow: "TRAVEL",
     heading: lang === "zh" ? "Travel Atlas" : "Travel Atlas",
     description:
       lang === "zh"
@@ -274,13 +274,13 @@ export default function TravelSection({ lang }: { lang: SiteLanguage }) {
   return (
     <section id="travel" className="scroll-mt-24 px-6 py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-6 lg:grid-cols-[0.86fr_1.14fr] lg:items-end">
-          <div>
-            <p className="text-sm uppercase tracking-[0.32em] text-teal-600">{copy.eyebrow}</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{copy.heading}</h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">{copy.description}</p>
+        <div>
+          <div className="mx-auto max-w-5xl text-center">
+            <p className="text-center text-sm uppercase tracking-[0.32em] text-teal-600">{copy.eyebrow}</p>
+            <h2 className="mt-4 text-center text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">{copy.heading}</h2>
+            <p className="mx-auto mt-5 max-w-5xl text-base leading-8 text-slate-600">{copy.description}</p>
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {statValue(copy.visitedCountries, String(visitedPlaces.length))}
             {statValue(copy.cityChapters, String(publishedTrips.length))}
             {statValue(copy.continents, String(continentsCount))}

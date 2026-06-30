@@ -21,7 +21,7 @@ function ExperienceCard({
   const [logoError, setLogoError] = useState(false);
 
   return (
-    <article className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-8">
+    <article className="mx-auto w-full rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:p-8 lg:w-fit lg:max-w-4xl">
       {/* Header */}
       <div className="flex items-center gap-4 border-b border-slate-100 pb-5">
         {item.logoSrc && !logoError ? (

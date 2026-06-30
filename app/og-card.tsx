@@ -65,7 +65,7 @@ async function getOgCardConfig(): Promise<OgCardConfig> {
     footerSize: 26,
     portraitAlt: "Xinyu Tian portrait",
     portraitPath: "images/Xinyu-Tian.jpg",
-    subtitle: "Computer Vision · AI Application · NUS",
+    subtitle: "Computer Vision · AI Applications · NUS",
     subtitleSize: 34,
     title: "Xinyu Tian",
     topics: ["Computer Vision", "Machine Learning", "AI Applications"],

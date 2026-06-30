@@ -21,10 +21,10 @@ export default function SkillsSection({ t }: { t: Translation }) {
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {groups.map((group) => (
             <div key={group.key} className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-sky-600">
+              <h3 className="mb-4 text-center text-xs font-semibold uppercase tracking-[0.24em] text-sky-600">
                 {group.label}
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap justify-center gap-2">
                 {group.skills.map((skill) => (
                   <SkillChip key={skill.name} skill={skill} />
                 ))}

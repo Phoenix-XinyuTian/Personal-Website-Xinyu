@@ -19,7 +19,7 @@ export const en = {
   hero: {
     greeting: "Hello, I'm Xinyu.",
     intro: "I work on ",
-    rotatingWords: ["Computer Vision", "AI Application", "Machine Learning"],
+    rotatingWords: ["Computer Vision", "AI Applications", "Machine Learning"],
   },
   lifeHero: {
     greeting: "Hey, Phoenix here.",
@@ -28,7 +28,7 @@ export const en = {
   },
   about: {
     label: "About Me",
-    taglineWork: "Computer Vision · Machine Learning · AI Application",
+    taglineWork: "Computer Vision · Machine Learning · AI Applications",
     bodyWork: [
       "I'm **Xinyu Tian**, a Master's student at the **National University of Singapore (NUS)**, with interests spanning computer vision, machine learning, and AI applications. I enjoy working across problem framing, data understanding, model experimentation, and result validation — building reproducible CV/ML pipelines and turning research ideas into reliable systems that solve real-world problems.",
       "I also document my journey as a bilingual content creator, sharing stories about learning, travel, and personal growth. Switch to Life mode to learn more.",
@@ -60,7 +60,7 @@ export const en = {
     },
     {
       icon: "🤖",
-      title: "AI Application",
+      title: "AI Applications",
       description: "Applying CV/ML models to practical tools — focused on reliability and interpretability.",
     },
     {
@@ -215,7 +215,7 @@ export const en = {
     label: "Contact",
     heading: "Let's Connect",
     description:
-      "I'm open to computer vision and AI application roles, collaborations, and internship opportunities. Reach out if you want to work together or discuss ideas.",
+      "I'm open to roles in computer vision and AI applications, collaborations, and internship opportunities. Reach out if you want to work together or discuss ideas.",
     descriptionLife:
       "For collaborations, brand partnerships, or just to say hi — reach out anytime.",
     emailLabel: "Email",
@@ -232,7 +232,7 @@ export const en = {
   },
   footer: {
     tagline: "Creator of Life, Code, and Stories",
-    rolesWork: "NUS MSc · Computer Vision · AI Application",
+    rolesWork: "NUS MSc · Computer Vision · AI Applications",
     rolesLife: "Content Creation · World Travel · Story Telling",
     collaborationLabel: "Collaboration",
     email: "xinyu.tian.phoenix@gmail.com",
