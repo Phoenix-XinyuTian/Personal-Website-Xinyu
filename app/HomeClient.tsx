@@ -185,10 +185,6 @@ export default function HomeClient({ defaultMode }: { defaultMode: SiteMode }) {
       />
 
       <div className={`transition-opacity duration-300 ${contentVisible ? "opacity-100" : "opacity-0"}`}>
-        <div className="border-b border-amber-200 bg-amber-50 px-6 py-2 text-center text-sm text-amber-700">
-          🚧 {t.devBanner}
-        </div>
-
         <HeroSection t={t} mode={displayedMode} />
 
         <AboutSection t={t} mode={displayedMode} lang={language} />

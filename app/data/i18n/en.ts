@@ -31,7 +31,7 @@ export const en = {
     taglineWork: "Computer Vision · Machine Learning · AI Application",
     bodyWork: [
       "I'm **Xinyu Tian**, a Master's student at the **National University of Singapore (NUS)**, with interests spanning computer vision, machine learning, and AI applications. I enjoy working across problem framing, data understanding, model experimentation, and result validation — building reproducible CV/ML pipelines and turning research ideas into reliable systems that solve real-world problems.",
-      "Beyond the lab, I also document my journey as a bilingual content creator, sharing stories about learning, travel, and personal growth. Switch to Life mode to learn more.",
+      "I also document my journey as a bilingual content creator, sharing stories about learning, travel, and personal growth. Switch to Life mode to learn more.",
     ],
     taglineLife: "Creator · Traveler · Storyteller",
     bodyLife: [
@@ -230,7 +230,6 @@ export const en = {
     switchToZh: "简体中文",
     switchToEn: "English",
   },
-  devBanner: "This website is still under development",
   footer: {
     tagline: "Creator of Life, Code, and Stories",
     rolesWork: "NUS MSc · Computer Vision · AI Engineering",

@@ -7,10 +7,10 @@ export default function Footer({ t, mode }: { t: Translation; mode: SiteMode }) 
   return (
     <footer className="border-t border-slate-200/60 px-6 pb-12 pt-10 sm:px-8">
       <div className="mx-auto max-w-6xl flex flex-col items-center gap-2.5 text-center">
-        <a
-          href="#"
-          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-          className="text-sm font-semibold tracking-widest uppercase"
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="cursor-pointer text-sm font-semibold tracking-widest uppercase"
           style={{
             backgroundImage: "linear-gradient(to right, #38bdf8 0%, #818cf8 26%, #fbbf24 55%, #f97316 78%, #ef4444 100%)",
             WebkitBackgroundClip: "text",
@@ -19,7 +19,7 @@ export default function Footer({ t, mode }: { t: Translation; mode: SiteMode }) 
           }}
         >
           Xinyu Tian · Phoenix
-        </a>
+        </button>
 
         <p className="text-sm text-slate-500">{mode === "life" ? t.footer.rolesLife : t.footer.rolesWork}</p>
 

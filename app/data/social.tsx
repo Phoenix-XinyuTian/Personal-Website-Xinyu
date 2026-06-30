@@ -80,7 +80,7 @@ export const socialLinks = [
   },
   {
     name: "RedNote",
-    href: "https://xhslink.com/m/3JXlLErv5JW",
+    href: "https://www.xiaohongshu.com/user/profile/65f6c122000000000600dd73",
     icon: (
       <span className="flex h-5 w-5 items-center justify-center rounded-md bg-[#FF2442] p-[3px]">
         <svg viewBox="0 0 24 24" fill="#ffffff" className="h-full w-full" aria-hidden="true">
@@ -100,7 +100,7 @@ export const socialLinks = [
   },
   {
     name: "Douyin",
-    href: "https://v.douyin.com/DhphDVkDbVg/",
+    href: "https://www.douyin.com/user/MS4wLjABAAAA0kIU9S2qrHcdPJmPKemsdUdauZr8OJI1I5PSCCRcG_E",
     icon: (
       <svg viewBox="0 0 24 24" fill="#000000" className="h-5 w-5" aria-hidden="true">
         <path d="M19.321 5.562a5.124 5.124 0 0 1-.443-.258 6.228 6.228 0 0 1-1.137-.966c-.849-.971-1.166-1.956-1.282-2.645h.004c-.097-.573-.057-.943-.05-.943h-3.865v14.943c0 .2 0 .398-.008.593 0 .024-.002.047-.004.073 0 .01 0 .022-.003.033v.009a3.28 3.28 0 0 1-1.65 2.604 3.227 3.227 0 0 1-1.6.422c-1.8 0-3.26-1.468-3.26-3.281 0-1.813 1.46-3.282 3.26-3.282.341 0 .68.054 1.004.16l.005-3.936a7.135 7.135 0 0 0-5.516 1.609 7.546 7.546 0 0 0-1.65 2.038c-.157.27-.749 1.357-.82 3.122-.045 1.002.255 2.04.398 2.469v.009c.09.252.438 1.11 1.005 1.834a7.543 7.543 0 0 0 1.62 1.516v-.01l.01.01c1.944 1.321 4.101 1.234 4.101 1.234.374-.015 1.627 0 3.05-.673 1.578-.745 2.476-1.855 2.476-1.855a7.7 7.7 0 0 0 1.349-2.241c.405-1.05.539-2.307.539-2.81V8.49c.05.03.713.467.713.467s.953.61 2.44 1.008c1.067.283 2.504.343 2.504.343V6.477c-.503.055-1.524-.103-2.571-.625z" />
