@@ -21,7 +21,7 @@ export const zh: Translation = {
   hero: {
     greeting: "你好，我是田新宇。",
     intro: "我的工作聚焦于 ",
-    rotatingWords: ["计算机视觉", "AI 工程", "机器学习"],
+    rotatingWords: ["计算机视觉", "AI 应用", "机器学习"],
   },
   lifeHero: {
     greeting: "你好，我是 Phoenix。",
@@ -62,8 +62,8 @@ export const zh: Translation = {
     },
     {
       icon: "🤖",
-      title: "AI 工程",
-      description: "将研究转化为可部署的工具——专注可靠性与可解释性。",
+      title: "AI 应用",
+      description: "将 CV/ML 模型应用到真实工具与场景中——专注可靠性与可解释性。",
     },
     {
       icon: "🛠️",
@@ -213,7 +213,7 @@ export const zh: Translation = {
     label: "联系",
     heading: "让我们保持联系",
     description:
-      "我愿意合作、实习机会和关于计算机视觉与 AI 的研究交流。如果你想一起工作或讨论想法，请与我联系。",
+      "我正在寻找计算机视觉与 AI 应用方向的岗位、实习与合作机会。如果你想一起工作或讨论想法，请与我联系。",
     descriptionLife: "合作、品牌联系，或只是想打个招呼，都欢迎。",
     emailLabel: "邮箱",
     connectLabel: "联系方式",
@@ -229,7 +229,7 @@ export const zh: Translation = {
   },
   footer: {
     tagline: "Creator of Life, Code, and Stories",
-    rolesWork: "NUS 硕士 · 计算机视觉 · AI 工程",
+    rolesWork: "NUS 硕士 · 计算机视觉 · AI 应用",
     rolesLife: "内容创作 · 环球旅行 · 故事叙述",
     collaborationLabel: "商务合作",
     email: "xinyu.tian.phoenix@gmail.com",

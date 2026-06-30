@@ -31,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
     : "Xinyu Tian | Computer Vision & AI";
   const description = isPhoenix
     ? "Phoenix Tian (Phoenix 蓝色火焰) is the creator brand of Xinyu Tian, sharing tech, travel, and life in Singapore across YouTube, Instagram, TikTok, and other platforms."
-    : "Xinyu Tian (Tian Xinyu or 田新宇) is a NUS master's student in Singapore focused on computer vision, AI. Explore his LinkedIn, GitHub, experiences and work.";
+    : "Xinyu Tian (Tian Xinyu or 田新宇) is a NUS master's student in Singapore focused on computer vision and AI applications. Explore his LinkedIn, GitHub, experiences and work.";
   const canonical = isPhoenix
     ? "https://phoenixtian.com/"
     : "https://xinyutian.me/";

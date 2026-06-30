@@ -19,7 +19,7 @@ export const en = {
   hero: {
     greeting: "Hello, I'm Xinyu.",
     intro: "I work on ",
-    rotatingWords: ["Computer Vision", "AI Engineering", "Machine Learning"],
+    rotatingWords: ["Computer Vision", "AI Application", "Machine Learning"],
   },
   lifeHero: {
     greeting: "Hey, Phoenix here.",
@@ -60,8 +60,8 @@ export const en = {
     },
     {
       icon: "🤖",
-      title: "AI Engineering",
-      description: "Turning research into deployable tools — focused on reliability and interpretability.",
+      title: "AI Application",
+      description: "Applying CV/ML models to practical tools — focused on reliability and interpretability.",
     },
     {
       icon: "🛠️",
@@ -215,7 +215,7 @@ export const en = {
     label: "Contact",
     heading: "Let's Connect",
     description:
-      "I'm open to collaboration, internship opportunities, and research conversations in computer vision and AI. Reach out if you want to work together or discuss ideas.",
+      "I'm open to computer vision and AI application roles, collaborations, and internship opportunities. Reach out if you want to work together or discuss ideas.",
     descriptionLife:
       "For collaborations, brand partnerships, or just to say hi — reach out anytime.",
     emailLabel: "Email",
@@ -232,7 +232,7 @@ export const en = {
   },
   footer: {
     tagline: "Creator of Life, Code, and Stories",
-    rolesWork: "NUS MSc · Computer Vision · AI Engineering",
+    rolesWork: "NUS MSc · Computer Vision · AI Application",
     rolesLife: "Content Creation · World Travel · Story Telling",
     collaborationLabel: "Collaboration",
     email: "xinyu.tian.phoenix@gmail.com",

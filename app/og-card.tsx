@@ -61,14 +61,14 @@ async function getOgCardConfig(): Promise<OgCardConfig> {
     background: "#f0f9ff",
     chip: "Professional Site",
     domain: "xinyutian.me",
-    footer: "Building reliable computer vision and AI systems",
+    footer: "Building reliable computer vision and AI applications",
     footerSize: 26,
     portraitAlt: "Xinyu Tian portrait",
     portraitPath: "images/Xinyu-Tian.jpg",
-    subtitle: "Computer Vision · AI Engineering · NUS",
+    subtitle: "Computer Vision · AI Application · NUS",
     subtitleSize: 34,
     title: "Xinyu Tian",
-    topics: ["Computer Vision", "Machine Learning", "AI Systems"],
+    topics: ["Computer Vision", "Machine Learning", "AI Applications"],
   };
 }
 
