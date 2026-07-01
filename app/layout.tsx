@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { getHostname, isPhoenixHost } from "./site-host";
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -27,18 +28,6 @@ const SEO_CONFIG = {
       "NUS Vlog",
       "YouTube creator",
     ],
-    sameAs: [
-      "https://www.youtube.com/@Phoenix_Tian",
-      "https://www.instagram.com/phoenix.tian.vlog/",
-      "https://www.tiktok.com/@phoenix_tian",
-      "https://www.threads.com/@phoenix.tian.vlog",
-      "https://www.xiaohongshu.com/user/profile/65f6c122000000000600dd73",
-      "https://space.bilibili.com/108107851",
-      "https://www.douyin.com/user/MS4wLjABAAAA0kIU9S2qrHcdPJmPKemsdUdauZr8OJI1I5PSCCRcG_E",
-      "https://www.facebook.com/share/1EWvuK1fBZ/?mibextid=wwXIfr",      
-    ],
-    alternateName: ["Phoenix 蓝色火焰"],
-    knowsAbout: ["Content Creation", "Travel Storytelling", "Singapore Life", "NUS Study Vlog", "Bilingual Media"],
     brandRole: "Bilingual content creator and travel storyteller",
   },
   xinyu: {
@@ -67,14 +56,6 @@ const SEO_CONFIG = {
       "Xinyu Tian Portfolio",
       "Xinyu Tian Projects",
     ],
-    sameAs: [
-      "https://www.linkedin.com/in/xinyu-tian-phoenix",
-      "https://github.com/Phoenix-XinyuTian",
-      "https://x.com/Xinyu_Tian_AI",
-      "https://scholar.google.com/citations?user=UWf7QvsAAAAJ",
-    ],
-    alternateName: ["Tian Xinyu", "田新宇"],
-    knowsAbout: ["Computer Vision", "Machine Learning", "AI Applications", "Physical AI"],
     brandRole: "Computer vision and AI applications engineer, NUS MSc Physics student",
   },
 } as const;
@@ -83,8 +64,56 @@ function getSeoConfig(isPhoenix: boolean) {
   return isPhoenix ? SEO_CONFIG.phoenix : SEO_CONFIG.xinyu;
 }
 
+// One identity across both domains. The Person node is emitted identically on
+// xinyutian.me and phoenixtian.com — same @id, name, alternateName, and sameAs —
+// so Google treats the two domains and every listed platform as a single person
+// rather than two same-named entities. Only per-request fields (canonical url,
+// image, description, brandRole) still vary by domain in getStructuredData.
+const PERSON = {
+  id: "https://xinyutian.me/#person",
+  name: "Xinyu Tian",
+  alternateName: ["Tian Xinyu", "田新宇", "Phoenix Tian", "Phoenix 蓝色火焰"],
+  gender: "Male",
+  alumniOf: [
+    { "@type": "CollegeOrUniversity", name: "National University of Singapore" },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "Southwest Jiaotong University",
+      alternateName: "西南交通大学",
+    },
+  ],
+  knowsAbout: [
+    "Computer Vision",
+    "Machine Learning",
+    "AI Applications",
+    "Physical AI",
+    "Content Creation",
+    "Travel Storytelling",
+    "Singapore Life",
+    "NUS Study Vlog",
+    "Bilingual Media",
+  ],
+  // Merged from both brands + both domains, so each identity cross-references the
+  // other. Manually curated — keep as-is.
+  sameAs: [
+    "https://www.linkedin.com/in/xinyu-tian-phoenix",
+    "https://github.com/Phoenix-XinyuTian",
+    "https://x.com/Xinyu_Tian_AI",
+    "https://scholar.google.com/citations?user=UWf7QvsAAAAJ",
+    "https://www.youtube.com/@Phoenix_Tian",
+    "https://www.instagram.com/phoenix.tian.vlog/",
+    "https://www.tiktok.com/@phoenix_tian",
+    "https://www.threads.com/@phoenix.tian.vlog",
+    "https://www.xiaohongshu.com/user/profile/65f6c122000000000600dd73",
+    "https://space.bilibili.com/108107851",
+    "https://www.douyin.com/user/MS4wLjABAAAA0kIU9S2qrHcdPJmPKemsdUdauZr8OJI1I5PSCCRcG_E",
+    "https://www.facebook.com/share/1EWvuK1fBZ/?mibextid=wwXIfr",
+    "https://xinyutian.me",
+    "https://phoenixtian.com",
+  ],
+} as const;
+
 function getStructuredData(config: ReturnType<typeof getSeoConfig>) {
-  const personId = `${config.canonical}#person`;
   const websiteId = `${config.canonical}#website`;
 
   return {
@@ -92,15 +121,17 @@ function getStructuredData(config: ReturnType<typeof getSeoConfig>) {
     "@graph": [
       {
         "@type": "Person",
-        "@id": personId,
-        name: config.siteName,
-        alternateName: config.alternateName,
+        "@id": PERSON.id,
+        name: PERSON.name,
+        alternateName: PERSON.alternateName,
+        gender: PERSON.gender,
         url: config.canonical,
         image: config.image,
         description: config.description,
         jobTitle: config.brandRole,
-        knowsAbout: config.knowsAbout,
-        sameAs: config.sameAs,
+        alumniOf: PERSON.alumniOf,
+        knowsAbout: PERSON.knowsAbout,
+        sameAs: PERSON.sameAs,
         homeLocation: {
           "@type": "Place",
           name: "Singapore",
@@ -113,7 +144,7 @@ function getStructuredData(config: ReturnType<typeof getSeoConfig>) {
         name: config.siteName,
         description: config.description,
         publisher: {
-          "@id": personId,
+          "@id": PERSON.id,
         },
         inLanguage: ["en", "zh-CN"],
       },
@@ -215,6 +246,31 @@ async function StructuredDataScript() {
   );
 }
 
+function GoogleAnalytics() {
+  const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
+  if (!measurementId) {
+    return null;
+  }
+
+  return (
+    <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${measurementId}');
+        `}
+      </Script>
+    </>
+  );
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -229,6 +285,7 @@ export default function RootLayout({
         <StructuredDataScript />
         {children}
         <Analytics />
+        <GoogleAnalytics />
       </body>
     </html>
   );
