@@ -22,7 +22,7 @@ export const en = {
     rotatingWords: ["Computer Vision", "AI Applications", "Machine Learning"],
   },
   lifeHero: {
-    greeting: "Hey, Phoenix here.",
+    greeting: "👋 Here's Phoenix.",
     intro: "I am passionate about ",
     rotatingWords: ["Content Creation", "Cultural Exploration", "World Travel"],
   },
@@ -30,14 +30,14 @@ export const en = {
     label: "About Me",
     taglineWork: "Computer Vision · Machine Learning · AI Applications",
     bodyWork: [
-      "I'm **Xinyu Tian**, a Master's student at the **National University of Singapore (NUS)**, with interests spanning computer vision, machine learning, and AI applications. I enjoy working across problem framing, data understanding, model experimentation, and result validation — building reproducible CV/ML pipelines and turning research ideas into reliable systems that solve real-world problems.",
-      "I also document my journey as a bilingual content creator, sharing stories about learning, travel, and personal growth. Switch to Life mode to learn more.",
+      "I'm **Xinyu Tian**, a Master's student at the **National University of Singapore (NUS)**. I'm interested in any technology that can be translated into real products and meaningfully **improve people's lives**. Recently, my work has focused on computer vision and AI applications.",
+      "I also document my journey as a bilingual content creator, sharing stories about learning, travel, and personal growth. **Switch to Life mode to learn more.**",
     ],
     taglineLife: "Creator · Traveler · Storyteller",
     bodyLife: [
       "My creator brand is **Phoenix Tian**. I'm a **bilingual content creator**, documenting my student life in Singapore, the places I travel to, and the little reflections along the way.",
       "From far-flung corners of the world to everyday campus moments, I love telling stories that connect people across languages and cultures.",
-      "Curious about my professional side? Switch to Work mode above to see my technical background.",
+      "Curious about my professional side? **Switch to Work mode above** to see my technical background.",
     ],
     statusWork: "Open to full-time CV/ML Engineer roles · Starting from Feb 2027",
     statusLife: "Follow me for my latest content and travel stories",
