@@ -24,7 +24,7 @@ export const zh: Translation = {
     rotatingWords: ["计算机视觉", "AI 应用", "机器学习"],
   },
   lifeHero: {
-    greeting: "你好，我是 Phoenix。",
+    greeting: "👋 这里是 Phoenix。",
     intro: "我也热爱 ",
     rotatingWords: ["内容创作", "文化探索", "环球旅行"],
   },

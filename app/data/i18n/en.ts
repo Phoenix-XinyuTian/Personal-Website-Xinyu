@@ -23,7 +23,7 @@ export const en = {
   },
   lifeHero: {
     greeting: "👋 Here's Phoenix.",
-    intro: "I am passionate about ",
+    intro: "I'm passionate about ",
     rotatingWords: ["Content Creation", "Cultural Exploration", "World Travel"],
   },
   about: {
