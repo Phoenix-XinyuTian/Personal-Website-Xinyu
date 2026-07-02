@@ -47,6 +47,13 @@ export default function HomeClient({ defaultMode }: { defaultMode: SiteMode }) {
     return schedulePreferredLanguage(setLanguage);
   }, []);
 
+  useEffect(() => {
+    // <html lang> is server-rendered as "en" (layout.tsx). Keep it in sync with the
+    // client language toggle so screen readers and search engines see the right
+    // language. "zh-CN" matches the WebSite inLanguage in the JSON-LD.
+    document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
+  }, [language]);
+
   const [contentVisible, setContentVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const transitionRef = useRef<ReturnType<typeof setTimeout> | null>(null);
