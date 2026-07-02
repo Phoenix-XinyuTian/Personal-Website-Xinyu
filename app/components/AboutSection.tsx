@@ -220,7 +220,7 @@ export default function AboutSection({ t, mode }: { t: Translation; mode: SiteMo
                 {t.about.statusWork}
               </div>
               <div className="flex flex-wrap gap-3">
-                <a href="#" className={ctaClass}>
+                <a href="/Xinyu-Tian-Resume-Public.pdf" target="_blank" rel="noopener noreferrer" className={ctaClass}>
                   <FileText className="h-4 w-4 shrink-0" strokeWidth={1.8} />
                   {t.about.downloadResume}
                 </a>
