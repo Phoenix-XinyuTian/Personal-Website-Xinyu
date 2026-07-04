@@ -45,7 +45,7 @@ export const zh: Translation = {
     statusLife: "关注我，查看我的自媒体内容与旅行故事",
     downloadResume: "简历",
     emailLabel: "邮箱",
-    statsWork: ["🎓 新加坡国立大学 物理硕士", "💻 计算机视觉", "🤖 机器学习", "🗣️ 普通话 · 英语"],
+    statsWork: ["🎓 新加坡国立大学 物理硕士", "🔬 A*STAR 科研", "🗣️ 普通话 · 英语"],
     statsLife: ["🎬 双语内容创作者", "📍 定居新加坡", "🌏 20+ 国家与地区"],
     followersCount: "100+",
     followersLabel: "全网粉丝",
@@ -53,22 +53,21 @@ export const zh: Translation = {
     travelLabel: "去过的国家与地区",
     astarRole: "计算机视觉研究",
     nusRole: "技术物理硕士",
+    nameWork: "田新宇",
+    nameLife: "Phoenix 蓝色火焰",
+    roleLineWork: "新加坡国立大学 硕士",
+    roleLineLife: "中英双语内容创作者",
   },
   focusAreasWork: [
     {
       icon: "🔬",
       title: "计算机视觉",
-      description: "图像分割、异常检测与工业检测。",
+      description: "面向物理世界的视觉感知——检测与场景理解，从工业成像到 3D 感知。",
     },
     {
       icon: "🤖",
       title: "AI 应用",
-      description: "将 CV/ML 模型应用到真实工具与场景中——专注可靠性与可解释性。",
-    },
-    {
-      icon: "🛠️",
-      title: "实践与交付",
-      description: "个人项目与开源实践——从 ML demo、小工具，到这个网站本身。",
+      description: "将 CV/ML 模型应用到真实产品中——专注可靠性与落地部署。",
     },
   ],
   focusAreasLife: [
@@ -81,11 +80,6 @@ export const zh: Translation = {
       icon: "🌍",
       title: "世界旅行",
       description: "通过旅行与海外求学，探索不同的文化、城市与生活方式。",
-    },
-    {
-      icon: "📚",
-      title: "持续成长",
-      description: "记录学习、创造，以及成为更好的自己的旅程。",
     },
   ],
   projectBadge: "案例",
@@ -197,9 +191,9 @@ export const zh: Translation = {
     workItems: [
       { date: "2026-04", title: "结束在 A*STAR 的科研实习项目" },
       { date: "2025-08", title: "开始在 A*STAR 的科研实习" },
-      { date: "2025-08", title: "开始在 NUS 攻读技术物理硕士" },
-      { date: "2025-06", title: "从 SWJTU 应用物理学本科毕业" },
-      { date: "2021-09", title: "开始在 SWJTU 应用物理学本科学习" },
+      { date: "2025-08", title: "开始在新加坡国立大学攻读技术物理硕士" },
+      { date: "2025-06", title: "从西南交通大学应用物理学本科毕业" },
+      { date: "2021-09", title: "开始在西南交通大学应用物理学本科学习" },
     ],
     lifeItems: [
       { date: "2025-08", title: "开创 YouTube 自媒体频道" },

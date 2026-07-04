@@ -22,7 +22,7 @@ const translations: Record<SiteLanguage, Translation> = { en, zh };
 
 const SECTION_IDS: Record<SiteMode, string[]> = {
   work: ["top", "news", "experience", "skills", "projects", "education", "contact"],
-  life: ["top", "news", "media", "travel", "languages", "contact"],
+  life: ["top", "media", "travel", "languages", "contact"],
 };
 
 function schedulePreferredLanguage(setSiteLanguage: (lang: SiteLanguage) => void) {
@@ -161,7 +161,6 @@ export default function HomeClient({ defaultMode }: { defaultMode: SiteMode }) {
         ]
       : [
           { href: "#top", label: t.nav.about },
-          { href: "#news", label: t.nav.news },
           { href: "#media", label: t.nav.media },
           { href: "#travel", label: t.nav.travel },
           { href: "#languages", label: t.nav.language },
@@ -202,7 +201,7 @@ export default function HomeClient({ defaultMode }: { defaultMode: SiteMode }) {
         <HeroSection t={t} mode={displayedMode} />
 
         <AboutSection t={t} mode={displayedMode} lang={language} />
-        <NewsSection t={t} mode={displayedMode} lang={language} />
+        {displayedMode === "work" && <NewsSection t={t} mode={displayedMode} lang={language} />}
 
         {displayedMode === "work" ? (
           <>

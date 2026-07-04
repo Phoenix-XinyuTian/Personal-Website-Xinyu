@@ -15,7 +15,7 @@ export const educationGalleryImages = [
 
 export const educationLogoAssets = [
   {
-    src: "/logos/NUS.jpeg",
+    src: "/logos/NUS.svg",
     alt: "National University of Singapore logo",
     fallback: "NUS",
     bgClass: "bg-[#F36F21]/12",

@@ -1,15 +1,27 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { type Translation } from "../data/i18n/en";
 import { type SiteMode } from "../types";
 
 const NEWS_LINKS: Record<string, string> = {
   "NUS": "https://www.nus.edu.sg",
+  "新加坡国立大学": "https://www.nus.edu.sg",
   "A*STAR": "https://www.a-star.edu.sg",
   "SWJTU": "https://www.swjtu.edu.cn",
+  "西南交通大学": "https://www.swjtu.edu.cn",
   "YouTube channel": "https://www.youtube.com/@Phoenix_Tian",
   "YouTube 自媒体频道": "https://www.youtube.com/@Phoenix_Tian",
+};
+
+// Institution logo rendered just before the linked name.
+const NEWS_LOGOS: Record<string, string> = {
+  "NUS": "/logos/NUS.svg",
+  "新加坡国立大学": "/logos/NUS.svg",
+  "A*STAR": "/logos/ASTAR.jpeg",
+  "SWJTU": "/logos/SWJTU.jpeg",
+  "西南交通大学": "/logos/SWJTU.jpeg",
 };
 
 function renderTitleWithLinks(title: string, mode: "work" | "life"): React.ReactNode[] {
@@ -21,14 +33,24 @@ function renderTitleWithLinks(title: string, mode: "work" | "life"): React.React
 
   return parts.map((part, i) => {
     if (NEWS_LINKS[part]) {
+      const logo = NEWS_LOGOS[part];
       return (
         <a
           key={i}
           href={NEWS_LINKS[part]}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${colorClass} font-medium hover:underline transition-colors`}
+          className={`inline-flex items-center gap-1 align-middle ${colorClass} font-medium hover:underline transition-colors`}
         >
+          {logo && (
+            <Image
+              src={logo}
+              alt=""
+              width={16}
+              height={16}
+              className="h-4 w-4 shrink-0 rounded-sm object-contain"
+            />
+          )}
           {part}
         </a>
       );
@@ -62,9 +84,9 @@ export default function NewsSection({
               const [year, month] = item.date.split("-");
               const formattedDate = `${month}/${year}`;
               return (
-                <li key={`${item.date}-${idx}`} className="flex items-center gap-3">
+                <li key={`${item.date}-${idx}`} className="flex items-center gap-2">
                   <span className={`shrink-0 h-2 w-2 rounded-full ${mode === "life" ? "bg-teal-500" : "bg-sky-500"}`} />
-                  <span className={`shrink-0 w-[68px] font-mono text-sm font-semibold ${mode === "life" ? "text-teal-600" : "text-sky-600"}`}>
+                  <span className={`shrink-0 w-[68px] text-right font-mono text-sm font-semibold ${mode === "life" ? "text-teal-600" : "text-sky-600"}`}>
                     {formattedDate}
                   </span>
                   <span className="shrink-0 w-10 flex justify-center">
