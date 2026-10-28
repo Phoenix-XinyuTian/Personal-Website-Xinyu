@@ -44,7 +44,7 @@ export const zh: Translation = {
     statusLife: "关注我，查看我的自媒体内容与旅行故事",
     downloadResume: "简历",
     resumeHref: "/Xinyu-Tian-Resume-ZH.pdf",
-    resumeFileName: "田新宇中文简历公开版.pdf",
+    resumeFileName: "田新宇中文简历-公开版.pdf",
     emailLabel: "邮箱",
     statsWork: ["🎓 新加坡国立大学 物理硕士", "🔬 A*STAR 科研", "🗣️ 普通话 · 英语"],
     statsLife: ["🎬 双语内容创作者", "📍 定居新加坡", "🌏 20+ 国家与地区"],
@@ -147,7 +147,7 @@ export const zh: Translation = {
     },
     proficient: [
       { name: "普通话", level: "母语", flag: "CN" },
-      { name: "英语", level: "专业", flag: "US" },
+      { name: "英语", level: "专业", flag: "GB" },
     ],
     learning: [
       { name: "粤语", level: "初学者", flag: "HK" },
