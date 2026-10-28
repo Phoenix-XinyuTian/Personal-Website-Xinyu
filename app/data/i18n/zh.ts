@@ -41,9 +41,10 @@ export const zh: Translation = {
       "从世界各地的角落到日常的校园瞬间，我喜欢去了解不同语言与文化背景的人的故事。",
       "想了解我的职业一面？**点击上方切换到 工作 模式**，看看我的技术背景。",
     ],
-    statusWork: "寻找全职计算机视觉工程师机会 · 2027 年 2 月起",
     statusLife: "关注我，查看我的自媒体内容与旅行故事",
     downloadResume: "简历",
+    resumeHref: "/Xinyu-Tian-Resume-ZH.pdf",
+    resumeFileName: "田新宇中文简历公开版.pdf",
     emailLabel: "邮箱",
     statsWork: ["🎓 新加坡国立大学 物理硕士", "🔬 A*STAR 科研", "🗣️ 普通话 · 英语"],
     statsLife: ["🎬 双语内容创作者", "📍 定居新加坡", "🌏 20+ 国家与地区"],
@@ -146,7 +147,7 @@ export const zh: Translation = {
     },
     proficient: [
       { name: "普通话", level: "母语", flag: "CN" },
-      { name: "英语", level: "专业", flag: "GB" },
+      { name: "英语", level: "专业", flag: "US" },
     ],
     learning: [
       { name: "粤语", level: "初学者", flag: "HK" },

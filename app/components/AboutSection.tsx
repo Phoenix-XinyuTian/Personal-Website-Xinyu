@@ -70,7 +70,6 @@ export default function AboutSection({ t, mode, lang }: { t: Translation; mode: 
   const bodyText = lang === "zh" ? "text-[17px]" : "text-base";
   const name = isLife ? t.about.nameLife : t.about.nameWork;
   const roleLine = isLife ? t.about.roleLineLife : t.about.roleLineWork;
-  const status = isLife ? t.about.statusLife : t.about.statusWork;
 
   const accentText = isLife ? "text-teal-600" : "text-sky-600";
   const badgeBg = isLife ? "bg-teal-100/60 text-teal-700" : "bg-sky-100/60 text-sky-700";
@@ -129,7 +128,7 @@ export default function AboutSection({ t, mode, lang }: { t: Translation; mode: 
                   </>
                 ) : (
                   <>
-                    <a href="/Xinyu-Tian-Resume-Public.pdf" target="_blank" rel="noopener noreferrer" className={ctaClass}>
+                    <a href={t.about.resumeHref} download={t.about.resumeFileName} className={ctaClass}>
                       <FileText className="h-4 w-4 shrink-0" strokeWidth={1.8} />
                       {t.about.downloadResume}
                     </a>
@@ -192,15 +191,13 @@ export default function AboutSection({ t, mode, lang }: { t: Translation; mode: 
               ))}
             </div>
 
-            {/* Status line — bottom row of the right column */}
-            <div className="flex items-center justify-center gap-2 text-base text-slate-600">
-              {isLife ? (
+            {/* Status line — bottom row of the right column (Life mode only) */}
+            {isLife && (
+              <div className="flex items-center justify-center gap-2 text-base text-slate-600">
                 <span className="text-base leading-none" aria-hidden="true">👈</span>
-              ) : (
-                <span className="status-dot" aria-hidden="true" />
-              )}
-              <span>{status}</span>
-            </div>
+                <span>{t.about.statusLife}</span>
+              </div>
+            )}
           </div>
 
         </div>

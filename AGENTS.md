@@ -71,7 +71,7 @@
 
 - 公开图片、头像、简历和图标位于 `public/`。
 - 关键头像包括 `public/images/Xinyu-Tian.jpg` 和 `public/images/Phoenix-Tian.jpg`。
-- 公开简历是 `public/Xinyu-Tian-Resume-Public.pdf`。
+- 公开简历分中英文：`public/Xinyu-Tian-Resume-EN.pdf`（英文）和 `public/Xinyu-Tian-Resume-ZH.pdf`（中文），About 区按网站语言通过 i18n 的 `about.resumeHref` 切换。
 - 学校、公司、AI 工具和社交平台 logo 位于 `public/logos/`。
 - `public/project/` 中有项目相关图片资产。
 

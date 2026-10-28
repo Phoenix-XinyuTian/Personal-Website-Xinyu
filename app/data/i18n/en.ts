@@ -39,9 +39,10 @@ export const en = {
       "From far-flung corners of the world to everyday campus moments, I love telling stories that connect people across languages and cultures.",
       "Curious about my professional side? **Switch to Work mode above** to see my technical background.",
     ],
-    statusWork: "Open to full-time CV/ML Engineer roles · Starting from Feb 2027",
     statusLife: "Follow me for my latest content and travel stories",
     downloadResume: "Resume",
+    resumeHref: "/Xinyu-Tian-Resume-EN.pdf",
+    resumeFileName: "Xinyu-Tian-Resume-Public.pdf",
     emailLabel: "Email",
     statsWork: ["🎓 NUS MSc Physics", "🔬 A*STAR Research", "🗣️ Mandarin · English"],
     statsLife: ["🎬 Bilingual Creator", "📍 Based in Singapore", "🌏 20+ Countries & Regions"],
@@ -146,7 +147,7 @@ export const en = {
     },
     proficient: [
       { name: "Mandarin", level: "Native", flag: "CN" },
-      { name: "English", level: "Professional", flag: "GB" },
+      { name: "English", level: "Professional", flag: "US" },
     ],
     learning: [
       { name: "Cantonese", level: "Beginner", flag: "HK" },

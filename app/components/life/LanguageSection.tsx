@@ -1,10 +1,10 @@
 import { type Translation } from "../../data/i18n/en";
 import CN from "country-flag-icons/react/3x2/CN";
-import GB from "country-flag-icons/react/3x2/GB";
+import US from "country-flag-icons/react/3x2/US";
 import HK from "country-flag-icons/react/3x2/HK";
 import JP from "country-flag-icons/react/3x2/JP";
 
-const FLAG_COMPONENTS: Record<string, React.ComponentType<{ className?: string }>> = { CN, GB, HK, JP };
+const FLAG_COMPONENTS: Record<string, React.ComponentType<{ className?: string }>> = { CN, US, HK, JP };
 
 export default function LanguageSection({ t }: { t: Translation }) {
   const groups = [
